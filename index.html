@@ -131,7 +131,7 @@
             
             <!-- 卡片標籤 -->
             <div class="w-full flex justify-between items-center border-b border-slate-200/50 pb-3 font-mono text-[10px] text-slate-500">
-                <span>PORTAL SYSTEM // 實驗室訓練門戶</span>
+                <span>用程式賦予思考，用機械改變世界。</span>
                 <span class="text-orange-500 font-semibold">VER 1.5</span>
             </div>
 
@@ -147,7 +147,7 @@
                 </div>
                 
                 <p class="text-slate-600 text-sm leading-relaxed font-light">
-                    本網站用於展示智慧型機器人系統實驗室的研究成果、專案簡介與新進成員培訓資源。我們專注於高溫/高扭矩伺服馬達通訊控制、連桿機構力學設計，以及 Windows GUI 機械手臂操作平台的開源與研究。
+                    我們是一群熱愛機器人與科技實作的創作者，專注於機構設計、嵌入式系統、感測控制、AI 與自動化技術。在這裡，我們把課堂知識化為能移動、能感知、能思考的作品，透過一次次設計、測試與改良，讓創意真正走進現實。
                 </p>
                 
                 <div class="p-4 bg-white/50 rounded-xl border border-white/60 text-xs text-slate-600 leading-relaxed">
@@ -196,29 +196,47 @@
             
             <h3 class="text-xl font-bold text-slate-900 mb-4 tracking-tight">實驗室職務分配與管理</h3>
             
-            <div class="space-y-4 max-h-[350px] overflow-y-auto pr-1 scrollbar-thin">
-                <div class="p-3.5 bg-white/80 border border-slate-100 rounded-xl">
-                    <h4 class="text-xs font-bold text-orange-600 font-mono flex items-center gap-1.5 mb-1">
-                        💼 [ NODE_01 // 實驗室行政與財務管理 ]
-                    </h4>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        負責管理實驗室各項專題、計畫與行政經費核銷，彙整發票、收據及估價單，並提供一般採購報帳程序指引，確保實驗室日常運營及公文行政往返流暢。
-                    </p>
-                </div>
-                
-                <div class="p-3.5 bg-white/80 border border-slate-100 rounded-xl">
-                    <h4 class="text-xs font-bold text-slate-800 font-mono flex items-center gap-1.5 mb-1">
-                        ⚡ [ NODE_02 // 技術助教與設備安全官 (TA) ]
-                    </h4>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        負責維護更新 GitHub 組織、Training 教學網頁及 Docusaurus 歷史文件，確保研究與教材同步。同時掌管 CO2 雷射切割機、3D 列印機等設備點檢、安全維護與耗材儲備，並抽查督導實驗室 5S 環境整潔與零件箱復歸。
-                    </p>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- 門戶 1: 行政 -->
+                <a href="admin.html" onclick="playSynth('click')" class="group p-5 bg-white/90 border border-slate-200 hover:border-orange-500 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-48 text-left">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                            💼
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                            實驗室行政與財務
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">
+                            計畫經費核銷、發票與收據彙整，以及公文報帳流程指引。
+                        </p>
+                    </div>
+                    <div class="text-[10px] font-mono text-orange-600 font-semibold flex items-center gap-1 mt-2">
+                        ADMIN_PORTAL &gt;&gt;
+                    </div>
+                </a>
+
+                <!-- 門戶 2: 助教 -->
+                <a href="ta.html" onclick="playSynth('click')" class="group p-5 bg-white/90 border border-slate-200 hover:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-48 text-left">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
+                            ⚡
+                        </div>
+                        <h4 class="text-sm font-bold text-slate-900 group-hover:text-slate-800 transition-colors">
+                            技術助教
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">
+                            GitHub 維護、課程協助教學。
+                        </p>
+                    </div>
+                    <div class="text-[10px] font-mono text-slate-700 font-semibold flex items-center gap-1 mt-2">
+                        TA_GATEWAY &gt;&gt;
+                    </div>
+                </a>
             </div>
             
             <div class="mt-5 pt-3 border-t border-slate-200/60 text-center font-mono">
                 <button onclick="closeRolesModal(); playSynth('click')" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
-                    TERMINATE_SESSION // 關閉
+                     關閉
                 </button>
             </div>
         </div>
