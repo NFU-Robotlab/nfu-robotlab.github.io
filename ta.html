@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技術助教與設備安全系統 - NFU IRS Lab</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            color: #0f172a;
+        }
+        .cyber-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -10;
+            object-fit: cover;
+            filter: blur(24px) brightness(0.9);
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
+
+    <!-- 滿版模糊背景圖片 -->
+    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200" alt="Tech Backdrop" class="cyber-bg" onerror="this.src='https://placehold.co/1200x800/cbd5e1/94a3b8?text=Tech+Backdrop'">
+
+    <!-- 頂部導覽 -->
+    <header class="border-b border-white/20 bg-white/60 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="text-xs bg-white/80 hover:bg-white text-slate-700 px-3 py-1.5 rounded-lg border border-slate-200 transition-all font-semibold shadow-sm">
+                    ← 返回首頁
+                </a>
+                <span class="text-sm font-black text-slate-950 tracking-wider">TA GATEWAY</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主內容區：置中展示空白狀態 -->
+    <main class="max-w-4xl mx-auto px-4 py-12 w-full flex-grow flex items-center justify-center relative z-10">
+        
+        <div class="glass-card rounded-2xl p-10 max-w-md w-full text-center space-y-6">
+            <!-- 寂寞的機器人頭部 -->
+            <div class="w-16 h-16 bg-slate-100/80 rounded-full flex items-center justify-center text-3xl mx-auto border border-slate-200/50 shadow-sm">
+                🤖
+            </div>
+            
+            <div class="space-y-2">
+                <h2 class="text-xl font-black text-slate-900 tracking-tight">這屆TA什麼都沒留下</h2>
+                <p class="text-[10px] text-slate-400 font-mono tracking-widest">[ STATUS: EMPTY // NO_DATA_AVAILABLE ]</p>
+            </div>
+            
+            <p class="text-slate-500 text-xs leading-relaxed font-light">
+                系統檢測到該節點的數據庫未同步。這屆技術助教（TA）非常瀟灑地清理了所有雷切參數與 5S 清單，什麼都沒留下。
+            </p>
+
+            <div class="pt-4 border-t border-slate-200/50">
+                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
+                    返回首頁
+                </a>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="border-t border-white/20 bg-white/60 text-slate-500 py-6 text-center text-[10px] font-mono relative z-10 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-4">
+            <p>NFU INTELLIGENT & ROBOTIC SYSTEMS LABORATORY // SECURED TA GATEWAY 1.5</p>
+            <p class="mt-1 text-slate-400">© 2026 國立虎尾科技大學 智能與機器人系統實驗室. AUTHORIZED PERSONNEL ONLY.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
