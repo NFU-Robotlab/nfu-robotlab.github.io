@@ -78,6 +78,12 @@
             background-color: #0284c7;
             box-shadow: 0 4px 8px rgba(14, 165, 233, 0.3);
         }
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
         .card {
             background: white;
             padding: 2rem;
@@ -168,38 +174,23 @@
             <p>Onshape 是全雲端架構的 3D CAD 建模軟體，免安裝且支援多人即時協作，是實驗室進行機器人機構設計、連桿干涉驗證以及 3D 列印輸出的主要工具。</p>
             
             <div class="action-area">
-                <!-- 修改這裡，連結至您自製的 HTML 檔案 -->
                 <a href="onshape-tutorial.html" class="btn btn-tutorial">🎬 前往 Onshape 基礎教學</a>
                 <div class="desc" style="margin-top: 8px;">ℹ️ 點擊上方按鈕前往實驗室製作的 Onshape 基礎教學課程。</div>
             </div>
         </div>
 
-        <!-- 2. 微控制器與軟硬體整合 -->
+        <!-- 2. 實驗室基本設備 -->
         <div class="card">
-            <h2 class="section-title">⚡ 2. 嵌入式系統與硬體開發</h2>
-            <ul class="checklist">
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-4">
-                    <label for="task-4">
-                        <strong>C / C++ 語言基礎與指標觀念</strong> <span class="badge">必學</span>
-                        <div class="desc">理解記憶體架構、指標 (Pointer)、位元運算 (Bitwise) 及結構體 (Struct)。</div>
-                    </label>
-                </li>
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-5">
-                    <label for="task-5">
-                        <strong>STM32 微控制器開發環境 (STM32CubeIDE)</strong>
-                        <div class="desc">學習 GPIO 設定、TIM 定時器、PWM 輸出及中斷機制 (Interrupt)。</div>
-                    </label>
-                </li>
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-6">
-                    <label for="task-6">
-                        <strong>硬體通訊協定應用 (UART / I2C / SPI / CAN)</strong>
-                        <div class="desc">掌握硬體通訊原理，能夠讀取感測器數據 (如 IMU 慣性測量單元、肌電感測器) 與控制馬達驅動器。</div>
-                    </label>
-                </li>
-            </ul>
+            <h2 class="section-title">🔌 2. 實驗室基本設備</h2>
+            <p>學習雷射切割機與 3D 列印機的使用方式，以利後續進行專案機構件、機器人外殼與結構零件的實體加工製作。</p>
+            
+            <div class="action-area">
+                <div class="btn-group">
+                    <a href="equipment-tutorial.html#laser-cutter" class="btn btn-tutorial">⚡ 雷射切割機操作與安全守則</a>
+                    <a href="equipment-tutorial.html#3d-printer" class="btn btn-tutorial">🖨️ 3D 列印機操作與切片軟體設定</a>
+                </div>
+                <div class="desc" style="margin-top: 12px;">ℹ️ 點擊上方按鈕，可以直接跳轉至自製設備教學頁面的對應主題。</div>
+            </div>
         </div>
 
         <!-- 3. 機器人系統與控制模擬 -->
@@ -211,13 +202,6 @@
                     <label for="task-7">
                         <strong>ROS / ROS 2 機器人作業系統</strong>
                         <div class="desc">理解 Node、Topic、Service 與 Message 觀念，並能在 Linux 環境進行機器人模擬。</div>
-                    </label>
-                </li>
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-8">
-                    <label for="task-8">
-                        <strong>實作 3D 列印切片與列印機操作</strong>
-                        <div class="desc">將 Onshape 匯出的 STL 檔放入 Cura 進行切片設定，熟悉填充率、支撐結構與列印機實機操作。</div>
                     </label>
                 </li>
                 <li class="checklist-item">
@@ -281,3 +265,5 @@
     </script>
 </body>
 </html>
+```
+`eof`
