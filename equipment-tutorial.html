@@ -144,7 +144,7 @@
                                 <span>🛠️</span> 雷射切割機標準作業流程 (SOP)
                             </h3>
                             
-                            <div class="space-y-4">
+                            <div class="space-y-6">
                                 <!-- Step 1 -->
                                 <div class="flex gap-4">
                                     <div class="flex flex-col items-center">
@@ -154,7 +154,7 @@
                                     <div class="pb-4">
                                         <h4 class="font-bold text-sm text-slate-800">軟體端繪圖與匯出</h4>
                                         <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                                            在 Onshape、Inventor中完成 2D 向量設計。請確保線段都是<strong>封閉曲線</strong>，並匯出成 <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono">.dxf</code> 或 <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono">.svg</code> 格式。
+                                            在 Onshape、Inventor 中完成 2D 向量設計。請確保線段都是<strong>封閉曲線</strong>，並匯出成 <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono">.dxf</code> 或 <code class="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono">.svg</code> 格式。
                                         </p>
                                     </div>
                                 </div>
@@ -181,14 +181,14 @@
                                         <div class="mt-4 max-w-md rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
                                             <img src="螢幕擷取畫面 2026-07-17 145517.png" alt="雷切開機總開關與關聯設備" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Please+Upload+Your+Image'">
                                             <div class="p-2.5 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">
-                                                caution
-雷切機及相關設備開機後至少要等待 5 分鐘以上，才可以進行作業。
-打開電源後一定要注意各機器是否有在運作，若有問題將有可能導致火災。</code>）
-                                        <!-- 圖片放置區 -->
-                                        <div class="mt-4 max-w-md rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
-                                            <img src="螢幕擷取畫面 2026-07-17 151237.png" alt="雷切開機總開關與關聯設備" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Please+Upload+Your+Image'">
-                                            <div class="p-2.5 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">
+                                                ▲ 雷切機及相關關聯設備
                                             </div>
+                                        </div>
+                                        <!-- 注意警告框 -->
+                                        <div class="mt-4 max-w-md p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-xs leading-relaxed">
+                                            <strong class="flex items-center gap-1.5 text-amber-900 font-bold">⚠️ 安全注意事項：</strong>
+                                            <p class="mt-1 pl-5 list-item">雷切機及相關設備開機後至少要等待 <strong>5 分鐘以上</strong>，才可以進行作業。</p>
+                                            <p class="mt-1 pl-5 list-item">打開電源後一定要注意各機器是否有在正常運作，若有任何不正常異音或未運作問題，將有可能導致火災，請立即關機通報學長姐。</p>
                                         </div>
                                     </div>
                                 </div>
@@ -197,6 +197,39 @@
                                 <div class="flex gap-4">
                                     <div class="flex flex-col items-center">
                                         <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                                        <div class="w-0.5 flex-1 bg-slate-200 my-1"></div>
+                                    </div>
+                                    <div class="pb-4 w-full">
+                                        <h4 class="font-bold text-sm text-slate-800">導入 DXF 檔</h4>
+                                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                                            操作雷切機請使用雷切機專用的電腦，並打開專用程式「<strong>RDWorkV8</strong>」。
+                                        </p>
+                                        <!-- 圖片 1 放置區 -->
+                                        <div class="mt-4 max-w-md rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+                                            <img src="螢幕擷取畫面 2026-07-17 151237.png" alt="RDWorkV8 雷切軟體啟動介面" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Please+Upload+Your+Image'">
+                                            <div class="p-2.5 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">
+                                                ▲ 點擊專用電腦桌面之 RDWorkV8 圖示開啟
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-slate-600 mt-4 leading-relaxed bg-blue-50 border border-blue-100 p-3 rounded-lg max-w-md">
+                                            💡 <strong>操作指南：</strong><br>
+                                            請依序點擊選單列的 <strong>「文件」 ➔ 「導入」</strong>，並選擇你準備好的目標 DXF 檔案後點擊開啟。<br>
+                                            <strong class="text-red-600">⚠️ 請特別注意：此處操作一定要選擇「導入」而不是「打開」，否則會造成檔案路徑與縮放大小解析錯誤！</strong>
+                                        </p>
+                                        <!-- 圖片 2 放置區 -->
+                                        <div class="mt-4 max-w-md rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+                                            <img src="螢幕擷取畫面 2026-07-17 151237.png" alt="導入操作流程" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Please+Upload+Your+Image'">
+                                            <div class="p-2.5 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200 font-semibold text-slate-700">
+                                                ▲ 導入 DXF 檔
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4 -->
+                                <div class="flex gap-4">
+                                    <div class="flex flex-col items-center">
+                                        <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
                                         <div class="w-0.5 flex-1 bg-slate-200 my-1"></div>
                                     </div>
                                     <div class="pb-4">
@@ -209,10 +242,10 @@
                                     </div>
                                 </div>
 
-                                <!-- Step 4 -->
+                                <!-- Step 5 -->
                                 <div class="flex gap-4">
                                     <div class="flex flex-col items-center">
-                                        <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                                        <div class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-sm text-slate-800">切割結束之安全靜置</h4>
@@ -472,7 +505,7 @@
                 options: [
                     "A. 可以不開吹氣空壓機，因為雷射光束本身就能直接把材質蒸發乾淨。",
                     "B. 開機切削前，必須檢查確認「強效排煙系統」與「吹氣空壓機」皆在正常運作中，缺一不可。",
-                    "C. 抽風排煙機很吵，為了不打擾實驗室學長姐討論報告，最好偷偷把它關小或不開。"
+                    "C. 抽風排煙機很吵，為了不打擾實驗室學長姐討論報告，最好偷偷把它關小 or 不開。"
                 ],
                 correct: 1
             },
