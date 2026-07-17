@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +31,7 @@
             opacity: 0.8;
         }
 
-        /* 科技藍與螢光粉背光暈染 */
+        /* 科技藍與螢光粉背光鋪墊 */
         .neon-glow-cyan {
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.08);
         }
@@ -45,7 +45,7 @@
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.3);
         }
 
-        /* 未來風切角按鈕 */
+        /* 未來風切角面板與按鈕 */
         .clip-cyber {
             clip-path: polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%);
         }
@@ -92,7 +92,7 @@
                 </span>
             </div>
             
-            <!-- 音效開關、GitHub 連結 -->
+            <!-- 音效開關與 GitHub 連結 -->
             <div class="flex items-center gap-4">
                 <button id="audio-toggle-btn" onclick="toggleAudio()" class="p-2 border border-pink-500/30 bg-pink-500/10 hover:bg-pink-500/20 text-pink-400 rounded-md transition-all flex items-center gap-2 text-xs" title="切換系統音訊">
                     <span id="audio-icon" class="text-base">🔇</span>
@@ -481,134 +481,5 @@
             }
         }, 3000);
     </script>
-</body>
-</html>                <div class="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                    <div class="absolute top-0 right-0 w-2 h-2 bg-cyan-400"></div>
-                    <div class="absolute top-0 right-0 w-10 h-[1px] bg-cyan-400"></div>
-                    <div class="absolute top-0 right-0 w-[1px] h-10 bg-cyan-400"></div>
-                </div>
-                
-                <h3 class="text-cyan-400 font-bold text-xs tracking-widest font-mono flex items-center gap-2 mb-4">
-                    <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping"></span>
-                    SYSTEM_DIAGNOSTICS // 系統核心負載
-                </h3>
-                
-                <div class="grid grid-cols-2 gap-4 font-mono text-[11px] text-slate-400 border-b border-slate-800 pb-4 mb-4">
-                    <div>
-                        <p>BUS VOLTAGE: <span class="text-emerald-400 font-bold">12.0 V</span></p>
-                        <p class="mt-1">DYNAMIXEL ID: <span class="text-amber-400 font-bold">AX-12A (Active)</span></p>
-                    </div>
-                    <div>
-                        <p>NETWORK FLOW: <span class="text-cyan-400 font-bold" id="flow-rate">312 kb/s</span></p>
-                        <p class="mt-1">SYS_TEMP: <span class="text-pink-500 font-bold">41.2 °C</span></p>
-                    </div>
-                </div>
-
-                <div class="text-[11px] text-slate-400 font-mono space-y-2">
-                    <div class="flex justify-between">
-                        <span>NEURAL LINK INTEGRITY</span>
-                        <span class="text-cyan-400">99.2%</span>
-                    </div>
-                    <div class="w-full h-1.5 bg-slate-900 border border-cyan-500/30 rounded overflow-hidden">
-                        <div class="h-full bg-gradient-to-r from-cyan-500 to-purple-500 animate-pulse" style="width: 99.2%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 動態命令終端機 -->
-            <div class="bg-slate-950 border-2 border-pink-500/40 rounded-xl p-5 neon-glow-pink font-mono text-xs flex flex-col justify-between min-h-[280px] relative">
-                <div class="absolute top-0 right-0 w-full h-[1px] bg-pink-500/40 laser-sweep-line"></div>
-                
-                <div>
-                    <div class="flex items-center justify-between text-pink-500 font-bold border-b border-pink-500/20 pb-2 mb-3">
-                        <span class="flex items-center gap-1.5">
-                            <span class="w-2 h-2 bg-pink-500 rounded-full animate-pulse"></span>
-                            TERMINAL_CONSOLE_V1.5
-                        </span>
-                        <button onclick="bootSystem()" class="text-[10px] bg-pink-500/10 hover:bg-pink-500/30 border border-pink-500/40 text-pink-400 px-2 py-0.5 rounded cursor-pointer transition-all">
-                            SYSTEM BOOT
-                        </button>
-                    </div>
-                    <div id="terminal-log" class="space-y-1.5 text-slate-300 max-h-[160px] overflow-y-auto pr-1 scrollbar-thin">
-                        <p class="text-slate-500">&gt; NFU IRS LAB OS LOADING...</p>
-                        <p class="text-cyan-400">&gt; SECURITY PROTOCOLS: VERIFIED</p>
-                        <p class="text-slate-400">&gt; READY FOR MISSION. ENTER COMMANDS OR BOOT SYSTEM.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-4 pt-2 border-t border-pink-500/20 flex items-center gap-2">
-                    <span class="text-pink-500 font-bold">&gt;</span>
-                    <input type="text" id="terminal-input" onkeydown="handleTerminalInput(event)" placeholder="輸入 help、status、clear 或 boot..." class="w-full bg-transparent text-slate-100 focus:outline-none placeholder:text-slate-700 font-mono text-xs">
-                </div>
-            </div>
-        </section>
-
-        <!-- 右側：歡迎卡片與訓練連結 -->
-        <section class="lg:col-span-7 space-y-6">
-            
-            <!-- 歡迎卡片 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border-2 border-cyan-500/30 rounded-2xl p-6 md:p-8 neon-glow-cyan relative overflow-hidden transition-all duration-300">
-                <div class="absolute -top-12 -right-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
-                
-                <div class="border-l-4 border-cyan-400 pl-4 mb-6">
-                    <h2 class="text-2xl sm:text-3xl font-black tracking-widest text-slate-100 neon-text-cyan">
-                        歡迎來到 NFU IRS Lab
-                    </h2>
-                    <p class="text-xs text-slate-400 font-mono mt-1">
-                        [ INTRO // 智慧型機器人系統實驗室 ]
-                    </p>
-                </div>
-                
-                <p class="text-slate-300 text-sm leading-relaxed font-light font-sans mb-6">
-                    本網站用於展示實驗室的研究成果、專案簡介與新進成員培訓資源。我們專注於高溫/高扭矩伺服馬達通訊控制、連桿機構力學設計，以及 Windows GUI 機械手臂操作平台的開源與研究。
-                </p>
-                
-                <div class="p-4 bg-slate-900/60 rounded-xl border border-cyan-500/20 text-xs text-cyan-300/90 font-mono leading-relaxed">
-                    💡 <span class="font-bold text-white">SYSTEM NOTICE // 成員必讀：</span><br>
-                    新進專題生與碩一成員，請務必按照「Training Roadmap」排程依序完成基礎考核。
-                </div>
-            </div>
-
-            <!-- 快速連結卡片 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border-2 border-pink-500/30 rounded-2xl p-6 md:p-8 neon-glow-pink relative overflow-hidden transition-all duration-300">
-                <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl"></div>
-                
-                <div class="border-l-4 border-pink-500 pl-4 mb-6">
-                    <h2 class="text-xl sm:text-2xl font-black tracking-widest text-slate-100 neon-text-pink">
-                        實驗室專區 // TRAINING
-                    </h2>
-                    <p class="text-xs text-slate-400 font-mono mt-1">
-                        [ PORTAL // 新進人員核心訓練地圖 ]
-                    </p>
-                </div>
-
-                <p class="text-slate-300 text-sm leading-relaxed mb-6 font-light">
-                    進入系統後，你將解鎖 Onshape 3D 建模、雷射切割安全學科認證、Robotis 套件操作以及 C# 實機馬達控制等四大核心訓練。
-                </p>
-                
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-900">
-                    <span class="text-xs text-slate-500 font-mono tracking-wider">[ INTERFACE_READY // 2026-07-17 ]</span>
-                    
-                    <a href="training.html" onclick="playSynth('click')" class="w-full sm:w-auto text-center clip-cyber bg-gradient-to-r from-pink-500 via-purple-600 to-cyan-500 hover:from-pink-400 hover:to-cyan-400 text-slate-950 font-black text-sm px-8 py-3.5 tracking-widest transition-all glitch-hover shadow-lg">
-                        🎓 新進人員訓練 &gt;
-                    </a>
-                </div>
-            </div>
-
-        </section>
-    </main>
-
-    <!-- 頁尾宣告 -->
-    <footer class="border-t border-slate-900 bg-slate-950/90 text-slate-600 py-6 text-center text-[10px] font-mono relative z-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <p>NFU INTELLIGENT & ROBOTIC SYSTEMS LABORATORY // SECURED PORTAL 1.5</p>
-            <p class="mt-1 text-slate-700">© 2026 國立虎尾科技大學 智能與機器人系統實驗室. AUTHORIZED PERSONNEL ONLY.</p>
-        </div>
-    </footer>
-
-  
-        
-
-</html>
 </body>
 </html>
