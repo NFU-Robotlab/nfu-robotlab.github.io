@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新進人員訓練 - NFU IRS Lab</title>
+    <style>
+        body {
+            font-family: Arial, "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        .subtitle {
+            margin-top: 0.5rem;
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .top-nav {
+            margin-bottom: 1.5rem;
+        }
+        .btn-back {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #1e293b;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-back:hover {
+            background-color: #cbd5e1;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            margin-top: 0;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 0.5rem;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 3px;
+            cursor: pointer;
+        }
+        .checklist-item label {
+            cursor: pointer;
+            line-height: 1.5;
+        }
+        .checklist-item label strong {
+            color: #0f172a;
+        }
+        .desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+        .badge {
+            background-color: #eff6ff;
+            color: #2563eb;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NFU IRS Lab</h1>
+        <p class="subtitle">新進人員訓練指南 & 新手必學清單 (Training Roadmap)</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="top-nav">
+            <a href="index.html" class="btn-back">← 返回首頁</a>
+        </div>
+
+        <!-- 訓練須知 -->
+        <div class="card">
+            <h2 class="section-title">📌 新手訓練指南說明</h2>
+            <p>歡迎加入 <strong>智能與機器人系統實驗室 (IRS Lab)</strong>！本清單整理了進入實驗室進行研究與專案開發前所需具備的基礎能力。建議依序完成下列學習目標，勾選框會自動記錄你的學習進度。</p>
+        </div>
+
+        <!-- 1. 版本控制與工具 -->
+        <div class="card">
+            <h2 class="section-title">🛠️ 1. 版本控制與協作工具</h2>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-1">
+                    <label for="task-1">
+                        <strong>Git / GitHub 基礎操作</strong> <span class="badge">必學</span>
+                        <div class="desc">掌握 clone、commit、push、pull 以及分支 (branch) 管理與團隊協作流程。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-2">
+                    <label for="task-2">
+                        <strong>Markdown 與實驗筆記撰寫</strong> <span class="badge">必學</span>
+                        <div class="desc">學會使用 Markdown 語法撰寫清晰的 README 文件與個人實驗紀錄。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-3">
+                    <label for="task-3">
+                        <strong>Linux / Ubuntu 基礎命令列</strong>
+                        <div class="desc">熟悉 Bash 終端機常用指令 (cd, ls, mkdir, chmod, ssh, grep)。</div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2. 微控制器與軟硬體整合 -->
+        <div class="card">
+            <h2 class="section-title">⚡ 2. 嵌入式系統與硬體開發</h2>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-4">
+                    <label for="task-4">
+                        <strong>C / C++ 語言基礎與指標觀念</strong> <span class="badge">必學</span>
+                        <div class="desc">理解記憶體架構、指標 (Pointer)、位元運算 (Bitwise) 及結構體 (Struct)。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-5">
+                    <label for="task-5">
+                        <strong>STM32 微控制器開發環境 (STM32CubeIDE)</strong>
+                        <div class="desc">學習 GPIO 設定、TIM 定時器、PWM 輸出及中斷機制 (Interrupt)。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-6">
+                    <label for="task-6">
+                        <strong>硬體通訊協定應用 (UART / I2C / SPI / CAN)</strong>
+                        <div class="desc">掌握硬體通訊原理，能夠讀取感測器數據 (如 IMU 慣性測量單元、肌電感測器) 與控制馬達驅動器。</div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 3. 機器人系統與機構模擬 -->
+        <div class="card">
+            <h2 class="section-title">🤖 3. 機器人系統與機構模擬</h2>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-7">
+                    <label for="task-7">
+                        <strong>ROS / ROS 2 機器人作業系統</strong>
+                        <div class="desc">理解 Node、Topic、Service 與 Message 觀念，並能在 Linux 環境進行機器人模擬。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-8">
+                    <label for="task-8">
+                        <strong>3D CAD 機構繪圖與 3D 列印</strong>
+                        <div class="desc">熟悉機構連桿設計、轉軸公差預留以及 3D 列印機實作體驗。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-9">
+                    <label for="task-9">
+                        <strong>ANSYS 模擬分析 (應力與運動軌跡)</strong>
+                        <div class="desc">學習進行材料應力集中分析與連桿系統運動軌跡模擬驗證。</div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 4. AI、電腦視覺與資料處理 -->
+        <div class="card">
+            <h2 class="section-title">🧠 4. AI、電腦視覺與資料處理</h2>
+            <ul class="checklist">
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-10">
+                    <label for="task-10">
+                        <strong>Python 資料科學基礎 (NumPy, Pandas, Matplotlib)</strong> <span class="badge">必學</span>
+                        <div class="desc">能清洗感測器數據、繪製波形圖表並進行初步分析。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-11">
+                    <label for="task-11">
+                        <strong>電腦視覺基礎 (OpenCV)</strong>
+                        <div class="desc">學習影像處理（對比調整、濾波去噪、邊緣檢測）與即時影像擷取。</div>
+                    </label>
+                </li>
+                <li class="checklist-item">
+                    <input type="checkbox" id="task-12">
+                    <label for="task-12">
+                        <strong>機器學習 / 深度學習應用</strong>
+                        <div class="desc">掌握感測器數據（如姿勢辨識、動作分類）特徵提取與模型訓練流程。</div>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- JavaScript：保存 Checkbox 狀態至 LocalStorage -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+            
+            // 載入已儲存的狀態
+            checkboxes.forEach(cb => {
+                const savedState = localStorage.getItem(cb.id);
+                if (savedState === 'true') {
+                    cb.checked = true;
+                }
+                
+                // 當點擊時自動儲存
+                cb.addEventListener('change', (e) => {
+                    localStorage.setItem(e.target.id, e.target.checked);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
