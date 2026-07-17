@@ -49,6 +49,35 @@
         .btn-back:hover {
             background-color: #cbd5e1;
         }
+        /* 按鈕基礎樣式 */
+        .btn {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        }
+        /* 專門給教學按鈕的顏色樣式 */
+        .btn-tutorial {
+            background-color: #0ea5e9;
+            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+        }
+        .btn-tutorial:hover {
+            background-color: #0284c7;
+            box-shadow: 0 4px 8px rgba(14, 165, 233, 0.3);
+        }
         .card {
             background: white;
             padding: 2rem;
@@ -107,6 +136,11 @@
             font-weight: bold;
             margin-left: 6px;
         }
+        .action-area {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #e2e8f0;
+        }
     </style>
 </head>
 <body>
@@ -128,32 +162,16 @@
             <p>歡迎加入 <strong>智能與機器人系統實驗室 (IRS Lab)</strong>！本清單整理了進入實驗室進行研究與專案開發前所需具備的基礎能力。建議依序完成下列學習目標，勾選框會自動記錄你的學習進度。</p>
         </div>
 
-        <!-- 1. 版本控制與工具 -->
+        <!-- 1. Onshape 3D建模 -->
         <div class="card">
-            <h2 class="section-title">🛠️ 1. 版本控制與協作工具</h2>
-            <ul class="checklist">
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-1">
-                    <label for="task-1">
-                        <strong>Git / GitHub 基礎操作</strong> <span class="badge">必學</span>
-                        <div class="desc">掌握 clone、commit、push、pull 以及分支 (branch) 管理與團隊協作流程。</div>
-                    </label>
-                </li>
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-2">
-                    <label for="task-2">
-                        <strong>Markdown 與實驗筆記撰寫</strong> <span class="badge">必學</span>
-                        <div class="desc">學會使用 Markdown 語法撰寫清晰的 README 文件與個人實驗紀錄。</div>
-                    </label>
-                </li>
-                <li class="checklist-item">
-                    <input type="checkbox" id="task-3">
-                    <label for="task-3">
-                        <strong>Linux / Ubuntu 基礎命令列</strong>
-                        <div class="desc">熟悉 Bash 終端機常用指令 (cd, ls, mkdir, chmod, ssh, grep)。</div>
-                    </label>
-                </li>
-            </ul>
+            <h2 class="section-title">📐 1. Onshape 3D建模</h2>
+            <p>Onshape 是全雲端架構的 3D CAD 建模軟體，免安裝且支援多人即時協作，是實驗室進行機器人機構設計、連桿干涉驗證以及 3D 列印輸出的主要工具。</p>
+            
+            <div class="action-area">
+                <!-- 預設連結至 Onshape 官方 CAD 學習路徑，你可以修改 href 換成你們自己的教學影片/講義網址 -->
+                <a href="https://learn.onshape.com/learning-paths/introduction-to-cad" target="_blank" class="btn btn-tutorial">🎬 前往 Onshape 基礎教學</a>
+                <div class="desc" style="margin-top: 8px;">ℹ️ 點擊上方按鈕前往 Onshape 官方基礎教學課程。新手建議優先完成 "Introduction to CAD" 自學路徑。</div>
+            </div>
         </div>
 
         <!-- 2. 微控制器與軟硬體整合 -->
@@ -184,9 +202,9 @@
             </ul>
         </div>
 
-        <!-- 3. 機器人系統與機構模擬 -->
+        <!-- 3. 機器人系統與控制模擬 -->
         <div class="card">
-            <h2 class="section-title">🤖 3. 機器人系統與機構模擬</h2>
+            <h2 class="section-title">🤖 3. 機器人系統與控制模擬</h2>
             <ul class="checklist">
                 <li class="checklist-item">
                     <input type="checkbox" id="task-7">
@@ -198,8 +216,8 @@
                 <li class="checklist-item">
                     <input type="checkbox" id="task-8">
                     <label for="task-8">
-                        <strong>3D CAD 機構繪圖與 3D 列印</strong>
-                        <div class="desc">熟悉機構連桿設計、轉軸公差預留以及 3D 列印機實作體驗。</div>
+                        <strong>實作 3D 列印切片與列印機操作</strong>
+                        <div class="desc">將 Onshape 匯出的 STL 檔放入 Cura 進行切片設定，熟悉填充率、支撐結構與列印機實機操作。</div>
                     </label>
                 </li>
                 <li class="checklist-item">
