@@ -1,242 +1,431 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新進人員訓練 - NFU IRS Lab</title>
+    <title>NFU IRS Lab // TRAINING MATRIX</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Orbitron (科技風) & Noto Sans TC (繁中黑體) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            font-family: Arial, "Microsoft JhengHei", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-            color: #333;
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            background-color: #030208;
+            overflow-x: hidden;
+            position: relative;
         }
-        header {
-            background-color: #1e293b;
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+        /* 賽博龐克科技掃描線與網格 */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 127, 0.03), rgba(0, 240, 255, 0.03), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 6px 100%;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.8;
         }
-        h1 {
-            margin: 0;
-            font-size: 2.2rem;
+
+        /* 科技藍與螢光粉背光暈染 */
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.08);
         }
-        .subtitle {
-            margin-top: 0.5rem;
-            color: #94a3b8;
-            font-size: 1rem;
+        .neon-glow-pink {
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.25), inset 0 0 15px rgba(255, 0, 127, 0.08);
         }
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        .neon-text-pink {
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.8), 0 0 20px rgba(255, 0, 127, 0.3);
         }
-        .top-nav {
-            margin-bottom: 1.5rem;
+        .neon-text-cyan {
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.3);
         }
-        .btn-back {
-            display: inline-block;
-            background-color: #e2e8f0;
-            color: #1e293b;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s;
+
+        /* 未來風切角面板與按鈕 */
+        .clip-cyber {
+            clip-path: polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%);
         }
-        .btn-back:hover {
-            background-color: #cbd5e1;
+        .clip-cyber-sm {
+            clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 5% 100%, 0 80%);
         }
-        /* 按鈕基礎樣式 */
-        .btn {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-            border: none;
-            cursor: pointer;
+
+        /* Glitch 抖動動畫特效 */
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 1px) }
+            40% { transform: translate(-1px, -1px) }
+            60% { transform: translate(1px, 2px) }
+            80% { transform: translate(2px, -1px) }
+            100% { transform: translate(0) }
         }
-        .btn:hover {
-            background-color: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+        .glitch-hover:hover {
+            animation: glitch 0.2s linear infinite;
         }
-        /* 專門給教學按鈕的顏色樣式 */
-        .btn-tutorial {
-            background-color: #0ea5e9;
-            box-shadow: 0 2px 4px rgba(14, 165, 233, 0.2);
+
+        /* 掃描線動畫 */
+        @keyframes laser-sweep {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { top: 100%; opacity: 0; }
         }
-        .btn-tutorial:hover {
-            background-color: #0284c7;
-            box-shadow: 0 4px 8px rgba(14, 165, 233, 0.3);
-        }
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-        }
-        .section-title {
-            margin-top: 0;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 0.5rem;
-            color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .checklist {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0 0;
-        }
-        .checklist-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #f1f5f9;
-        }
-        .checklist-item:last-child {
-            border-bottom: none;
-        }
-        .checklist-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            margin-top: 3px;
-            cursor: pointer;
-        }
-        .checklist-item label {
-            cursor: pointer;
-            line-height: 1.5;
-        }
-        .checklist-item label strong {
-            color: #0f172a;
-        }
-        .desc {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-top: 2px;
-        }
-        .badge {
-            background-color: #eff6ff;
-            color: #2563eb;
-            font-size: 0.8rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-left: 6px;
-        }
-        .action-area {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px dashed #e2e8f0;
+        .laser-sweep-line {
+            animation: laser-sweep 4s linear infinite;
         }
     </style>
 </head>
-<body>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between selection:bg-pink-500 selection:text-white">
 
-    <header>
-        <h1>NFU IRS Lab</h1>
-        <p class="subtitle">新進人員訓練指南 & 新手必學清單 (Training Roadmap)</p>
+    <!-- 頂部霓虹邊框導覽 -->
+    <header class="border-b-2 border-cyan-500/30 bg-slate-950/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" onclick="playSynth('click')" class="text-xs bg-cyan-500/10 text-cyan-400 px-3 py-1.5 rounded border border-cyan-500/30 font-mono tracking-widest hover:bg-cyan-500/20 transition-all">
+                    &lt; BACK // GATEWAY
+                </a>
+                <span class="text-base sm:text-lg font-black tracking-widest bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                    TRAINING SYSTEM
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button id="audio-toggle-btn" onclick="toggleAudio()" class="p-2 border border-pink-500/30 bg-pink-500/10 hover:bg-pink-500/20 text-pink-400 rounded-md transition-all flex items-center gap-2 text-xs" title="切換系統音訊">
+                    <span id="audio-icon" class="text-base">🔇</span>
+                    <span class="font-mono tracking-wider hidden sm:inline">AUDIO: OFF</span>
+                </button>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
+    <!-- 主內容區 -->
+    <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-grow space-y-8 relative z-10">
         
-        <div class="top-nav">
-            <a href="index.html" class="btn-back">← 返回首頁</a>
-        </div>
-
-        <!-- 訓練須知 -->
-        <div class="card">
-            <h2 class="section-title">📌 新手訓練指南說明</h2>
-            <p>歡迎加入 <strong>智能與機器人系統實驗室 (IRS Lab)</strong>！本清單整理了進入實驗室進行研究與專案開發前所需具備的基礎能力。建議依序完成下列學習目標。</p>
-        </div>
-
-        <!-- 1. Onshape 3D建模 -->
-        <div class="card">
-            <h2 class="section-title">📐 1. Onshape 3D建模</h2>
-            <p>Onshape 是全雲端架構的 3D CAD 建模軟體，免安裝且支援多人即時協作，是實驗室進行機器人機構設計、連桿干涉驗證以及 3D 列印輸出的主要工具。</p>
-            
-            <div class="action-area">
-                <a href="onshape-tutorial.html" class="btn btn-tutorial">🎬 前往 Onshape 基礎教學</a>
-                <div class="desc" style="margin-top: 8px;">ℹ️ 點擊上方按鈕前往實驗室製作的 Onshape 基礎教學課程。</div>
+        <!-- 系統同步狀態與進度指示器 -->
+        <section class="bg-slate-950/90 border-2 border-cyan-500/40 rounded-xl p-6 neon-glow-cyan relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                <div class="absolute top-0 right-0 w-2 h-2 bg-cyan-400"></div>
+                <div class="absolute top-0 right-0 w-10 h-[1px] bg-cyan-400"></div>
+                <div class="absolute top-0 right-0 w-[1px] h-10 bg-cyan-400"></div>
             </div>
-        </div>
-
-        <!-- 2. 實驗室基本設備 -->
-        <div class="card">
-            <h2 class="section-title">🔌 2. 實驗室基本設備</h2>
-            <p>學習雷射切割機與 3D 列印機的使用方式，以利後續進行專案機構件、機器人外殼與結構零件的實體加工製作。</p>
             
-            <div class="action-area">
-                <div class="btn-group">
-                    <a href="equipment-tutorial.html#laser-cutter" class="btn btn-tutorial">⚡ 雷射切割機操作與安全守則</a>
-                    <a href="3d-printer-tutorial.html" class="btn btn-tutorial">🖨️ 3D 列印機操作與切片軟體設定</a>
+            <h3 class="text-cyan-400 font-bold text-xs tracking-widest font-mono flex items-center gap-2 mb-4">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping"></span>
+                TRAINING_MATRIX_INTEGRITY // 培訓矩陣同步率
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 font-mono text-[11px] text-slate-400 border-b border-slate-800 pb-4 mb-4">
+                <div>
+                    <p>SYSTEM STATUS: <span class="text-emerald-400 font-bold">ACTIVE</span></p>
                 </div>
-                <div class="desc" style="margin-top: 12px;">ℹ️ 點擊上方按鈕，可以直接跳轉至自製設備教學頁面的對應主題。</div>
+                <div>
+                    <p>LOCAL DATA: <span class="text-amber-400 font-bold">SYNC_SUCCESS</span></p>
+                </div>
+                <div>
+                    <p>STATIONS LOAD: <span class="text-cyan-400 font-bold">STABLE (41.2°C)</span></p>
+                </div>
+                <div>
+                    <p>IDENTITY LINK: <span class="text-pink-500 font-bold">IRS_MEMBER</span></p>
+                </div>
             </div>
-        </div>
 
-        <!-- 3. Robotis 套件 -->
-        <div class="card">
-            <h2 class="section-title">🤖 3. Robotis 套件</h2>
-            <p>學習使用 Robotis 軟硬體套件與 CM-530 控制器，控制 AX-12(A) 智慧型序列伺服馬達，並掌握關節與輪子模式控制，實現實體機器人的機構作動。</p>
-            
-            <div class="action-area">
-                <a href="robotis-tutorial.html" class="btn btn-tutorial">⚙️ 前往 Robotis 基礎教學</a>
-                <div class="desc" style="margin-top: 8px;">ℹ️ 點擊上方按鈕進入實驗室的 Robotis 控制器與馬達程式撰寫教學。</div>
+            <!-- 進度反應式跑分條 -->
+            <div class="space-y-2">
+                <div class="flex justify-between text-xs font-mono">
+                    <span class="text-slate-400">MATRIX INTEGRATION VALUE</span>
+                    <span class="text-cyan-400 font-bold text-sm" id="progress-text">0%</span>
+                </div>
+                <div class="w-full h-3 bg-slate-900 border border-cyan-500/30 rounded overflow-hidden p-[1px]">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 transition-all duration-500 shadow-[0_0_10px_rgba(0,240,255,0.5)]" style="width: 0%"></div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- 4. C# 程式 -->
-        <div class="card">
-            <h2 class="section-title">💻 4. C# 程式</h2>
-            <p>學習使用 C# 語言與 Visual Studio 開發視窗程式，透過 SerialPort 序列通訊埠發送 Protocol 1.0 指令封包，實現電腦端對智慧伺服馬達的精準雙向控制。</p>
-            
-            <div class="action-area">
-                <a href="csharp-tutorial.html" class="btn btn-tutorial">⚡ 前往 C# 程式與通訊教學</a>
-                <div class="desc" style="margin-top: 8px;">ℹ️ 點擊上方按鈕進入 C# 專案建立、封包結構與機械手臂控制驗收指引。</div>
+        <!-- 訓練須知說明卡 -->
+        <section class="bg-slate-950/80 border-2 border-pink-500/30 rounded-2xl p-6 neon-glow-pink relative overflow-hidden transition-all duration-300">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl"></div>
+            <div class="border-l-4 border-pink-500 pl-4 mb-4">
+                <h2 class="text-xl sm:text-2xl font-black tracking-widest text-slate-100 neon-text-pink">
+                    培訓矩陣操作指南
+                </h2>
+                <p class="text-xs text-slate-400 font-mono mt-1">[ PROTOCOLS // 新進人員核心訓練地圖 ]</p>
             </div>
+            <p class="text-slate-300 text-sm leading-relaxed font-light">
+                歡迎來到實驗室的培訓核心！建議依序點擊下方節點閱讀學長姐精選的硬、軟體基礎與故障排除指南。當你完成某一階段的學習時，可以勾選卡片中的「進度狀態」核取方塊，系統會主動更新你的矩陣同步率並將狀態存入核心記憶體。
+            </p>
+        </section>
+
+        <!-- 培訓節點列表 -->
+        <div class="space-y-6">
+
+            <!-- 1. Onshape 3D建模 -->
+            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-full h-[1px] bg-cyan-500/20 laser-sweep-line"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/30 font-mono">PHASE_01 // CAD_INTEGRATION</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
+                            📐 1. Onshape 3D 建模
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
+                            Onshape 是全雲端架構的 3D CAD 建模軟體，免安裝且支援多人即時協作，是實驗室進行機器人機構設計、連桿干涉驗證以及 3D 列印輸出的主要工具。
+                        </p>
+                    </div>
+                    
+                    <!-- 交互Checkbox -->
+                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
+                        <input type="checkbox" id="cb-onshape" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-cyan-500 cursor-pointer">
+                        <label for="cb-onshape" class="text-xs font-mono text-slate-400 cursor-pointer select-none">NODE_SYNC</label>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: READY // CORES: ONLINE ]</span>
+                    <a href="onshape-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
+                        🎬 CAD 教學資源 &gt;
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. 實驗室基本設備 -->
+            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-full h-[1px] bg-pink-500/20 laser-sweep-line"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/30 font-mono">PHASE_02 // HARDWARE_FABRICATION</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
+                            ⚡ 2. 實驗室基本設備 (雷切與 3D 列印)
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
+                            學習 CO2 雷射切割機安全操作，自製高精度壓克力與木板結構；以及熱熔沉積 (FDM) 3D 列印與切片設定，以利後續產出機械手臂連桿、夾爪與外殼骨架。
+                        </p>
+                    </div>
+                    
+                    <!-- 雙 Checkbox 進度 -->
+                    <div class="flex flex-col gap-2 self-start sm:self-center">
+                        <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3 py-2 rounded-lg">
+                            <input type="checkbox" id="cb-equipment-laser" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
+                            <label for="cb-equipment-laser" class="text-[10px] font-mono text-slate-400 cursor-pointer select-none">LASER_SYNC</label>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3 py-2 rounded-lg">
+                            <input type="checkbox" id="cb-equipment-3d" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
+                            <label for="cb-equipment-3d" class="text-[10px] font-mono text-slate-400 cursor-pointer select-none">3DPR_SYNC</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: ACTIVE // PATHS: DUAL_FAB ]</span>
+                    <div class="flex gap-2">
+                        <a href="equipment-tutorial.html#laser-cutter" onclick="playSynth('click')" class="clip-cyber-sm px-4 py-2 bg-slate-900 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-slate-950 font-bold text-[11px] tracking-wider transition-all">
+                            ⚡ 雷切安全 &gt;
+                        </a>
+                        <a href="3d-printer-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-4 py-2 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-slate-950 font-extrabold text-[11px] tracking-wider transition-all">
+                            🖨️ 3D 列印 &gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Robotis 套件 -->
+            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-full h-[1px] bg-cyan-500/20 laser-sweep-line"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/30 font-mono">PHASE_03 // CONTROLLER_ACTUATION</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
+                            🤖 3. Robotis 套件
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
+                            利用 CM-530 控制器與 AX-12(A) 智慧型序列伺服馬達進行實機控制。理解 0-1023 關節模式與 360 度連續轉動之輪子模式，並透過 RoboPlus Task 圖形式樹狀語法進行控制邏輯撰寫。
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
+                        <input type="checkbox" id="cb-robotis" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-cyan-500 cursor-pointer">
+                        <label for="cb-robotis" class="text-xs font-mono text-slate-400 cursor-pointer select-none">ACTUATOR_SYNC</label>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: READY // DRIVER: DETECTED ]</span>
+                    <a href="robotis-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
+                        ⚙️ 馬達與控制器教學 &gt;
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. C# 程式 -->
+            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
+                <div class="absolute top-0 right-0 w-full h-[1px] bg-pink-500/20 laser-sweep-line"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span class="text-[10px] bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/30 font-mono">PHASE_04 // HOST_INTEGRATION</span>
+                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
+                            💻 4. 階段四：C# 程式
+                        </h3>
+                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
+                            擺脫嵌入式控制程式限制，在電腦端使用 Visual Studio 與 Windows Forms 開發 C# 控制台應用。學習使用低階序列通訊 (SerialPort) 自行打包與解析 Protocol 1.0 指令封包，完成客製化手臂 GUI 連線。
+                        </p>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
+                        <input type="checkbox" id="cb-csharp" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
+                        <label for="cb-csharp" class="text-xs font-mono text-slate-400 cursor-pointer select-none">COMM_SYNC</label>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
+                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: FINAL_STATION // PORT: READY ]</span>
+                    <a href="csharp-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
+                        ⚡ C# 封包與控制教學 &gt;
+                    </a>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-    </div>
+    <!-- 頁尾宣告 -->
+    <footer class="border-t border-slate-900 bg-slate-950/90 text-slate-600 py-6 text-center text-[10px] font-mono relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>NFU INTELLIGENT & ROBOTIC SYSTEMS LABORATORY // SECURED TRAINING PANEL</p>
+            <p class="mt-1 text-slate-700">© 2026 國立虎尾科技大學 智能與機器人系統實驗室. AUTHORIZED PERSONNEL ONLY.</p>
+        </div>
+    </footer>
 
-    <!-- JavaScript：保存 Checkbox 狀態至 LocalStorage -->
+    <!-- Audio & Progress Scripts -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
+        let isAudioEnabled = false;
+        let audioCtx = null;
+
+        // 初始化 Web Audio API (遵守瀏覽器安全限制)
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function toggleAudio() {
+            initAudio();
+            isAudioEnabled = !isAudioEnabled;
             
-            // 載入已儲存的狀態
-            checkboxes.forEach(cb => {
-                const savedState = localStorage.getItem(cb.id);
-                if (savedState === 'true') {
-                    cb.checked = true;
+            const btn = document.getElementById('audio-toggle-btn');
+            const icon = document.getElementById('audio-icon');
+            
+            if (isAudioEnabled) {
+                icon.innerText = "🔊";
+                btn.className = "p-2 border border-pink-500 bg-pink-500/20 text-white rounded-md transition-all flex items-center gap-2 text-xs neon-glow-pink";
+                btn.querySelector('span:last-child').innerText = "AUDIO: ON";
+                playSynth('boot');
+            } else {
+                icon.innerText = "🔇";
+                btn.className = "p-2 border border-pink-500/30 bg-pink-500/10 hover:bg-pink-500/20 text-pink-400 rounded-md transition-all flex items-center gap-2 text-xs";
+                btn.querySelector('span:last-child').innerText = "AUDIO: OFF";
+            }
+        }
+
+        // 未來風 8-bit 合成音效
+        function playSynth(type) {
+            if (!isAudioEnabled || !audioCtx) return;
+
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'hover') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(1200, now);
+                    gain.gain.setValueAtTime(0.02, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'select') {
+                    // 勾選進度時發出和諧上揚雙音
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                    gain.gain.setValueAtTime(0.06, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+                    osc.start(now);
+                    osc.stop(now + 0.22);
+                } else if (type === 'click') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(1500, now);
+                    osc.frequency.exponentialRampToValueAtTime(100, now + 0.2);
+                    gain.gain.setValueAtTime(0.06, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                    osc.start(now);
+                    osc.stop(now + 0.2);
+                } else if (type === 'boot') {
+                    const notes = [261.63, 329.63, 392.00, 523.25]; // C 和弦
+                    notes.forEach((freq, idx) => {
+                        const o = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        o.connect(g);
+                        g.connect(audioCtx.destination);
+                        o.frequency.setValueAtTime(freq, now + idx * 0.05);
+                        g.gain.setValueAtTime(0.04, now + idx * 0.05);
+                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.3);
+                        o.start(now + idx * 0.05);
+                        o.stop(now + idx * 0.05 + 0.3);
+                    });
                 }
-                
-                // 當點擊時自動儲存
-                cb.addEventListener('change', (e) => {
-                    localStorage.setItem(e.target.id, e.target.checked);
-                });
+            } catch (e) {
+                console.warn("Audio Context failed", e);
+            }
+        }
+
+        // 動態進度條計算與 LocalStorage 存取
+        const listCheckboxes = [
+            'cb-onshape', 
+            'cb-equipment-laser', 
+            'cb-equipment-3d', 
+            'cb-robotis', 
+            'cb-csharp'
+        ];
+
+        function updateProgress() {
+            let checkedCount = 0;
+            listCheckboxes.forEach(id => {
+                const cb = document.getElementById(id);
+                if (cb && cb.checked) {
+                    checkedCount++;
+                }
+                // 保存狀態
+                if (cb) {
+                    localStorage.setItem(`training_${id}`, cb.checked);
+                }
             });
+
+            const pct = Math.round((checkedCount / listCheckboxes.length) * 100);
+            document.getElementById('progress-text').innerText = `${pct}%`;
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        // 頁面載入時回復狀態
+        document.addEventListener('DOMContentLoaded', () => {
+            listCheckboxes.forEach(id => {
+                const cb = document.getElementById(id);
+                if (cb) {
+                    const saved = localStorage.getItem(`training_${id}`);
+                    if (saved === 'true') {
+                        cb.checked = true;
+                    }
+                }
+            });
+            updateProgress();
         });
     </script>
 </body>
 </html>
-```
-`eof`
