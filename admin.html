@@ -52,7 +52,6 @@
     <!-- 滿版模糊背景圖片 -->
     <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200" alt="Finance Backdrop" class="cyber-bg" onerror="this.src='https://placehold.co/1200x800/f1f5f9/cbd5e1?text=Finance+Backdrop'">
 
-    <!-- 💡 STREAMING_CHUNK: 建立頂部精密金屬感導覽列與音訊切換按鈕... -->
     <!-- 頂部導覽 -->
     <header class="border-b border-white/20 bg-white/60 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -68,7 +67,6 @@
         </div>
     </header>
 
-    <!-- 💡 STREAMING_CHUNK: 建立核心歡迎區，包含虎科最新統編64967512標示... -->
     <!-- 主內容區 -->
     <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-grow space-y-8 relative z-10">
         
@@ -83,8 +81,8 @@
             </p>
         </section>
 
-        <!-- 💡 STREAMING_CHUNK: 建構 11 大行政文檔互動導覽網格與卡片按鈕... -->
         <!-- 行政事務文檔導覽網格 -->
+        <!-- STREAMING_CHUNK: Coding the interactive documents dashboard grid... -->
         <section class="space-y-6">
             <div class="border-l-4 border-orange-500 pl-4">
                 <h3 class="text-lg font-extrabold text-slate-900">📂 行政事務文檔導覽</h3>
@@ -220,8 +218,8 @@
 
     </main>
 
-    <!-- 💡 STREAMING_CHUNK: 建構高解析度、大字體、護眼大寬度的磨砂玻璃彈窗 Modal 容器... -->
-    <!-- 文檔閱讀器滑出式 Modal (升級 max-w-4xl & 護眼大字體 text-sm sm:text-base) -->
+    <!-- 文檔閱讀器滑出式 Modal -->
+    <!-- STREAMING_CHUNK: Coding the optimized extra-large responsive documentation reader... -->
     <div id="doc-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden animate-fade-in">
         <div class="backdrop-blur-glass border border-white/60 bg-white/90 rounded-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] flex flex-col relative overflow-hidden shadow-2xl font-sans">
             
@@ -233,7 +231,7 @@
                 <button onclick="closeDoc(); playSynth('click')" class="text-slate-400 hover:text-slate-950 font-bold transition-colors text-sm">[ CLOSE ]</button>
             </div>
             
-            <!-- 可捲動的實體內容區 (升級高可讀性行高與間距) -->
+            <!-- 可捲動的實體內容區 (護眼、大字體、高閱讀比例) -->
             <div id="doc-content-body" class="overflow-y-auto pr-3 space-y-6 text-slate-700 leading-relaxed max-h-[72vh] text-sm sm:text-base">
                 <!-- JS 動態加載 -->
             </div>
@@ -254,12 +252,12 @@
         </div>
     </footer>
 
-    <!-- 💡 STREAMING_CHUNK: 定義 11 大行政事務文檔的資料庫，並包含大字體與統編64967512修正... -->
     <!-- 行政文檔實體內容資料庫 -->
+    <!-- STREAMING_CHUNK: Populating the updated 1:1 legacy database items into JS variables... -->
     <script>
         const docDatabase = {
             'intro': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-2">📄 1. 行政事務簡介</h3>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">📄 1. 行政事務簡介</h3>
                 <p class="text-xs sm:text-sm text-slate-400 font-mono">[ ADM_INTRO // 常用處室、經費分類與報廢規範 ]</p>
                 <div class="border-t border-slate-200/60 my-4"></div>
 
@@ -375,10 +373,10 @@
                     ⚙️ 經費用途
                 </h4>
                 <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-2">每個計劃所定義的經費及其用途不盡相同，實際情況請依據該計劃本身的說明，此處僅供參考。 以下以「110學年度第1學期-師徒制」計劃提供的說明爲例。</p>
-                <ul class="space-y-4 text-sm sm:text-base text-slate-600 pl-1 leading-relaxed">
+                <ul class="space-y-3 text-sm sm:text-base text-slate-600 pl-1 leading-relaxed">
                     <li>
                         <span class="font-bold text-slate-800">● 業務費：</span>
-                        <ul class="list-disc list-inside pl-5 mt-1 space-y-1.5 text-slate-500 text-xs sm:text-sm">
+                        <ul class="list-disc list-inside pl-5 mt-1 space-y-1 text-slate-500 text-xs sm:text-sm">
                             <li><strong>材料費：</strong> 授課所需相關材料，並不得支應各項儀器設備維護（修）費用、設備材料更新汰換及本校自行開立之單據。非耗材材料單價超過 3000 元以上需列保管人及保管地點。</li>
                             <li><strong>印刷費：</strong> 授課用所需之課程資料、實驗數據等相關印刷，依實際情況核實報支，並於核銷時請檢附資料影本，以作為核銷依據。</li>
                             <li><strong>雜支：</strong> 文具用品、紙張、錄音帶、資訊耗材(消耗品：例如碳粉匣、光碟…等)、資料夾、郵資、資訊周邊用品(消耗品及非消耗品，含行動硬碟、隨身碟、鍵盤、滑鼠…)等屬之。</li>
@@ -387,7 +385,7 @@
                     </li>
                     <li>
                         <span class="font-bold text-slate-800">● 業師相關：</span>
-                        <ul class="list-disc list-inside pl-5 mt-1 space-y-1.5 text-slate-500 text-xs sm:text-sm">
+                        <ul class="list-disc list-inside pl-5 mt-1 space-y-1 text-slate-500 text-xs sm:text-sm">
                             <li><strong>業師鐘點費：</strong> 外聘講師須依照授課情況填寫「業師應聘履歷表」及「領款收據暨受領人資料表(本國校外人士專用)」。並於核銷時檢附「活動集錦」。</li>
                             <li><strong>業師交通費：</strong> 距離計算為服務機關至本校，且須超過 30 公里以上始得報支交通費，核實報支。</li>
                         </ul>
@@ -398,10 +396,10 @@
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
                     💡 雜項
                 </h4>
-                <ol class="list-decimal list-inside space-y-2.5 text-sm sm:text-base text-slate-600 pl-1 leading-relaxed">
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
                     <li>要核銷的發票要有學校統編、學校抬頭。詳細請見：一般核銷須知</li>
                     <li>學校對報價單自有1個月的時限，以到主計室爲時間標準。</li>
-                    <li>半個月內購買同一家廠商的累積總金額不能超過10萬元，尤指設備費。單一一次採購超過10萬則不在此限（因爲會走招標流程）。</li>
+                    <li>半個月內購買同一家廠商的累積總金額不能超過10萬元，尤指設備費.單一一次採購超過10萬則不在此限（因爲會走招標流程）。</li>
                     <li>購買同一家廠商的較大金額（約大於7,000元）的業務費至少時隔半個月，以免有圖例特定廠商之嫌。</li>
                     <li>需報價請購的採購案，發票日期不能早於請購單過審（完成請購並送回請購公文）的日期。</li>
                     <li>若要付款給廠商，核銷時需要附匯款資訊。匯款資訊通常會附在收據 or 報價單上，若無則需另外提供。</li>
@@ -424,11 +422,11 @@
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-red-700">
                     ♻️ 報廢
                 </h4>
-                <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs sm:text-sm text-red-800 mb-3 leading-relaxed">
+                <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-800 mb-3 leading-relaxed">
                     <strong>🚨 所有需要報廢物品皆需要產編!</strong><br>
                     • 電腦需要內含:機殼、電源供應器、硬碟、主機板才可報廢
                 </div>
-                <ol class="list-decimal list-inside space-y-2 text-sm sm:text-base text-slate-600 pl-1 leading-relaxed mb-2">
+                <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-600 pl-1 leading-relaxed mb-2">
                     <li>先將欲報廢物品產編號碼告知瑞智</li>
                     <li>等瑞智將公文弄好</li>
                     <li>將公文與欲報廢物品帶著，若是電腦類會需要到電算中心(資訊大樓2樓-資訊服務組)，若非電腦類則跳過</li>
@@ -438,82 +436,219 @@
                 </ol>
             `,
             'general-reimburse': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 2. 一般核銷須知</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ GENERAL_REIMBURSE_RULES // 核銷格式與規範 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">基本的學校報帳核銷說明。所有取得的發票與收據，必須遵守以下規格才具有報銷資格：</p>
-                <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-sm space-y-2.5 mt-4">
-                    <p class="font-extrabold text-amber-900 text-base">🚨 報帳四大核心：</p>
-                    <ul class="list-decimal list-inside space-y-1.5 text-amber-800">
-                        <li><strong>買受人抬頭：</strong> 一律開立 <strong>「國立虎尾科技大學」</strong>。</li>
-                        <li><strong>統一編號：</strong> 必須打上虎科大最新統編 <strong>64967512</strong>。</li>
-                        <li><strong>發票章：</strong> 收據或發票必須有商家的「統一發票專用章」。</li>
-                        <li><strong>日期填寫：</strong> 日期必須為計畫執行期間內。</li>
-                    </ul>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">📄 2. 一般核銷須知</h3>
+                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ GENERAL_REIMBURSE_RULES // 核銷程序與格式規範 ]</p>
+                <div class="border-t border-slate-200/60 my-4"></div>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4">基本的學校報帳核銷說明。以下金額單位皆爲新臺幣（NTD），且含稅。</p>
+
+                <!-- 核銷步驟 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    🐾 核銷步驟
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>先在「<span class="text-orange-600 font-semibold">現錢記帳系統</span>」編輯代墊人。</li>
+                    <li>到要申請的計畫底下的表單上登錄欲申請之發票。</li>
+                    <li>到主計室系統線上申請請購。</li>
+                    <li>印出請購憑證後，請老師確認公文並蓋章。</li>
+                    <li>拿至系辦跑後續簽呈與核銷流程。</li>
+                </ol>
+
+                <!-- 概述 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📌 概述
+                </h4>
+                <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>收據要打統編「<strong class="text-orange-600 font-mono">64967512</strong>」及抬頭「<strong>國立虎尾科技大學</strong>」。</li>
+                    <li>收據上一定要蓋章。「電子發票證明聯」除外。</li>
+                    <li>單品項價格 $3,000 以下（不含）只要收據即可核銷；$3,000 以上（含）要先以報價單請購核准後才可購買並以收據核銷。</li>
+                    <li>整張發票的總金額應爲 $10,000 以下（不含）。「設備費」除外。</li>
+                </ul>
+
+                <!-- 經費金額限制 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    💰 經費金額限制
+                </h4>
+                <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <p class="font-bold text-slate-800 text-sm sm:text-base">● 單品項：</p>
+                        <p class="text-slate-600"><strong>單品項</strong>之價格會影響其使用的核銷方式及經費來源：</p>
+                        <ul class="list-disc list-inside pl-4 text-slate-500 space-y-1.5 text-xs sm:text-sm">
+                            <li><strong>$3,000 以下（不含）：</strong> 可直接憑收據核銷<strong>業務費</strong>（材料費、雜支）。</li>
+                            <li><strong>$3,000 以上（含）到 $10,000 以下（不含）：</strong> 與 3000 以下相同可以直接購買，最後在列印黏貼憑證用紙時要新增財產，並選擇非消耗品(新增)，並憑收據核銷<strong>業務費</strong>（材料費、雜支）。</li>
+                            <li><strong>$10,000 以上（含）到 $100,000 以下（不含）：</strong> 需先以報價單進行請購，通過後才可以購買，並憑收據核銷<strong>設備費</strong>。</li>
+                            <li><strong>$100,000 以上（含）：</strong> 需辦理招標或科研採購。</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                        <p class="font-bold text-slate-800 text-sm sm:text-base">● 整張收據：</p>
+                        <ul class="list-disc list-inside pl-4 text-slate-500 space-y-1 text-xs sm:text-sm">
+                            <li>單張收據總金額 <strong>$10,000 以上（含）</strong> 不得使用業務費核銷。</li>
+                            <li>單張收據總金額 <strong>$100,000 以上（含）</strong> 需招標或科研採購。
+                                <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-400 space-y-0.5">
+                                    <li>同一個廠商在一個月內的收據總金額不得超過 $100,000（含）。</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 品項種類限制 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📦 品項種類限制
+                </h4>
+                <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>設備費核銷均有品項限制，需參考該計劃經費之說明。</li>
+                    <li>「運費」及「稅額」可以作爲一個品項核銷。</li>
+                    <li>以下各品項一般情況下<strong>無法核銷業務費</strong>。若有特殊需要，請先向系辦或計劃經費負責人確認：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>食物飲料類</li>
+                            <li>書籍</li>
+                            <li>印表機碳粉夾（需請系辦購買）</li>
+                            <li>電腦螢幕</li>
+                            <li>一系列可組裝成電腦的零件（如硬碟、CPU、主機板...）。</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 收據 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    🧾 收據規範
+                </h4>
+                <ul class="space-y-3 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>
+                        <strong class="text-slate-800">● 收據種類：</strong> 核銷需要有收據，可以爲以下各種：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>統一發票 (含收銀機統一發票、二聯式、三聯式、電子發票證明聯、特種發票)</li>
+                            <li>免用統一發票收據</li>
+                            <li>郵局函件執據</li>
+                            <li>臺鐵、高鐵、飛機票根 (<strong>註：計程車不能核銷</strong>)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-slate-800">● 統編抬頭：</strong> 若爲「統一發票」或「免用統一發票收據」，收據需要打學校統一編號及抬頭。
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-0.5">
+                            <li>統一編號：<strong class="text-orange-600 font-mono">64967512</strong> (學校網站最下面亦有標記)</li>
+                            <li>買受人抬頭：<strong>國立虎尾科技大學</strong></li>
+                            <li class="italic text-slate-400">備註：「二聯式統一發票」不用統編，只會有抬頭（買受人）。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong class="text-slate-800">● 蓋章與欄位資訊：</strong>
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>收據上需要蓋有「統一發票專用章」、「店章」或「負責人章」。（※ 電子發票證明聯免蓋章）。</li>
+                            <li>收據上需要明確填入以下欄位資訊：<strong>日期、品名（需以中文填寫，不能只有型號或英文）、數量、單價、金額、總計</strong>。</li>
+                            <li>開立「統一發票」需應稅商品價值之 5%，請和賣家確認好所標價格是否含稅。</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 報價單格式 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📋 報價單與發票對照格式
+                </h4>
+                <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                        <p class="font-bold text-slate-800">📄 報價單限制：</p>
+                        <ol class="list-decimal list-inside pl-4 text-slate-500 space-y-0.5 text-xs sm:text-sm">
+                            <li>報價單上各品項之品名需含有中文（如：無刷馬達、電源供應器），不能只有型號或英文品名。</li>
+                        </ol>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                        <p class="font-bold text-slate-800">🧾 發票與收據對照限制：</p>
+                        <ol class="list-decimal list-inside pl-4 text-slate-500 space-y-1 text-xs sm:text-sm">
+                            <li>發票上各品項之品名需含有中文（如：無刷馬達、電源供應器），不能只有型號或英文品名。</li>
+                            <li>在優先滿足第 1 點的情況下，發票和報價單等各處之品項、產品名稱/型號、價錢及數量等需一致，至少需要能夠清楚判斷爲相同之品項。</li>
+                            <li>發票開立日期必須晚於<strong>報價單開立日期及學校請購流程完成日期</strong>。</li>
+                            <li>發票上需蓋有公司/負責人章或帶有前者之統一發票專用章，且不能爲影本。電子發票證明聯不在此限。</li>
+                            <li>發票上之字樣需清晰可見。</li>
+                            <li>發票請務必打統編與抬頭（統編：64967512 / 抬頭：國立虎尾科技大學）。</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 郵資 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    ✉️ 郵資
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li><strong>只能核銷橫式(上面有統編)</strong>，直式的不能(上面無統編)。</li>
+                    <li>最好在印表出來後，於郵資項目後方備註郵資用途，<strong>註明部分記得蓋章</strong>!</li>
+                </ol>
+
+                <!-- 郵資範例圖 (並排) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 shadow-sm">
+                        <img src="https://i.imgur.com/qKZSaUu.jpg" alt="橫式郵資範例" class="w-full h-auto rounded shadow-inner" onerror="this.src='https://placehold.co/400x250/f1f5f9/cbd5e1?text=Landscape+Stamp+Specimen'">
+                        <p class="text-[10px] text-slate-400 text-center italic mt-1.5">▲ 橫式郵資範例 (含統編蓋章)</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 p-1.5 shadow-sm">
+                        <img src="https://i.imgur.com/8iGJOSg.jpg" alt="直式郵資範例" class="w-full h-auto rounded shadow-inner" onerror="this.src='https://placehold.co/400x250/f1f5f9/cbd5e1?text=Portrait+Stamp+Specimen'">
+                        <p class="text-[10px] text-slate-400 text-center italic mt-1.5">▲ 直式郵資範例 (無法核銷)</p>
+                    </div>
                 </div>
             `,
             '10k': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 3. 一萬以下直接核銷</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ REIMBURSEMENT_UNDER_10K // 雜支、材料費、印刷費 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">單筆採購金額在 $10,000 元（含）以下之小額消費：</p>
-                <ul class="list-disc list-inside space-y-2 text-sm text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200 mt-3">
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 3. 一萬以下直接核銷</h3>
+                <p class="text-xs text-slate-400 font-mono">[ REIMBURSEMENT_UNDER_10K // 雜支、材料費、印刷費 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>單筆採購金額在 $10,000 元（含）以下之小額消費：</p>
+                <ul class="list-disc list-inside space-y-1.5 text-xs text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-200 mt-2">
                     <li><strong>材料費：</strong> 購買實驗用電子材料，品名必須為繁體中文。</li>
                     <li><strong>印刷費：</strong> 列印研討會海報、研究論文，需檢附實體樣張。</li>
                     <li><strong>雜支費：</strong> 購買實驗室公用文具等。</li>
                 </ul>
             `,
             'equipment-costs': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 4. 科研採購（設備費）</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ EQUIPMENT_PROCUREMENT // 萬元以上財產採購 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">單價在 $10,000 元以上（含）之設備採購：</p>
-                <div class="p-4 bg-red-50 rounded-xl border border-red-200 text-sm text-red-800 space-y-2.5 mt-3">
-                    <p class="font-bold text-base text-red-900">⚠️ 先請購原則：</p>
-                    <p class="leading-relaxed">一萬以上的設備費，購買前必須先在報帳系統填寫「請購單」，審核通過後才可以通知廠商出貨！</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 4. 科研採購（設備費）</h3>
+                <p class="text-xs text-slate-400 font-mono">[ EQUIPMENT_PROCUREMENT // 萬元以上財產採購 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>單價在 $10,000 元以上（含）之設備採購：</p>
+                <div class="p-3 bg-red-50 rounded-lg border border-red-200 text-xs text-red-800 space-y-2 mt-2">
+                    <p class="font-bold">⚠️ 先請購原則：</p>
+                    <p>一萬以上的設備費，購買前必須先在報帳系統填寫「請購單」，審核通過後才可以通知廠商出貨！</p>
                 </div>
             `,
             'most-expenditure': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 5. 科技部計劃經費</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ NSTC_RESEARCH_PROJECT // 科技部國科會專案經費 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">主要包含業務費、研究設備費與國外差旅費三大核心會計科目。各計畫之流用比例與核銷規範皆需符合國科會相關規定。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 5. 科技部計劃經費</h3>
+                <p class="text-xs text-slate-400 font-mono">[ NSTC_RESEARCH_PROJECT // 科技部國科會專案經費 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>包含業務費、研究設備費與國外差旅費三大科目。</p>
             `,
             'lecturer': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 6. 業師相關</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ INDUSTRY_EXPERTS_LECTURE // 業界專家授課與核銷 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">外聘業界講師或指導專家時，須完整填寫應聘履歷表、領款收據正本，並於核銷時確實檢附講師授課之「活動集錦照片」。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 6. 業師相關</h3>
+                <p class="text-xs text-slate-400 font-mono">[ INDUSTRY_EXPERTS_LECTURE // 業界專家授課與核銷 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>外聘講師須填寫履歷表、領款收據並檢附活動集錦照片。</p>
             `,
             'tender': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 7. 招標</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ PUBLIC_BIDDING_PROCUREMENT // 政府採購法招標流程 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">採購項目預算總金額超過 $1,000,000 元（含）以上時，必須依法辦理公開招標，並由總務處採購組會同主計室共同監辦開標。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 7. 招標</h3>
+                <p class="text-xs text-slate-400 font-mono">[ PUBLIC_BIDDING_PROCUREMENT // 政府採購法招標流程 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>採購總金額超過 $1,000,000 元（含）以上時依規定辦理公開招標。</p>
             `,
             'transfer': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 8. 回沖</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ FINANCIAL_ADJUSTMENT // 會計科目調整與沖銷 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">填寫支出科目調整申請單，送交會計室進行預付款沖銷、發票科目退件修正或預算年度科目回沖調整。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 8. 回沖</h3>
+                <p class="text-xs text-slate-400 font-mono">[ FINANCIAL_ADJUSTMENT // 會計科目調整與沖銷 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>填寫支出科目調整申請單進行預付款沖銷或科目修正。</p>
             `,
             'travel-expenses': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 9. 國內差旅費</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ DOMESTIC_TRAVEL_EXPENSES // 交通、住宿、誤餐 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">能核銷的起迄點只能是以學校所在地（雲林高鐵站、斗南火車站、斗六火車站）為起點或終點，否則將予以退件。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 9. 國內差旅費</h3>
+                <p class="text-xs text-slate-400 font-mono">[ DOMESTIC_TRAVEL_EXPENSES // 交通、住宿、誤餐 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>能核銷的只能是以學校（雲林高鐵站、斗南、斗六火車站）為起點或終點。</p>
             `,
             'employment': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 10. 申請在職證明</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ SERVICE_CERTIFICATE // 在職與服務證明書申請 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">填寫計畫兼任/專任研究助理在職證明申請表，經指導教授核章後送研發處計畫管理組與人事室辦理。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 10. 申請在職證明</h3>
+                <p class="text-xs text-slate-400 font-mono">[ SERVICE_CERTIFICATE // 在職與服務證明書申請 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>填寫申請表，經指導教授簽章後送人事室辦理。</p>
             `,
             'go-abroad': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 flex items-center gap-1.5">📄 11. 國外差旅費</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ FOREIGN_TRAVEL_EXPENSES // 國外學術會議與差旅 ]</p>
-                <div class="border-t border-slate-200 my-4"></div>
-                <p class="text-sm sm:text-base leading-relaxed">必須妥善保留所有往返「登機證實體正本」，購票收據與電子機票。並於返國後 15 天內確實上傳因公出國報告書系統。</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 11. 國外差旅費</h3>
+                <p class="text-xs text-slate-400 font-mono">[ FOREIGN_TRAVEL_EXPENSES // 國外學術會議與差旅 ]</p>
+                <div class="border-t border-slate-200 my-3"></div>
+                <p>需妥善保留登機證正本，並於返國後上傳因公出國報告書。</p>
             `
         };
 
@@ -525,8 +660,6 @@
             if (modal && body && docDatabase[topicId]) {
                 body.innerHTML = docDatabase[topicId];
                 modal.classList.remove('hidden');
-                // 滾動回到彈窗頂部
-                body.scrollTop = 0;
             }
         }
 
@@ -538,7 +671,6 @@
         }
     </script>
 
-    <!-- 💡 STREAMING_CHUNK: 編寫 8-bit 精密繼電器合成器音效之 Web Audio 程式碼... -->
     <!-- Audio & Interaction Logic -->
     <script>
         let isAudioEnabled = false;
@@ -582,7 +714,6 @@
                 const now = audioCtx.currentTime;
 
                 if (type === 'hover') {
-                    // 超短精密繼電器吸合微響
                     osc.type = 'sine';
                     osc.frequency.setValueAtTime(2400, now);
                     gain.gain.setValueAtTime(0.015, now);
@@ -590,7 +721,6 @@
                     osc.start(now);
                     osc.stop(now + 0.04);
                 } else if (type === 'click') {
-                    // 清脆電子按鍵音
                     osc.type = 'triangle';
                     osc.frequency.setValueAtTime(1200, now);
                     osc.frequency.exponentialRampToValueAtTime(400, now + 0.12);
