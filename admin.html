@@ -68,6 +68,7 @@
     </header>
 
     <!-- 主內容區 -->
+    <!-- STREAMING_CHUNK: Coding welcome section with correct school TAX ID 64967512... -->
     <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-grow space-y-8 relative z-10">
         
         <!-- 核心歡迎區 -->
@@ -77,11 +78,12 @@
                 <p class="text-xs text-slate-400 font-mono mt-0.5">[ NODE_01 // FINANCIAL MANAGEMENT PROTOCOL ]</p>
             </div>
             <p class="text-slate-600 text-sm leading-relaxed font-light">
-                本平台整合了實驗室舊 Docusaurus 系統中所有寶貴的行政文件。在進行採購、差旅、或是請領 any計畫經費前，請務必先詳細查閱對應規範，確保單據格式、買受人抬頭及統一編號（國立虎尾科技大學統一編號：<strong>64967512</strong>）填寫正確，避免因不符規範而需自費吸收。
+                本平台整合了實驗室舊 Docusaurus 系統中所有寶貴的行政文件。在進行採購、差旅、或是請領任何計畫經費前，請務必先詳細查閱對應規範，確保單據格式、買受人抬頭及統一編號（國立虎尾科技大學統一編號：<strong>64967512</strong>）填寫正確，避免因不符規範而需自費吸收。
             </p>
         </section>
 
         <!-- 行政事務文檔導覽網格 -->
+        <!-- STREAMING_CHUNK: Rendering the doc portal grid consisting of 11 buttons... -->
         <section class="space-y-6">
             <div class="border-l-4 border-orange-500 pl-4">
                 <h3 class="text-lg font-extrabold text-slate-900">📂 行政事務文檔導覽</h3>
@@ -251,7 +253,7 @@
     </footer>
 
     <!-- 行政文檔實體內容資料庫 -->
-    <!-- STREAMING_CHUNK: Coding legacy data blocks inside docDatabase... -->
+    <!-- STREAMING_CHUNK: Instantiating massive Javascript database containing 11 legacy HTML-formatted guides... -->
     <script>
         const docDatabase = {
             'intro': `
@@ -480,7 +482,7 @@
                     <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
                         <p class="font-bold text-slate-800 text-sm sm:text-base">● 整張收據：</p>
                         <ul class="list-disc list-inside pl-4 text-slate-500 space-y-1 text-xs sm:text-sm">
-                            <li>單張收據總金額 <strong>$10,000 以上（含）</strong> 不得使用業務費核銷。</li>
+                            <li>單張收據總金額 <strong>$10,000 以上（含）</strong> 不得使用業務費核銷.</li>
                             <li>單張收據總金額 <strong>$100,000 以上（含）</strong> 需招標或科研採購。
                                 <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-400 space-y-0.5">
                                     <li>同一個廠商在一個月內的收據總金額不得超過 $100,000（含）。</li>
@@ -675,7 +677,7 @@
                     </div>
                 </div>
 
-                <!-- 單價3000-10000 -->
+                <!-- 財產增加 -->
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
                     🛠️ 單價 $3,000 ~ $10,000
                 </h4>
@@ -698,13 +700,189 @@
                 </div>
             `,
             'equipment-costs': `
-                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 4. 科研採購（設備費）</h3>
-                <p class="text-xs text-slate-400 font-mono">[ EQUIPMENT_PROCUREMENT // 萬元以上財產採購 ]</p>
-                <div class="border-t border-slate-200 my-3"></div>
-                <p>單價在 $10,000 元以上（含）之設備採購：</p>
-                <div class="p-3 bg-red-50 rounded-lg border border-red-200 text-xs text-red-800 space-y-2 mt-2">
-                    <p class="font-bold">⚠️ 先請購原則：</p>
-                    <p>一萬以上的設備費，購買前必須先在報帳系統填寫「請購單」，審核通過後才可以通知廠商出貨！</p>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">📄 4. 科研採購（設備費）</h3>
+                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ RESEARCH_PROCUREMENT // 萬元以上財產採購 ]</p>
+                <div class="border-t border-slate-200/60 my-4"></div>
+                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4">單價 $10,000 以上之設備費請領與財產增加管理規範。</p>
+
+                <!-- 處理流程 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    🔄 處理流程
+                </h4>
+                <ol class="list-decimal list-inside space-y-3 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>
+                        <strong>1. 請購：</strong>
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>向廠商取得報價單。</li>
+                            <li>向經費來源計劃主持人（老師）確認。</li>
+                            <li>產生請購公文。</li>
+                            <li>繳交請購公文。</li>
+                            <li>學校請購流程。（約 1 ~ 2 週）</li>
+                            <li>學校核准請購。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>2. 核銷：</strong>
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>向廠商取得發票。</li>
+                            <li>產生核銷公文（粘貼憑證用紙）。</li>
+                            <li>繳交核銷公文（粘貼憑證用紙）。</li>
+                            <li>學校核銷流程。（約 1 ~ 2 週）</li>
+                            <li>學校完成核銷，並送回財產增加單與產編貼紙。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>3. 財產增加：</strong>
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
+                            <li>請經費來源計劃主持人（老師）確認並於財產增加單上親自簽名。</li>
+                            <li>繳交財產增加單。</li>
+                            <li>貼產編貼紙。</li>
+                            <li>將貼上產編的設備照片寄 Email 給系辦（瑞智）。</li>
+                            <li>學校財產增加流程。（約 1 ~ 2 週）</li>
+                            <li>學校完成財產增加。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>4. 付款：</strong> 學校於傳票日後約 3 天付款。傳票日可從主計室-網路請購系統（老師） > 收支明細中查看。
+                    </li>
+                </ol>
+
+                <!-- 簡易說明 Box -->
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-600 space-y-2 mt-4 leading-relaxed">
+                    <p>💡 <strong>簡易流程：</strong> 取得報價單 &gt; 向教授/計劃主持人確認 &gt; 學校請購流程(約 1~2 週) &gt; 取得發票 &gt; 學校核銷流程(約 1~2 週) &gt; 學校財產增加流程(約 1~2 週) &gt; 學校主計室處理(約 3 天) &gt; 學校付款</p>
+                    <p class="text-[11px] sm:text-xs text-slate-400 italic mt-1 leading-relaxed">
+                        * 備註：以上說明沒有提到交貨。原則上請購完成就代表學校同意並核准採購，這時就可以請廠商出貨了。越早交貨越好，以免學校財產清查時東西還沒到，正常流程是在處理財產增加單時就要到貨。
+                    </p>
+                </div>
+
+                <!-- 1. 請購說明 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📝 1. 請購步驟
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>向廠商取得報價單。</li>
+                    <li>到「<a href="https://accweb.nfu.edu.tw/APSWIS_Q/Login_AD_Q.asp" target="_blank" rel="noopener noreferrer" class="text-orange-600 font-bold hover:underline">主計室-網路請購系統</a>」，以老師的帳號登入。</li>
+                    <li>點選上方的「計劃請購查詢」。</li>
+                    <li>按「新增請購」。</li>
+                    <li>勾選「科研採購」後按「下一步」。</li>
+                    <li>填寫「用途說明」：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 space-y-0.5">
+                            <li>科技部計畫如：<strong>機器人實驗室，購買&lt;欲購買物品名稱&gt;</strong></li>
+                            <li>系上經費如：<strong>機器人實驗室王榮爵老師，購買&lt;欲購買物品名稱&gt;</strong></li>
+                        </ul>
+                    </li>
+                    <li>選擇「計劃編號」、「經費用途」、「金額」。（金額可以最後再填）</li>
+                    <li>依照報價單內容填寫「品名/規格/用途」、「單位」、「數量」及「總價」：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 leading-relaxed">
+                            <li>若報價單上的品名沒有中文或看不出是什麼品項的話，請自行補充，並同樣以原子筆標註在收據上。如：原本收據上品名只有「SG90」，則自行補充爲「SG90伺服馬達」。<strong>最好是請廠商開立符合我們需求的報價單。</strong></li>
+                        </ul>
+                    </li>
+                    <li>按「編輯收款人」。</li>
+                    <li>填寫「受款人代碼」、「受款人姓名」及「含稅金額」：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 leading-relaxed space-y-1">
+                            <li>依照「代墊」與否，在「受款人代碼」中填寫老師的員工代號 <code class="font-mono bg-white px-1 border rounded">B32008</code>（代墊）或廠商的統一編號（非代墊）。填寫完後按下 Tab 鍵會自動填入「受款人姓名」，若沒有自動產生就自行填入。<strong>通常「設備費」不會代墊。</strong></li>
+                            <li>在「含稅金額」中填寫該報價單的總含稅金額。</li>
+                        </ul>
+                    </li>
+                    <li>確認右上方的「編輯經費」、「編輯品名」及「編輯受款人」的加總金額正確且一致。</li>
+                    <li>按下「存入」。</li>
+                    <li>列印請購單。</li>
+                </ol>
+
+                <!-- 科技部計畫十萬元以上 -->
+                <div class="p-4 bg-orange-50 rounded-xl border border-orange-200 text-xs sm:text-sm text-slate-700 space-y-2.5 mt-4 leading-relaxed">
+                    <p class="font-bold text-orange-900 text-sm sm:text-base">💼 若是科技部計畫十萬元以上：</p>
+                    <ol class="list-decimal list-inside space-y-1.5 text-slate-600">
+                        <li>至「學校網站」、「總務處」、「事務組」、「科研採購資訊」下載財務勞務議價紀錄。</li>
+                        <li>完成「財務勞務議價紀錄」，（相關問題請洽事務組謝廣和先生，分機 5227 / 直撥 05-6315227）。</li>
+                        <li>將報價單及財務勞務議價紀錄附在該請購單上，送系辦。</li>
+                        <li>若請購完成，則此請購公文會送回系辦的老師信箱中。</li>
+                    </ol>
+                    <p class="text-[11px] sm:text-xs text-red-600 font-semibold italic mt-1">
+                        * 注意：請注意報價單廠商和學校都設有有效期限，學校主計室的期限爲 1 個月。
+                    </p>
+                </div>
+
+                <!-- 2. 核銷說明 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📝 2. 核銷步驟
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>向廠商取得收據。<strong>注意收據的開立日期要晚於學校核准請購的日期。</strong></li>
+                    <li>到「<a href="https://accweb.nfu.edu.tw/APSWIS_Q/Login_AD_Q.asp" target="_blank" rel="noopener noreferrer" class="text-orange-600 font-bold hover:underline">主計室-網路請購系統</a>」，以老師的帳號登入。</li>
+                    <li>點選上方的「計劃請購查詢」。</li>
+                    <li>點擊「購案管理」，選擇「購案類別」爲「<strong>科研採購</strong>」。</li>
+                    <li>找到並勾選欲核銷的請購單號。</li>
+                    <li>點擊「報銷」。點擊「實支核銷」後按「下一步」。</li>
+                    <li>按「編輯收款人」。</li>
+                    <li>視情況勾選「代墊」，並填寫「發票/收據號碼」、「發票/收據日期」，並再次確認「受款人代碼」、「受款人姓名」及「含稅金額」：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 leading-relaxed space-y-0.5">
+                            <li>若此收據的金額要匯到老師的戶頭的話，請勾選「代墊」。若要匯給廠商，則取消勾選「代墊」。<strong>通常「設備費」不會代墊。</strong></li>
+                            <li>在「發票/收據號碼」中填寫發票號碼（如：<code class="font-mono bg-white px-1 border rounded">WX91434527</code>），若不是統一發票，則按一下上方的「填入收據」按鈕。</li>
+                            <li>在「發票/收據日期」填入民國年月日的七碼日期（如：111年12月31日填爲<code class="font-mono bg-white px-1 border rounded">1111231</code>）。</li>
+                        </ul>
+                    </li>
+                    <li>確認右上方的「編輯經費」、「編輯品名」及「編輯受款人」的加總金額正確且一致。</li>
+                    <li>按下「存入」。</li>
+                    <li>選擇列印「一般黏貼單」。系統會提示完成「財產增加單」，並繼續進行「連接財產增加單作業」。</li>
+                    <li>勾選「財產（新增）」。</li>
+                    <li>選到「王瑞智」，點擊新增。</li>
+                    <li>分上下兩半部，上半部紅框先填：
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 leading-relaxed">
+                            <li>財產別名 -> (填入購買物)</li>
+                            <li>廠牌型式</li>
+                            <li>使用部門 -> <strong>B32 電子工程系(含碩士班)</strong></li>
+                            <li>存置地點 -> <strong>ATC0206 智慧型機器人系統實驗室</strong></li>
+                            <li>保管人 -> <strong>王榮爵</strong></li>
+                            <li>經管人 -> <strong>王瑞智</strong>，填好後存入</li>
+                        </ul>
+                    </li>
+                    <li>下半部先按新增，裡面的科目代碼就依請購單上的章為主（例如：<code class="font-mono bg-white px-1 border rounded">A1112</code>），單價就填章上寫的金額，填好後存入。</li>
+                    <li>中間點擊離開，回到主計室請購系統。</li>
+                    <li>點擊該計畫前面的一小本書，勾選「實支核銷」那列並列印，即完成。</li>
+                    <li>若請購單上有蓋「核銷時請加會保管組」，需要在黏貼憑證用紙上勾選保管組。</li>
+                </ol>
+
+                <!-- 3. 財產增加說明 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-emerald-800">
+                    🏷️ 3. 財產增加步驟
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>請經費來源計劃主持人（老師）確認並於財產增加單上親自簽名，交給系辦。</li>
+                    <li>貼產編貼紙。</li>
+                    <li>將貼上產編的設備照片寄 Email 給系辦（瑞智）。</li>
+                    <li>至「學校網站」、「總務處」、「事務組」、「科研採購資訊」下載驗收紀錄。</li>
+                    <li>填寫驗收紀錄，並將之附上，送出公文。</li>
+                </ol>
+
+                <!-- 廠商須知 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-blue-900">
+                    🏢 廠商須知
+                </h4>
+                <div class="space-y-4 text-xs sm:text-sm leading-relaxed">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+                        <p class="font-bold text-slate-800">📄 報價單規定：</p>
+                        <ol class="list-decimal list-inside pl-4 text-slate-500 space-y-0.5 text-xs sm:text-sm">
+                            <li>報價單上各品項之品名需含有中文（如：無刷馬達、電源供應器），不能只有型號或英文品名。</li>
+                        </ol>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+                        <p class="font-bold text-slate-800">🧾 收據規定：</p>
+                        <p class="text-slate-500 font-semibold mb-1">因本校銷帳所需，請貴公司開立發票(收據)麻煩注意以下各點：</p>
+                        <ol class="list-decimal list-inside pl-4 text-slate-500 space-y-1 text-xs sm:text-sm">
+                            <li>發票上各品項之品名需含有中文（如：無刷馬達、電源供應器），不能只有型號或英文品名。</li>
+                            <li>在優先滿足第 1 點的情況下，發票和報價單等各處之品項、產品名稱/型號、價錢及數量等需一致，至少需要能夠清楚判斷爲相同之品項。</li>
+                            <li>發票開立日期必須晚於<strong>報價單開立日期及學校請購流程完成日期</strong>。</li>
+                            <li>發票上需蓋有公司/負責人章或帶有前者之統一發票專用章，且不能爲影本。電子發票證明聯不在此限。</li>
+                            <li>發票上之字樣需清晰可見。</li>
+                            <li>發票請打統編與抬頭。
+                                <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-400 space-y-0.5">
+                                    <li>抬頭：<strong>國立虎尾科技大學</strong></li>
+                                    <li>統一編號：<strong class="text-orange-600 font-mono">64967512</strong></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
                 </div>
             `,
             'most-expenditure': `
