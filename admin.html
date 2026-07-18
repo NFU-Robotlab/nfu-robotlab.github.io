@@ -82,6 +82,7 @@
         </section>
 
         <!-- 行政事務文檔導覽網格 -->
+        <!-- STREAMING_CHUNK: Coding the navigation grid layout and card options... -->
         <section class="space-y-6">
             <div class="border-l-4 border-orange-500 pl-4">
                 <h3 class="text-lg font-extrabold text-slate-900">📂 行政事務文檔導覽</h3>
@@ -251,6 +252,7 @@
     </footer>
 
     <!-- 行政文檔實體內容資料庫 -->
+    <!-- STREAMING_CHUNK: Instantiating JS document block mapping including the updated "7. 招標" details... -->
     <script>
         const docDatabase = {
             'intro': `
@@ -502,7 +504,7 @@
                             <li>書籍</li>
                             <li>印表機碳粉夾（需請系辦購買）</li>
                             <li>電腦螢幕</li>
-                            <li>一系列可組裝成電腦的零件（如硬碟、CPU、主機板...）。</li>
+                            <li>一系列可組裝成電腦的零件（如硬碟、CPU...）。</li>
                         </ul>
                     </li>
                 </ul>
@@ -628,7 +630,7 @@
                                 </ul>
                             </li>
                             <li>按「編輯收款人」。</li>
-                            <li>視情況勾選「代墊」，並填寫「發票/收據號碼」、「發票/收據日期」、「受款人代碼」、「受款人姓名」及「含稅金額」，每張收據分開填寫：
+                            <li>視情況勾選「代墊」，並填寫「發票/收據號碼」、「發票/收據日期」、「受款人代碼」、「受款人姓名}」及「含稅金額」，每張收據分開填寫：
                                 <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 space-y-1">
                                     <li>若此收據的金額要匯到老師的戶頭，請勾選「代墊」；若要匯給廠商，則取消勾選「代墊」。同一份核銷中，請統一一個受款人，不同受款人的收據請分開核銷。</li>
                                     <li>在「發票/收據號碼」中填寫發票號碼（如：<code class="font-mono bg-white px-1 border rounded text-orange-600">64967512</code> 之類的格式），若不是統一發票，則按一下上方的「填入收據」按鈕。</li>
@@ -640,7 +642,7 @@
                             <li>確認右上方的「編輯經費」、「編輯品名」及「編輯受款人」的加總金額正確且一致。</li>
                             <li>按下「存入」。</li>
                             <li>選擇並列印「一般黏貼憑證」。</li>
-                            <li>將所有收據黏貼或以釘書機釘在該「一般黏貼憑證」上，送系辦。</li>
+                            <li>將所有收據黏貼 or 以釘書機釘在該「一般黏貼憑證」上，送系辦。</li>
                         </ol>
                     </div>
 
@@ -669,7 +671,7 @@
                                     💡 <strong>範例：</strong>110B 的深碗學習注意事項有寫到：「請事先至本校預作請購系統請購核銷之費用，請購人代碼為 <strong class="text-orange-600">F10013</strong>，並將核章後之請購單資料送至本校行政大樓 4F 深耕辦公室。」，所以要在「加會單位」中填上「<strong>深耕辦公室</strong>」。
                                 </div>
                             </li>
-                            <li>將所有收據黏貼或以釘書機釘在該「一般黏貼憑證」上，送系辦。</li>
+                            <li>將所有收據黏貼 or 以釘書機釘在該「一般黏貼憑證」上，送系辦。</li>
                         </ol>
                     </div>
                 </div>
@@ -763,14 +765,14 @@
                     <li>按「新增請購」。</li>
                     <li>勾選「科研採購」後按「下一步」。</li>
                     <li>填寫「用途說明」：
-                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-0.5">
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 space-y-0.5">
                             <li>科技部計畫如：<strong>機器人實驗室，購買&lt;欲購買物品名稱&gt;</strong></li>
                             <li>系上經費如：<strong>機器人實驗室王榮爵老師，購買&lt;欲購買物品名稱&gt;</strong></li>
                         </ul>
                     </li>
                     <li>選擇「計劃編號」、「經費用途」、「金額」。（金額可以最後再填）</li>
                     <li>依照報價單內容填寫「品名/規格/用途」、「單位」、「數量」及「總價」：
-                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 leading-relaxed">
+                        <ul class="list-disc list-inside pl-5 mt-1 text-[11px] text-slate-500 leading-relaxed">
                             <li>若報價單上的品名沒有中文或看不出是什麼品項的話，請自行補充，並同樣以原子筆標註在收據上。如：原本收據上品名只有「SG90」，則自行補充爲「SG90伺服馬達」。<strong>最好是請廠商開立符合我們需求的報價單。</strong></li>
                         </ul>
                     </li>
@@ -819,9 +821,9 @@
                             <li>在「發票/收據日期」填入民國年月日的七碼日期（如：111年12月31日填爲<code class="font-mono bg-white px-1 border rounded">1111231</code>）。</li>
                         </ul>
                     </li>
-                    <li>確認右上方的「編輯經費」、「編輯品名」及「編輯受款人’的加總金額正確且一致。</li>
+                    <li>確認右上方的「編輯經費」、「編輯品名」及「編輯受款人」的加總金額正確且一致。</li>
                     <li>按下「存入」。</li>
-                    <li>選擇列印「一般黏貼單」。系統會提示完成「財產增加單」，並繼續進行「連接財產增加單作業」。</li>
+                    <li>選擇列印「一般黏貼單」。系統會提示完成「財產增加單」，並繼續進行「連接財產增加單作業作業」。</li>
                     <li>勾選「財產（新增）」。</li>
                     <li>選到「王瑞智」，點擊新增。</li>
                     <li>分上下兩半部，上半部紅框先填：
@@ -1215,7 +1217,7 @@
                         </p>
                         <ol class="list-decimal list-inside text-xs sm:text-sm text-slate-600 space-y-1.5 leading-relaxed pl-1">
                             <li>選擇「預作請購」-&gt;「印領清冊/差旅費」-&gt;「印領清冊 (請輸入欲輸入之筆數50)」</li>
-                            <li>填寫「預計金額」（不含補充保費...）</li>
+                            <li>「預計金額」（不含補充保費...）</li>
                             <li>注意是否需要填入「欲轉給請購人代碼」</li>
                             <li>「購案說明」填寫範例：<br>
                                 <span class="text-slate-500 font-mono text-[11px] sm:text-xs bg-white border px-1.5 py-0.5 rounded inline-block mt-0.5">
@@ -1269,7 +1271,7 @@
                     </li>
                     <li>「費用別備註」依據各計劃填寫詳細的說明（例如：<code class="font-mono bg-white px-1 border rounded text-slate-700">10月28日，電子系王XX老師，機器人設計實務，業師授課</code>）。</li>
                     <li>「受領人資料」請業師照實填寫。</li>
-                    <li><strong>請受領人於「受領人資料」處親自簽章</strong>（必須為親筆簽章，不能是影本或掃描檔等）。</li>
+                    <li><strong>請受領人於「受領人資料」处親自簽章</strong>（必須為親筆簽章，不能是影本或掃描檔等）。</li>
                     <li>請受領人提供郵局存簿影本作為附件附上。</li>
                     <li>若要核銷的是「交通費」，還需一併附上證明：
                         <ul class="list-disc list-inside pl-5 mt-1 text-[11px] sm:text-xs text-slate-500 space-y-1">
@@ -1310,10 +1312,52 @@
                 </ol>
             `,
             'tender': `
-                <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 7. 招標</h3>
-                <p class="text-xs text-slate-400 font-mono">[ PUBLIC_BIDDING_PROCUREMENT // 政府採購法招標流程 ]</p>
-                <div class="border-t border-slate-200 my-3"></div>
-                <p>採購總金額超過 $1,000,000 元（含）以上時依規定辦理公開招標。</p>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">📄 7. 招擺 / 招標</h3>
+                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ PUBLIC_BIDDING_PROCUREMENT // 政府採購與招標程序 ]</p>
+                <div class="border-t border-slate-200/60 my-4"></div>
+
+                <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed mb-4">
+                    <li>科技部計畫總金額超過 <strong>$1,000,000</strong> 的採購需要使用招標。</li>
+                    <li>其餘經費超過 <strong>$10,000</strong> 的採購需要使用招標。</li>
+                </ul>
+
+                <p class="text-xs sm:text-sm text-slate-500 mb-4 leading-relaxed">
+                    招標依政府採購法規，可分為以下三種主要形式：
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="font-bold text-slate-800 text-xs sm:text-sm">● 公開招標</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="font-bold text-slate-800 text-xs sm:text-sm">● 限制性招標</span>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="font-bold text-slate-800 text-xs sm:text-sm">● 選擇性招標</span>
+                    </div>
+                </div>
+
+                <!-- 準備文件 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
+                    📋 準備文件
+                </h4>
+                <ol class="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>10萬元以上財物暨勞務採購資料表</li>
+                    <li>價格及底價分析表</li>
+                    <li>投標標價清單</li>
+                    <li>採購規格明細表</li>
+                    <li>採購簽呈</li>
+                </ol>
+                <div class="p-3.5 bg-orange-500/10 border-l-4 border-orange-500 rounded-r-lg text-xs sm:text-sm text-slate-700 leading-relaxed mt-3">
+                    💡 <strong>表單下載連結：</strong> 以上相關空白表格，可直接前往本校 <a href="http://gad.nfu.edu.tw/files/11-1012-2382.php" target="_blank" rel="noopener noreferrer" class="text-orange-600 font-bold hover:underline">總務處事務組下載專區 ➔</a> 取得。
+                </div>
+
+                <!-- 驗收 -->
+                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-emerald-800">
+                    🔍 驗收
+                </h4>
+                <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
+                    <li>與承辦人（行政大樓4F事務組謝先生，分機 <code class="font-mono bg-slate-100 px-1 rounded text-emerald-700">5227</code>）約時間，對照「採購規格明細表」逐項核驗，驗收時<strong>計畫主持人（老師）必須在場</strong>。</li>
+                </ol>
             `,
             'transfer': `
                 <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 8. 回沖</h3>
@@ -1325,7 +1369,7 @@
                 <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 9. 國內差旅費</h3>
                 <p class="text-xs text-slate-400 font-mono">[ DOMESTIC_TRAVEL_EXPENSES // 交通、住宿、誤餐 ]</p>
                 <div class="border-t border-slate-200 my-3"></div>
-                <p>能核銷的只能是以學校（雲林高鐵站、斗南、斗六火車站）為起點 or 終點。</p>
+                <p>能核銷的只能是以學校（雲林高鐵站、斗南、斗六火車站）為起點或終點。</p>
             `,
             'employment': `
                 <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-1">📄 10. 申請在職證明</h3>
