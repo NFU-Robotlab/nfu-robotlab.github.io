@@ -225,73 +225,7 @@
                     相較於官方 HAL 函式庫，<strong>LibOpenCM3</strong> 是一款開源、輕量且底層效率極高的暫存器級開發框架，配合 PlatformIO，是實驗室快速打造高效能控制核心的主力架構！
                 </div>
 
-                <!-- 1. 開發環境與 PlatformIO 設置 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
-                    🛠️ 1. PlatformIO 與 LibOpenCM3 環境建置
-                </h4>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">
-                    實驗室全面採用 VS Code 整合 <strong>PlatformIO</strong> 工具鏈進行嵌入式開發，免除傳統 Keil uVision 繁瑣的 pack 安裝與授權問題。
-                </p>
-                <ul class="list-decimal list-inside space-y-1.5 text-xs text-slate-500 pl-1 mb-4 leading-relaxed">
-                    <li>在 VS Code 中搜尋並安裝 <strong>PlatformIO IDE</strong> 擴充套件。</li>
-                    <li>建立新專案時，Development Board 選擇 <strong>Nucleo-F446RE</strong> (或實驗室 F407 等晶片)，Framework 務必指定為 <strong>libopencm3</strong>。</li>
-                    <li>PlatformIO 會自動從網路下載對應晶片所需的 GNU ARM 工具鏈，不需人工手動安裝。</li>
-                </ul>
-
-                <!-- 2. 時鐘樹與 System Clock 設定 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
-                    🌲 2. 時鐘樹 (Clock Tree) 與系統時脈
-                </h4>
-                <p class="text-slate-600 text-xs leading-relaxed mb-3">
-                    在 STM32 晶片中，所有週邊皆有獨立的時鐘閘門。正確設定系統時脈 (SYSCLK) 是微控制器運作的第一步。以 HSE 外部高速振盪器配置系統時鐘：
-                </p>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 shadow-inner max-w-full overflow-x-auto leading-relaxed space-y-1 mb-4">
-                    <span class="text-slate-500">// 時脈初始：設定外部石英震盪器 (HSE 8MHz) 透過 PLL 倍頻至高精度 84MHz SYSCLK</span><br>
-                    rcc_clock_setup_pll(&amp;rcc_hse_8mhz_3v3[RCC_CLOCK_3V3_84MHZ]);<br>
-                    <br>
-                    <span class="text-slate-500">// 啟用 GPIO 與核心週邊的外圍時脈控制閘</span><br>
-                    rcc_periph_clock_enable(RCC_GPIOA);  <span class="text-slate-500">// 啟用 PORT A 時脈</span><br>
-                    rcc_periph_clock_enable(RCC_USART2); <span class="text-slate-500">// 啟用 2 號序列埠時脈</span>
-                </div>
-
-                <!-- 3. GPIO / EXTI / SysTick 高精度驅動範例 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
-                    ⚡ 3. 核心暫存器級驅動實作 (GPIO / SysTick / USART)
-                </h4>
-                <p class="text-slate-600 text-xs leading-relaxed mb-3">
-                    以下為 ziteh 鐵人賽課程中提煉的最實用驅動程式碼。掌握這些底層呼叫，能讓你在馬達與多軸通訊中游刃有餘：
-                </p>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 shadow-inner max-w-full overflow-x-auto leading-relaxed space-y-1 mb-4">
-                    <span class="text-slate-500">// 1. GPIO 輸出配置與控制 (閃爍板載 D13 / PA5)</span><br>
-                    gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5);<br>
-                    gpio_set(GPIOA, GPIO5);   <span class="text-slate-500">// 輸出 High (拉高點亮)</span><br>
-                    gpio_clear(GPIOA, GPIO5); <span class="text-slate-500">// 輸出 Low (拉低熄滅)</span><br>
-                    <br>
-                    <span class="text-slate-500">// 2. 使用 SysTick 系統滴答計時器，取代傳統粗糙的 busy-loop 延遲</span><br>
-                    static volatile uint32_t systick_delay = 0;<br>
-                    void sys_tick_handler(void) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;if (systick_delay != 0) { systick_delay--; }<br>
-                    }<br>
-                    void delay_ms(uint32_t ms) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;systick_delay = ms;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;while (systick_delay != 0); <span class="text-slate-500">// 等待中斷遞減完成</span><br>
-                    }<br>
-                    <br>
-                    <span class="text-slate-500">// 3. USART2 串列發送 (串列週邊通訊封包發送)</span><br>
-                    usart_send_blocking(USART2, 'A'); <span class="text-slate-500">// 阻塞式安全發送一個位元組</span>
-                </div>
-
-                <!-- 4. 看門狗與安全復歸 SOP -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-red-700">
-                    ⚠️ 4. 看門狗安全防護 (WWDG) 與除錯機制
-                </h4>
-                <p class="text-slate-600 text-xs leading-relaxed mb-3">
-                    為了避免機械手臂或 AGV 因主程式死鎖（Hang）造成暴走，必須啟動 WWDG 窗口看門狗計時器進行安全防護。
-                </p>
-                <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-600 pl-1 leading-relaxed">
-                    <li><strong>看門狗原理：</strong> 在主迴圈中設定一個固定的計時時間窗口。若程式在規定窗口外或超時未刷新（餵狗），硬體會強制進行 <strong>MCU 系統重啟 (Reset)</strong>，保護人機安全。</li>
-                    <li><strong>ST-LINK 物理連線安全：</strong> 在插拔燒錄器時，請務必先切斷 STM32 板子外部馬達的高壓供電，防止底層地迴路電位差產生的突波擊穿 MCU 週邊。</li>
-                </ol>
+                
             `,
             'soft-eng': `
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">💻 軟體工程與程式素養</h3>
