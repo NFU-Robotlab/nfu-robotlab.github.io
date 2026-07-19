@@ -89,17 +89,16 @@
             </div>
 
             <!-- 6 大核心導覽卡片 -->
-            <!-- STREAMING_CHUNK: Coding the technical guides grids... -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 
-                <!-- 1. STM32 F4學習 -->
+                <!-- 1. STM32 F4 嵌入式開發 -->
                 <button onclick="openDoc('stm32-f4'); playSynth('click')" onmouseenter="playSynth('hover')" class="glass-card p-5 rounded-xl text-left flex flex-col justify-between h-40">
                     <div>
                         <h4 class="font-black text-sm text-slate-900 flex items-center gap-1.5">
-                            🧠 <span class="hover:text-indigo-600 transition-colors text-xs sm:text-sm">STM32 F4 學習開發</span>
+                            🧠 <span class="hover:text-indigo-600 transition-colors text-xs sm:text-sm">STM32 F4 嵌入式開發</span>
                         </h4>
                         <p class="text-[11px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
-                            PlatformIO 實戰、開源 LibOpenCM3 暫存器級框架、RCC時脈樹、高精度中斷與週邊串接調校。
+                            LibOpenCM3 開源極輕量底層暫存器驅動框架、時脈樹配置、 ziteh 學長鐵人賽經典教程。
                         </p>
                     </div>
                     <span class="text-[9px] font-mono text-indigo-600 font-bold tracking-widest uppercase mt-2">READ_MORE // 🧠</span>
@@ -212,8 +211,8 @@
     <script>
         const docDatabase = {
             'stm32-f4': `
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">🧠 STM32 F4 嵌入式開發 (LibOpenCM3 實戰)</h3>
-                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ LIBOPENCM3_STM32F4 // PLATFORMIO_DEVELOPMENT ]</p>
+                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">🧠 STM32 F4 嵌入式開發</h3>
+                <p class="text-xs sm:text-sm text-slate-400 font-mono">[ STM32F4_MICROCONTROLLER // CORTEX_M4 ]</p>
                 <div class="border-t border-slate-200/60 my-4"></div>
 
                 <div class="p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-xl text-xs sm:text-sm text-slate-700 leading-relaxed mb-5">
@@ -222,10 +221,8 @@
                     <a href="https://ithelp.ithome.com.tw/users/20151756/ironman/5382" target="_blank" rel="noopener noreferrer" class="text-indigo-600 font-bold hover:underline inline-flex items-center gap-1">
                         🔗 簡單入門LibOpenCM3 STM32 嵌入式系統開發系列 (鐵人賽 5382) ➔
                     </a><br>
-                    相較於官方 HAL 函式庫，<strong>LibOpenCM3</strong> 是一款開源、輕量且底層效率極高的暫存器級開發框架，配合 PlatformIO，是實驗室快速打造高效能控制核心的主力架構！
+                    本篇專為實驗室成員提供 STM32F4 (ARM Cortex-M4) 微控制器的核心學習指南與經驗傳承。
                 </div>
-
-                
             `,
             'soft-eng': `
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">💻 軟體工程與程式素養</h3>
@@ -321,25 +318,21 @@
                     }
                 </div>
 
-                <!-- 2. WinForms 多線程安全控制 -->
+                <!-- 2. UI 更新安全 -->
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-red-700">
                     ⚠️ 2. WinForms 多線程 UI 安全更新 (Cross-thread violation)
                 </h4>
                 <p class="text-slate-600 text-xs leading-relaxed mb-3">
-                    在非同步讀取馬達回授位置或進行 TCP 持續聆聽時，若在自建的背景線程 (Thread) 中直接存取視窗控制項（例如：把馬達座標寫入 <code class="font-mono bg-slate-100 px-1 border rounded text-slate-700">textBox1.Text</code>），系統會拋出 <strong>Cross-thread operation not valid</strong> 的嚴重的崩潰錯誤。
+                    在非同步讀取馬達回授位置或進行 TCP 持續聆聽時，若在自建的背景線程 (Thread) 中直接存取視窗控制項（例如：把馬達座標寫入 textBox1.Text），系統會拋出崩潰錯誤。
                 </p>
-                <div class="p-3 bg-red-50 border border-red-200 rounded-lg text-xs text-red-800 leading-relaxed mb-3">
-                    <strong>💡 標準跨線程 UI 更新方案 (Invoke) 範例：</strong>
-                </div>
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 shadow-inner max-w-full overflow-x-auto leading-relaxed">
                     <span class="text-blue-400">private void</span> <span class="text-yellow-400">UpdateStatus</span>(<span class="text-blue-400">string</span> message)<br>
                     {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">if</span> (textBox1.InvokeRequired)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (textBox1.InvokeRequired)<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-slate-500">// 若是從其它線程調用，則使用 BeginInvoke 進行非同步安全排隊</span><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textBox1.<span class="text-yellow-400">BeginInvoke</span>(<span class="text-blue-400">new</span> Action&lt;<span class="text-blue-400">string</span>&gt;(UpdateStatus), message);<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">else</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;else<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;{<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textBox1.Text = message;<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;}<br>
@@ -364,7 +357,7 @@
                     <li>
                         開啟 Git Bash 視窗，輸入以下指令配置個人全局身分（請務必設定，否則無法順利進行 Commit 推送）：
                         <div class="my-2 bg-slate-950 p-3 rounded-lg border border-slate-800 text-indigo-300 font-mono text-[11px] leading-relaxed">
-                            git config --global user.name "你的英文姓名(或GitHub名稱)"<br>
+                            git config --global user.name "你的英文姓名"<br>
                             git config --global user.email "你的 E-mail"
                         </div>
                     </li>
@@ -377,7 +370,7 @@
                 <ul class="space-y-3 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
                     <li>
                         <strong class="text-slate-800">● Visual Studio Community</strong>：<br>
-                        <span class="text-slate-500 pl-5 inline-block text-xs">C# GUI 視窗開發首選。下載安裝時，務必勾選<strong>「.NET 桌面開發」</strong>與<strong>「使用 C++ 的行動開發」</strong>工作負載。</span>
+                        <span class="text-slate-500 pl-5 inline-block text-xs">C# GUI 視窗開發首選。下載安裝時，務必勾選<strong>「.NET 桌面開發」</strong>。</span>
                     </li>
                     <li>
                         <strong class="text-slate-800">● Onshape 3D Cloud CAD</strong>：<br>
@@ -406,11 +399,8 @@
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
                     🌐 1. TCP/IP 通訊參數配置
                 </h4>
-                <p class="text-slate-600 text-xs leading-relaxed mb-2">
-                    在進行 C# 軟體開發前，請先確保控制用主機與 HIWIN 控制箱在同一個子網域中。
-                </p>
-                <div class="overflow-x-auto border border-slate-200 rounded-xl my-3">
-                    <table class="min-w-full divide-y divide-slate-200 text-xs text-left">
+                <div class="overflow-x-auto border border-slate-200 rounded-xl my-3 text-xs">
+                    <table class="min-w-full divide-y divide-slate-200 text-left">
                         <tbody class="divide-y divide-slate-100 bg-white text-slate-600">
                             <tr>
                                 <td class="px-5 py-3 font-semibold text-slate-900 bg-slate-50">HIWIN 控制箱默認 IP</td>
@@ -418,51 +408,24 @@
                             </tr>
                             <tr>
                                 <td class="px-5 py-3 font-semibold text-slate-900 bg-slate-50">控制主機建議配置 IP</td>
-                                <td class="px-5 py-3 font-mono">192.168.1.100 (或 192.168.1.X 等同網段)</td>
-                            </tr>
-                            <tr>
-                                <td class="px-5 py-3 font-semibold text-slate-900 bg-slate-50">RASDK 通訊 Port</td>
-                                <td class="px-5 py-3 font-mono">8000 (預設)</td>
+                                <td class="px-5 py-3 font-mono">192.168.1.100</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 2. 基本運動函式呼叫 -->
+                <!-- 2. API 呼叫 -->
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
                     🏎️ 2. RASDK 核心控制 API (C#)
                 </h4>
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 shadow-inner max-w-full overflow-x-auto leading-relaxed space-y-1">
-                    <span class="text-slate-500">// 1. 建立手臂控制器對象並進行 Socket 連線</span><br>
                     IRobotArm robot = <span class="text-blue-400">new</span> HiwinRobotArm(<span class="text-blue-400">"192.168.1.30"</span>);<br>
                     robot.<span class="text-yellow-400">Connect</span>();<br>
-                    <br>
-                    <span class="text-slate-500">// 2. 設定運動速度與加速度 (1 ~ 100%)</span><br>
                     robot.<span class="text-yellow-400">SetSpeed</span>(<span class="text-amber-500">50</span>);<br>
-                    <br>
-                    <span class="text-slate-500">// 3. PTP (點對點關節運動) - 移動至特定空間軸座標</span><br>
-                    <span class="text-blue-400">double</span>[] targetPose = <span class="text-blue-400">new double</span>[<span class="text-amber-500">6</span>] { <span class="text-amber-500">100.0</span>, <span class="text-amber-500">250.0</span>, <span class="text-amber-500">300.0</span>, <span class="text-amber-500">0.0</span>, <span class="text-amber-500">90.0</span>, <span class="text-amber-500">0.0</span> };<br>
+                    <span class="text-blue-400">double</span>[] targetPose = <span class="text-blue-400">new double</span>[<span class="text-amber-500">6</span>] { 100, 250, 300, 0, 90, 0 };<br>
                     robot.<span class="text-yellow-400">Ptp</span>(targetPose);<br>
-                    <br>
-                    <span class="text-slate-500">// 4. LIN (線性直線運動) - 精密直線路徑加工</span><br>
-                    robot.<span class="text-yellow-400">Lin</span>(targetPose);<br>
-                    <br>
-                    <span class="text-slate-500">// 5. 斷開連線安全關閉</span><br>
                     robot.<span class="text-yellow-400">Disconnect</span>();
                 </div>
-
-                <!-- 3. 安全防護與警報排除 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-red-700">
-                    🚨 3. 實機硬體安全與警報復歸
-                </h4>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-2">
-                    在實機運轉前，<strong>請確認控制箱上的實體「緊急停止鈕」已轉開</strong>。
-                </p>
-                <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-600 pl-1 leading-relaxed">
-                    <li>若因關節運動超限撞限（如 Over-travel 撞軟極限），請先至手持教導盒 (Teach Pendant) 切換至手動模式，解除鎖死。</li>
-                    <li>點擊教導盒上的 <strong>「Alarm Reset」</strong>，清除軟體內部的警報日誌，再使用 C# 發送伺服馬達重新致能（Enable）訊號。</li>
-                    <li>嚴禁在伺服馬達處於斷能（Servo Off）或帶有異常警報紅燈時，直接用外力強行搬動機械手臂的實體關節，此動作極易損害齒輪箱！</li>
-                </ol>
             `,
             'github-rules': `
                 <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 flex items-center gap-1.5">🐙 GitHub 組織成員守則</h3>
@@ -470,43 +433,18 @@
                 <div class="border-t border-slate-200/60 my-4"></div>
 
                 <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                    本守則旨在規範全體實驗室成員（包含碩士班、專題生）在 [github.com/nfu-robotlab] 組織旗下共同進行協作、共同維護專案代碼時的版控標準：
+                    本守則旨在規範全體成員共同進行協作時的版控標準：
                 </p>
 
                 <!-- 1. 分支模型 -->
                 <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-5 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
                     🌲 1. 標準分支模型 (Simplified Git Flow)
                 </h4>
-                <p class="text-slate-600 text-xs leading-relaxed mb-3">
-                    嚴禁直接將未經測試的程式碼 Commit & Push 推送到 <code class="font-mono bg-slate-100 px-1 border rounded text-indigo-600">main</code> 或 <code class="font-mono bg-slate-100 px-1 border rounded text-indigo-600">master</code> 分支！請遵循以下原則：
-                </p>
                 <ul class="space-y-2 text-xs sm:text-sm text-slate-600 pl-1 leading-relaxed">
-                    <li><strong class="text-slate-900">● main 分支</strong>：唯一的正式發表版本（Stable Production）。只有在功能完全開發完畢、經過實機測試，且通過學長審查後才能合併。</li>
-                    <li><strong class="text-slate-900">● dev 分支</strong>：共享的開發整合分支（Integration）。所有組員開發的新特徵應推送到此進行初步整合與編譯。</li>
-                    <li><strong class="text-slate-900">● feature/ 獨立分支</strong>：當你預計要增加一個特定的功能時，請先從 dev 分支開闢一個屬於你個人、以 <code class="font-mono bg-slate-50 border rounded text-slate-700">feature/your-feature-name</code> 為名的獨立工作分支。</li>
+                    <li><strong class="text-slate-900">● main 分支</strong>：唯一的正式發表版本（Stable Production）。</li>
+                    <li><strong class="text-slate-900">● dev 分支</strong>：共享的開發整合分支（Integration）。</li>
+                    <li><strong class="text-slate-900">● feature/ 獨立分支</strong>：功能開發時開拓的臨時分支。</li>
                 </ul>
-
-                <!-- 2. Pull Request (PR) 審查機制 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5">
-                    🔍 2. Pull Request 合併與 Code Review 審查
-                </h4>
-                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">
-                    當你的功能特徵分支開發完成且推送後，不要自行在本地進行 Merge，請主動至 GitHub 線上建立一個 **Pull Request (PR)**：
-                </p>
-                <ol class="list-decimal list-inside space-y-1.5 text-xs text-slate-600 pl-1 leading-relaxed">
-                    <li>在 PR 敘述欄內寫明本次 Commit 解決了哪些 Bug、或是新增了哪些技術特徵。</li>
-                    <li>在右側 **Reviewers** 欄位中，指派負責該專案的學長或助理助教（例如指派：王瑞智）。</li>
-                    <li>等待學長線上檢視、確認代碼無明顯標籤缺失、不合規死迴圈或衝突後，點擊 Merge，此時新程式碼才會正式收錄。</li>
-                </ol>
-
-                <!-- 3. 安全防範：嚴禁提交敏感金鑰 -->
-                <h4 class="text-base sm:text-lg font-bold text-slate-900 mt-6 mb-3 flex items-center gap-1.5 border-b border-slate-200/60 pb-1.5 text-red-700">
-                    ❌ 3. 安全大忌：嚴格禁止提交敏感金鑰與密碼
-                </h4>
-                <div class="bg-red-50 border border-red-200 rounded-lg p-3 text-xs text-red-800 space-y-2 mb-3 leading-relaxed">
-                    <p class="font-bold">⚠️ 當專案包含第三方雲端 API (如 OpenAI key, RealSense SDK 金鑰) 或私有連線密碼時，絕對禁止將其直接 Hardcoded 在程式碼中並 Commit 上傳！</p>
-                    <p class="font-bold">⚠️ 上傳前請務必將相關敏感金鑰移至本地設定檔（或寫入 gitignore 中忽略上傳），否則一旦被自動化網頁爬蟲掃描抓取，實驗室將面臨巨大的資安與盜刷風險。</p>
-                </div>
             `
         };
 
@@ -518,7 +456,6 @@
             if (modal && body && docDatabase[topicId]) {
                 body.innerHTML = docDatabase[topicId];
                 modal.classList.remove('hidden');
-                // 滾動回到最頂端
                 body.scrollTop = 0;
             }
         }
