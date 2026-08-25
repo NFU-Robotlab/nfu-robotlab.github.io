@@ -1,0 +1,12 @@
+{
+  "name": "nfu-robotlab-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Validation tools for the NFU Robot Lab GitHub Pages site",
+  "scripts": {
+    "test": "node scripts/validate-site.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

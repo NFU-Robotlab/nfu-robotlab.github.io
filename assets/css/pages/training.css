@@ -1,0 +1,66 @@
+body {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            background-color: #030208;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* 賽博龐克科技掃描線與網格 */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                        linear-gradient(90deg, rgba(255, 0, 127, 0.03), rgba(0, 240, 255, 0.03), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 6px 100%;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* 科技藍與螢光粉背光暈染 */
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.08);
+        }
+        .neon-glow-pink {
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.25), inset 0 0 15px rgba(255, 0, 127, 0.08);
+        }
+        .neon-text-pink {
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.8), 0 0 20px rgba(255, 0, 127, 0.3);
+        }
+        .neon-text-cyan {
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        /* 未來風切角面板與按鈕 */
+        .clip-cyber {
+            clip-path: polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%);
+        }
+        .clip-cyber-sm {
+            clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 5% 100%, 0 80%);
+        }
+
+        /* Glitch 抖動動畫特效 */
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 1px) }
+            40% { transform: translate(-1px, -1px) }
+            60% { transform: translate(1px, 2px) }
+            80% { transform: translate(2px, -1px) }
+            100% { transform: translate(0) }
+        }
+        .glitch-hover:hover {
+            animation: glitch 0.2s linear infinite;
+        }
+
+        /* 掃描線動畫 */
+        @keyframes laser-sweep {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .laser-sweep-line {
+            animation: laser-sweep 4s linear infinite;
+        }

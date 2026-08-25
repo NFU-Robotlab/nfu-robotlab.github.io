@@ -1,0 +1,21 @@
+title: NFU 智慧型機器人系統實驗室
+short_title: NFU I.R.S. Lab
+description: 國立虎尾科技大學智慧型機器人系統實驗室網站
+url: https://nfu-robotlab.github.io
+baseurl: ""
+lang: zh-TW
+timezone: Asia/Taipei
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - AGENTS.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - docs
+  - node_modules
+  - package.json
+  - scripts

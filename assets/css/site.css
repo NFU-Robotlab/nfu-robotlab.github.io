@@ -1,0 +1,102 @@
+:root {
+  color-scheme: light;
+  --site-accent: #f97316;
+  --site-ink: #0f172a;
+}
+
+html {
+  background: #020617;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Noto Sans TC", system-ui, sans-serif;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.65rem 1rem;
+  border-radius: 0.6rem;
+  color: white;
+  background: #ea580c;
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-nav-link {
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible {
+  color: white;
+  background: rgb(255 255 255 / 0.08);
+}
+
+.site-nav-link.is-active {
+  color: #fed7aa;
+  background: rgb(249 115 22 / 0.17);
+}
+
+.audio-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.4rem;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  color: #cbd5e1;
+  background: rgb(255 255 255 / 0.08);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.audio-toggle:hover,
+.audio-toggle:focus-visible {
+  color: white;
+  background: rgb(255 255 255 / 0.14);
+}
+
+.audio-toggle.is-on {
+  border-color: #f97316;
+  color: white;
+  background: #ea580c;
+}
+
+.mobile-nav nav a {
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.75rem;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.mobile-nav nav a:hover,
+.mobile-nav nav a:focus-visible {
+  color: white;
+  background: rgb(255 255 255 / 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
