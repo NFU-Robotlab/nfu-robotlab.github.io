@@ -93,7 +93,7 @@ for (const page of parsedPages) {
   }
 }
 
-for (const requiredPath of ["/", "/training.html", "/learning-guides.html", "/ta.html"]) {
+for (const requiredPath of ["/", "/administrative-affairs/", "/training.html", "/learning-guides.html", "/ta.html"]) {
   if (!publishedPaths.has(requiredPath)) errors.push(`缺少必要公開網址 ${requiredPath}`);
 }
 

@@ -1,0 +1,184 @@
+---
+layout: default
+title: "實驗室行政 | NFU 智慧型機器人系統實驗室"
+description: "NFU 智慧型機器人系統實驗室行政知識庫，整理核銷、採購、計畫經費、業師與差旅等公開行政重點。"
+permalink: /administrative-affairs/
+page_key: administrative-affairs
+page_css: /assets/css/pages/administrative-affairs.css
+page_js: /assets/js/pages/administrative-affairs.js
+---
+<main class="admin-main">
+  <section class="admin-hero reveal" aria-labelledby="admin-page-title">
+    <div class="admin-hero-copy">
+      <p class="admin-kicker"><span></span> ADMINISTRATION KNOWLEDGE BASE</p>
+      <h1 id="admin-page-title">實驗室行政<br><strong>清楚完成每一個流程</strong></h1>
+      <p class="admin-lead">
+        將舊版行政文件重新整理為更容易查找的公開知識庫，涵蓋核銷、科研採購、計畫經費、業師聘任與國內外差旅等常見工作。
+      </p>
+      <div class="admin-hero-actions">
+        <a class="button-primary" href="#admin-directory">瀏覽行政文件 <span aria-hidden="true">↓</span></a>
+        <a class="button-secondary" href="https://nfu-irs-lab.github.io/docs/administrative-affairs" target="_blank" rel="noopener noreferrer">查看舊版資料</a>
+      </div>
+    </div>
+
+    <aside class="admin-status-panel" aria-label="行政知識庫狀態">
+      <div class="admin-status-topline">
+        <span>PUBLIC REFERENCE</span>
+        <span class="admin-status-online"><i></i> READY</span>
+      </div>
+      <dl>
+        <div><dt>文件分類</dt><dd>11 類</dd></div>
+        <div><dt>主要範圍</dt><dd>核銷 · 採購 · 差旅</dd></div>
+        <div><dt>資料基礎</dt><dd>舊站公開文件</dd></div>
+      </dl>
+      <p>本頁不包含帳號、密碼、個人資料、教師代碼或未公開計畫資料。</p>
+    </aside>
+  </section>
+
+  <section class="admin-notice reveal" aria-label="使用提醒">
+    <span class="admin-notice-icon" aria-hidden="true">!</span>
+    <div>
+      <strong>辦理前請再次確認最新規定</strong>
+      <p>金額門檻、表單與系統流程可能調整；實際送件前，請以國立虎尾科技大學最新公告、系辦與計畫承辦人說明為準。</p>
+    </div>
+  </section>
+
+  <section id="admin-directory" class="admin-directory" aria-labelledby="admin-directory-title">
+    <div class="admin-directory-heading reveal">
+      <div>
+        <span class="eyebrow">Document Directory</span>
+        <h2 id="admin-directory-title">行政事務文件</h2>
+        <p>選擇分類即可開啟閱讀視窗，內容已重新整理為適合快速確認的檢查清單。</p>
+      </div>
+      <label class="admin-search">
+        <span aria-hidden="true">⌕</span>
+        <span class="sr-only">搜尋行政文件</span>
+        <input id="admin-search-input" type="search" placeholder="搜尋核銷、採購或差旅" autocomplete="off">
+      </label>
+    </div>
+
+    <div class="admin-card-grid">
+      <button class="admin-card reveal" type="button" data-admin-document="intro">
+        <span class="admin-card-index">01</span>
+        <span class="admin-card-icon" aria-hidden="true">🏛️</span>
+        <strong>行政簡介</strong>
+        <small>常用處室、經費種類、用途與財產報廢觀念。</small>
+        <span class="admin-card-meta">GENERAL · 基礎</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="general-reimburse">
+        <span class="admin-card-index">02</span>
+        <span class="admin-card-icon" aria-hidden="true">🧾</span>
+        <strong>一般核銷須知</strong>
+        <small>收據、統編、抬頭、金額門檻與報價單格式。</small>
+        <span class="admin-card-meta">REIMBURSEMENT · 核銷</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="under-10k">
+        <span class="admin-card-index">03</span>
+        <span class="admin-card-icon" aria-hidden="true">🛒</span>
+        <strong>一萬以下直接核銷</strong>
+        <small>小額材料、雜支與維修費用的辦理重點。</small>
+        <span class="admin-card-meta">SMALL PURCHASE · 小額</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="equipment-costs">
+        <span class="admin-card-index">04</span>
+        <span class="admin-card-icon" aria-hidden="true">🔬</span>
+        <strong>科研採購（設備費）</strong>
+        <small>請購、核銷、財產增加與廠商文件檢查。</small>
+        <span class="admin-card-meta">PROCUREMENT · 設備</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="project-funding">
+        <span class="admin-card-index">05</span>
+        <span class="admin-card-icon" aria-hidden="true">📊</span>
+        <strong>國科會計畫經費</strong>
+        <small>獎助、人事、設備、結餘與經費流用觀念。</small>
+        <span class="admin-card-meta">PROJECT · 計畫</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="lecturer">
+        <span class="admin-card-index">06</span>
+        <span class="admin-card-icon" aria-hidden="true">🎓</span>
+        <strong>業師相關</strong>
+        <small>鐘點費、交通費、受領文件與活動紀錄。</small>
+        <span class="admin-card-meta">LECTURER · 業師</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="tender">
+        <span class="admin-card-index">07</span>
+        <span class="admin-card-icon" aria-hidden="true">📑</span>
+        <strong>招標</strong>
+        <small>高額採購的規格、文件、驗收與承辦確認。</small>
+        <span class="admin-card-meta">TENDER · 招標</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="transfer">
+        <span class="admin-card-index">08</span>
+        <span class="admin-card-icon" aria-hidden="true">🔁</span>
+        <strong>回沖</strong>
+        <small>預付款與會計科目調整的基本概念及檢查。</small>
+        <span class="admin-card-meta">ACCOUNTING · 調整</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="domestic-travel">
+        <span class="admin-card-index">09</span>
+        <span class="admin-card-icon" aria-hidden="true">🚆</span>
+        <strong>國內差旅費</strong>
+        <small>交通、住宿、雜費與出差文件的申報重點。</small>
+        <span class="admin-card-meta">TRAVEL · 國內</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="employment">
+        <span class="admin-card-index">10</span>
+        <span class="admin-card-icon" aria-hidden="true">🪪</span>
+        <strong>申請在職證明</strong>
+        <small>服務證明申請前的資格、資料與送件確認。</small>
+        <span class="admin-card-meta">PERSONNEL · 證明</span>
+      </button>
+
+      <button class="admin-card reveal" type="button" data-admin-document="international-travel">
+        <span class="admin-card-index">11</span>
+        <span class="admin-card-icon" aria-hidden="true">✈️</span>
+        <strong>國外差旅費</strong>
+        <small>事前簽准、行程證明、機票與出國報告。</small>
+        <span class="admin-card-meta">TRAVEL · 國外</span>
+      </button>
+    </div>
+
+    <div id="admin-no-results" class="admin-no-results" hidden>
+      <span aria-hidden="true">⌕</span>
+      <strong>找不到符合的文件</strong>
+      <p>請改用「核銷」、「設備」、「業師」或「差旅」等關鍵字。</p>
+    </div>
+  </section>
+
+  <section class="admin-source reveal">
+    <div>
+      <span class="eyebrow">Source & Maintenance</span>
+      <h2>保留舊資料，也留下更新邊界</h2>
+      <p>本頁參考 NFU I.R.S. Lab 舊版公開行政文件重新編排。涉及登入、個資與實際計畫資料的操作，仍應在受權限保護的內部文件中維護。</p>
+    </div>
+    <a class="button-quiet" href="https://nfu-irs-lab.github.io/docs/administrative-affairs" target="_blank" rel="noopener noreferrer">開啟原始文件 <span aria-hidden="true">↗</span></a>
+  </section>
+</main>
+
+<div id="admin-document-modal" class="modal-shell admin-document-modal hidden" role="dialog" aria-modal="true" aria-labelledby="admin-document-title" aria-hidden="true">
+  <article class="modal-panel admin-document-panel" tabindex="-1">
+    <div class="modal-topline">
+      <strong id="admin-document-code">ADMIN DOCUMENT</strong>
+      <button class="modal-close" type="button" data-admin-modal-close>關閉</button>
+    </div>
+    <header class="admin-document-header">
+      <span id="admin-document-category" class="eyebrow"></span>
+      <h2 id="admin-document-title"></h2>
+      <p id="admin-document-summary"></p>
+    </header>
+    <div id="admin-document-sections" class="admin-document-sections"></div>
+    <footer class="admin-document-footer">
+      <p>此為公開摘要。實際辦理請依最新校方規定及承辦人說明。</p>
+      <button class="button-primary" type="button" data-admin-modal-close>閱讀完成</button>
+    </footer>
+  </article>
+</div>
