@@ -1,66 +1,350 @@
-body {
-            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
-            background-color: #030208;
-            overflow-x: hidden;
-            position: relative;
-        }
+.training-main {
+  background: #f4f6f8;
+}
 
-        /* 賽博龐克科技掃描線與網格 */
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-                        linear-gradient(90deg, rgba(255, 0, 127, 0.03), rgba(0, 240, 255, 0.03), rgba(0, 0, 255, 0.03));
-            background-size: 100% 4px, 6px 100%;
-            z-index: 999;
-            pointer-events: none;
-            opacity: 0.8;
-        }
+.training-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #f97316;
+  color: white;
+  background:
+    linear-gradient(110deg, rgb(249 115 22 / 0.1), transparent 35%),
+    linear-gradient(rgb(148 163 184 / 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 0.065) 1px, transparent 1px),
+    #0b1220;
+  background-size: auto, 34px 34px, 34px 34px, auto;
+}
 
-        /* 科技藍與螢光粉背光暈染 */
-        .neon-glow-cyan {
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.08);
-        }
-        .neon-glow-pink {
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.25), inset 0 0 15px rgba(255, 0, 127, 0.08);
-        }
-        .neon-text-pink {
-            text-shadow: 0 0 8px rgba(255, 0, 127, 0.8), 0 0 20px rgba(255, 0, 127, 0.3);
-        }
-        .neon-text-cyan {
-            text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.3);
-        }
+.training-hero-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 6.25rem) 1.5rem 4rem;
+}
 
-        /* 未來風切角面板與按鈕 */
-        .clip-cyber {
-            clip-path: polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%);
-        }
-        .clip-cyber-sm {
-            clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 5% 100%, 0 80%);
-        }
+.training-kicker {
+  color: #fb923c;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
 
-        /* Glitch 抖動動畫特效 */
-        @keyframes glitch {
-            0% { transform: translate(0) }
-            20% { transform: translate(-2px, 1px) }
-            40% { transform: translate(-1px, -1px) }
-            60% { transform: translate(1px, 2px) }
-            80% { transform: translate(2px, -1px) }
-            100% { transform: translate(0) }
-        }
-        .glitch-hover:hover {
-            animation: glitch 0.2s linear infinite;
-        }
+.training-hero h1 {
+  margin-top: 0.8rem;
+  color: #f8fafc;
+  font-size: clamp(2.4rem, 7vw, 4.3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
 
-        /* 掃描線動畫 */
-        @keyframes laser-sweep {
-            0% { top: 0%; opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { top: 100%; opacity: 0; }
-        }
-        .laser-sweep-line {
-            animation: laser-sweep 4s linear infinite;
-        }
+.training-hero p:last-child {
+  max-width: 43rem;
+  margin-top: 1rem;
+  color: #aebacf;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.training-content {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.5rem clamp(5rem, 9vw, 8rem);
+}
+
+.progress-panel {
+  display: grid;
+  grid-template-columns: 1fr minmax(18rem, 0.8fr);
+  align-items: center;
+  gap: 2rem;
+  margin-top: -1.5rem;
+  border: 1px solid #d7dee8;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: white;
+  box-shadow: 0 20px 55px -32px rgb(15 23 42 / 0.55);
+}
+
+.progress-label,
+.training-finish span {
+  color: #c2410c;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.progress-copy h2 {
+  margin-top: 0.3rem;
+  color: #172033;
+  font-size: 1.18rem;
+  font-weight: 750;
+}
+
+.progress-copy p {
+  margin-top: 0.35rem;
+  color: #7a879b;
+  font-size: 0.72rem;
+}
+
+.progress-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 0.72rem;
+}
+
+.progress-value strong {
+  color: #c2410c;
+  font-size: 1.1rem;
+}
+
+.progress-track {
+  height: 0.65rem;
+  margin-top: 0.6rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7ebf0;
+}
+
+#progress-bar {
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #c2410c, #f97316, #f59e0b);
+  transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.training-intro {
+  display: grid;
+  grid-template-columns: 1fr 18rem;
+  align-items: end;
+  gap: 3rem;
+  padding: clamp(4.5rem, 9vw, 7rem) 0 2.5rem;
+}
+
+.training-rule {
+  border-left: 3px solid #f97316;
+  padding: 0.4rem 0 0.4rem 1rem;
+}
+
+.training-rule span {
+  color: #c2410c;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.training-rule p {
+  margin-top: 0.4rem;
+  color: #5d6b82;
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+.training-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.training-card {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  overflow: hidden;
+  border: 1px solid #d8e0ea;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 18px 48px -36px rgb(15 23 42 / 0.62);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.training-card:hover {
+  border-color: #c3ccd8;
+  box-shadow: 0 25px 58px -36px rgb(15 23 42 / 0.45);
+  transform: translateY(-2px);
+}
+
+.phase-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px solid #e2e8f0;
+  color: white;
+  background:
+    linear-gradient(rgb(148 163 184 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 0.07) 1px, transparent 1px),
+    #172033;
+  background-size: 24px 24px;
+}
+
+.phase-marker span {
+  color: #fb923c;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.phase-marker small {
+  margin-top: 0.2rem;
+  color: #94a3b8;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.phase-content {
+  padding: 1.65rem 1.75rem;
+}
+
+.phase-label {
+  color: #c2410c;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.phase-content h2 {
+  margin-top: 0.42rem;
+  color: #172033;
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.phase-content > p:not(.phase-label) {
+  max-width: 46rem;
+  margin-top: 0.6rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.phase-actions,
+.equipment-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e8ecf1;
+}
+
+.equipment-links + .equipment-links {
+  margin-top: 0;
+}
+
+.equipment-links > a {
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.equipment-links > a:hover {
+  color: #c2410c;
+}
+
+.completion-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.55rem;
+  border: 1px solid #d7dee8;
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.8rem;
+  color: #5d6b82;
+  background: #f8fafc;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.completion-control:hover,
+.completion-control:has(input:checked) {
+  border-color: #fdba74;
+  color: #9a3412;
+  background: #fff7ed;
+}
+
+.completion-control input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #ea580c;
+}
+
+.training-finish {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: white;
+  background: #172033;
+}
+
+.training-finish h2 {
+  margin-top: 0.4rem;
+  color: #f1f5f9;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  font-weight: 750;
+}
+
+@media (max-width: 767px) {
+  .training-hero-inner,
+  .training-finish {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .training-content {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .progress-panel,
+  .training-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .training-card {
+    grid-template-columns: 1fr;
+  }
+
+  .phase-marker {
+    min-height: 5.25rem;
+    border-right: 0;
+    border-bottom: 1px solid #334155;
+  }
+
+  .phase-marker span {
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 519px) {
+  .phase-content {
+    padding: 1.35rem;
+  }
+
+  .phase-actions,
+  .equipment-links {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .phase-actions > *,
+  .equipment-links > * {
+    width: 100%;
+  }
+
+  .completion-control {
+    justify-content: center;
+  }
+}

@@ -1,7 +1,14 @@
-<footer class="relative z-10 mt-auto border-t border-slate-800 bg-slate-950 py-7 text-slate-400">
-  <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 text-center text-xs sm:px-6 lg:px-8">
-    <p class="font-bold tracking-wide text-slate-200">國立虎尾科技大學｜智慧型機器人系統實驗室</p>
-    <p>NFU Intelligent Robot System Laboratory</p>
-    <p class="text-slate-500">© {{ site.time | date: '%Y' }} NFU I.R.S. Lab</p>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>
+      <p class="site-footer-title">國立虎尾科技大學｜智慧型機器人系統實驗室</p>
+      <p>NFU Intelligent Robot System Laboratory</p>
+    </div>
+    <div class="site-footer-links">
+      <a href="{{ '/training.html' | relative_url }}">培訓路線</a>
+      <a href="{{ '/learning-guides.html' | relative_url }}">技術紀錄</a>
+      <a href="https://github.com/NFU-Robotlab" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <p class="site-footer-copy">© {{ site.time | date: '%Y' }} NFU I.R.S. Lab</p>
   </div>
 </footer>

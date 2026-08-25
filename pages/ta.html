@@ -1,43 +1,66 @@
 ---
 layout: default
-title: "技術助教與設備安全系統 - NFU IRS Lab"
-description: "實驗室技術助教與設備安全資訊。"
+title: "技術助教與設備安全 - NFU IRS Lab"
+description: "實驗室技術助教、問題回報與設備安全資訊。"
 permalink: /ta.html
 page_key: ta
 page_css: /assets/css/pages/ta.css
-body_class: bg-slate-50 selection:bg-orange-500 selection:text-white
+body_class: selection:bg-orange-500 selection:text-white
 ---
-<!-- 滿版模糊背景圖片 -->
-    <img src="{{ '/assets/images/tech-workspace.png' | relative_url }}" alt="Tech Backdrop" class="cyber-bg" onerror="this.src='https://placehold.co/1200x800/cbd5e1/94a3b8?text=Tech+Backdrop'">
+<main class="ta-main">
+  <header class="ta-hero">
+    <div class="ta-hero-inner reveal">
+      <p class="ta-kicker">TECHNICAL SUPPORT / LAB SAFETY</p>
+      <h1>技術助教與設備安全</h1>
+      <p>遇到設備、程式或環境問題時，先保留現場狀態與錯誤資訊，再向當屆負責人回報。</p>
+    </div>
+  </header>
 
-    <!-- 頂部導覽 -->
+  <div class="ta-content">
+    <section class="ta-status surface-card reveal">
+      <div class="ta-status-mark"><span></span> CURRENT STATUS</div>
+      <div>
+        <h2>當屆技術助教資料待補</h2>
+        <p>目前公開頁面尚未提供姓名與固定聯絡方式。實驗室成員請依現場公告或既有群組聯繫當屆負責人。</p>
+      </div>
+    </section>
 
+    <section class="ta-guidance">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Before You Ask</span>
+        <h2>讓問題更快被定位的三個步驟</h2>
+        <p>完整的狀況描述能減少來回確認，也能把這次排錯經驗留給下一位成員。</p>
+      </div>
 
-    <!-- 主內容區：置中展示空白狀態 -->
-    <main class="max-w-4xl mx-auto px-4 py-12 w-full flex-grow flex items-center justify-center relative z-10">
+      <ol class="ta-grid">
+        <li class="ta-card reveal">
+          <span>01</span>
+          <h3>先停止風險</h3>
+          <p>設備出現異音、冒煙、撞機或不受控動作時，立即停止操作並保留現場。</p>
+          <a href="{{ '/equipment-tutorial.html' | relative_url }}">查看設備安全守則 →</a>
+        </li>
+        <li class="ta-card reveal">
+          <span>02</span>
+          <h3>記錄可重現資訊</h3>
+          <p>準備設備／軟體版本、操作步驟、錯誤訊息、照片與已嘗試的方法。</p>
+          <a href="{{ '/learning-guides.html' | relative_url }}">查看技術學習紀錄 →</a>
+        </li>
+        <li class="ta-card reveal">
+          <span>03</span>
+          <h3>向負責人回報</h3>
+          <p>清楚說明影響範圍與急迫性；未確認安全前，不要自行拆機或繼續測試。</p>
+          <a href="https://github.com/NFU-Robotlab" target="_blank" rel="noopener noreferrer">前往實驗室 GitHub →</a>
+        </li>
+      </ol>
+    </section>
 
-        <div class="glass-card rounded-2xl p-10 max-w-md w-full text-center space-y-6">
-            <!-- 寂寞的機器人頭部 -->
-            <div class="w-16 h-16 bg-slate-100/80 rounded-full flex items-center justify-center text-3xl mx-auto border border-slate-200/50 shadow-sm">
-                🤖
-            </div>
-
-            <div class="space-y-2">
-                <h2 class="text-xl font-black text-slate-900 tracking-tight">這屆TA什麼都沒留下</h2>
-                <p class="text-[10px] text-slate-400 font-mono tracking-widest">[ STATUS: EMPTY // NO_DATA_AVAILABLE ]</p>
-            </div>
-
-            <p class="text-slate-500 text-xs leading-relaxed font-light">
-                系統檢測到該節點的數據庫未同步。這屆技術助教（TA）非常懶，什麼都沒留下。
-            </p>
-
-            <div class="pt-4 border-t border-slate-200/50">
-                <a href="index.html" class="inline-flex items-center justify-center px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
-                    返回首頁
-                </a>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- 頁尾 -->
+    <section class="ta-callout reveal">
+      <div>
+        <span>DOCUMENT THE FIX</span>
+        <h2>解決問題後，請把關鍵步驟補進專案文件。</h2>
+        <p>好的技術紀錄應包含問題情境、原因、解法、驗證方式與安全注意事項。</p>
+      </div>
+      <a class="button-primary" href="{{ '/training.html' | relative_url }}">回到培訓路線</a>
+    </section>
+  </div>
+</main>
