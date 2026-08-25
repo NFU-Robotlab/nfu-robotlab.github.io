@@ -1,52 +1,50 @@
 .training-main {
-  background: #f4f6f8;
+  background: transparent;
 }
 
 .training-hero {
-  position: relative;
+  max-width: 72rem;
+  margin: 2rem auto 0;
   overflow: hidden;
-  border-bottom: 3px solid #f97316;
-  color: white;
-  background:
-    linear-gradient(110deg, rgb(249 115 22 / 0.1), transparent 35%),
-    linear-gradient(rgb(148 163 184 / 0.065) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(148 163 184 / 0.065) 1px, transparent 1px),
-    #0b1220;
-  background-size: auto, 34px 34px, 34px 34px, auto;
+  border: 1px solid rgb(255 255 255 / 0.82);
+  border-radius: 2rem;
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.7), rgb(219 234 254 / 0.42), rgb(237 233 254 / 0.4));
+  box-shadow: var(--ios-shadow);
+  backdrop-filter: saturate(170%) blur(26px);
+  -webkit-backdrop-filter: saturate(170%) blur(26px);
 }
 
 .training-hero-inner {
   display: flex;
+  min-height: 22rem;
+  padding: clamp(3rem, 8vw, 5.5rem) 2rem;
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  max-width: 68rem;
-  margin: 0 auto;
-  padding: clamp(3.5rem, 8vw, 6.25rem) 1.5rem 4rem;
 }
 
 .training-kicker {
-  color: #fb923c;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  color: #0071e3;
+  font-size: 0.67rem;
+  font-weight: 760;
+  letter-spacing: 0.12em;
 }
 
 .training-hero h1 {
-  margin-top: 0.8rem;
-  color: #f8fafc;
-  font-size: clamp(2.4rem, 7vw, 4.3rem);
-  font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.05em;
+  margin-top: 0.75rem;
+  color: #1d1d1f;
+  font-size: clamp(2.5rem, 7vw, 4.4rem);
+  font-weight: 780;
+  line-height: 1.06;
+  letter-spacing: -0.055em;
 }
 
 .training-hero p:last-child {
   max-width: 43rem;
   margin-top: 1rem;
-  color: #aebacf;
+  color: #5f5f66;
   font-size: 0.95rem;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .training-content {
@@ -58,90 +56,100 @@
 .progress-panel {
   display: grid;
   grid-template-columns: 1fr minmax(18rem, 0.8fr);
+  margin-top: -1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.86);
+  border-radius: 1.6rem;
+  padding: 1.5rem;
+  background: rgb(255 255 255 / 0.7);
+  box-shadow: 0 22px 60px -38px rgb(50 70 100 / 0.48), 0 1px 0 white inset;
+  backdrop-filter: saturate(180%) blur(26px);
+  -webkit-backdrop-filter: saturate(180%) blur(26px);
   align-items: center;
   gap: 2rem;
-  margin-top: -1.5rem;
-  border: 1px solid #d7dee8;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  background: white;
-  box-shadow: 0 20px 55px -32px rgb(15 23 42 / 0.55);
 }
 
 .progress-label,
 .training-finish span {
-  color: #c2410c;
-  font-size: 0.64rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
+  color: #0071e3;
+  font-size: 0.63rem;
+  font-weight: 760;
+  letter-spacing: 0.1em;
 }
 
 .progress-copy h2 {
   margin-top: 0.3rem;
-  color: #172033;
+  color: #242429;
   font-size: 1.18rem;
-  font-weight: 750;
+  font-weight: 730;
 }
 
 .progress-copy p {
   margin-top: 0.35rem;
-  color: #7a879b;
+  color: #85858c;
   font-size: 0.72rem;
 }
 
 .progress-value {
   display: flex;
+  color: #74747b;
+  font-size: 0.72rem;
   align-items: center;
   justify-content: space-between;
-  color: #64748b;
-  font-size: 0.72rem;
 }
 
 .progress-value strong {
-  color: #c2410c;
+  color: #007aff;
   font-size: 1.1rem;
 }
 
 .progress-track {
-  height: 0.65rem;
+  height: 0.66rem;
   margin-top: 0.6rem;
   overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.8);
   border-radius: 999px;
-  background: #e7ebf0;
+  background: rgb(118 118 128 / 0.12);
+  box-shadow: 0 1px 2px rgb(50 70 100 / 0.08) inset;
 }
 
 #progress-bar {
   width: 0;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #c2410c, #f97316, #f59e0b);
-  transition: width 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  background: linear-gradient(90deg, #32ade6, #007aff, #5856d6);
+  box-shadow: 0 0 16px rgb(0 122 255 / 0.3);
+  transition: width 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .training-intro {
   display: grid;
   grid-template-columns: 1fr 18rem;
+  padding: clamp(4.5rem, 9vw, 7rem) 0 2.5rem;
   align-items: end;
   gap: 3rem;
-  padding: clamp(4.5rem, 9vw, 7rem) 0 2.5rem;
 }
 
 .training-rule {
-  border-left: 3px solid #f97316;
-  padding: 0.4rem 0 0.4rem 1rem;
+  border: 1px solid rgb(255 255 255 / 0.76);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  background: rgb(255 255 255 / 0.42);
+  box-shadow: 0 14px 36px -30px rgb(50 70 100 / 0.5), 0 1px 0 white inset;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
 .training-rule span {
-  color: #c2410c;
+  color: #0071e3;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 740;
 }
 
 .training-rule p {
   margin-top: 0.4rem;
-  color: #5d6b82;
+  color: #66666d;
   font-size: 0.76rem;
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 .training-list {
@@ -153,84 +161,95 @@
   display: grid;
   grid-template-columns: 8.5rem 1fr;
   overflow: hidden;
-  border: 1px solid #d8e0ea;
-  border-radius: 1rem;
-  background: white;
-  box-shadow: 0 18px 48px -36px rgb(15 23 42 / 0.62);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  border: 1px solid rgb(255 255 255 / 0.82);
+  border-radius: 1.7rem;
+  background: rgb(255 255 255 / 0.56);
+  box-shadow: var(--ios-shadow);
+  backdrop-filter: saturate(155%) blur(22px);
+  -webkit-backdrop-filter: saturate(155%) blur(22px);
+  transition: transform 230ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .training-card:hover {
-  border-color: #c3ccd8;
-  box-shadow: 0 25px 58px -36px rgb(15 23 42 / 0.45);
-  transform: translateY(-2px);
+  background: rgb(255 255 255 / 0.74);
+  box-shadow: 0 30px 70px -40px rgb(0 122 255 / 0.38), 0 1px 0 white inset;
+  transform: translateY(-4px) scale(1.004);
 }
 
 .phase-marker {
   display: flex;
+  border-right: 1px solid rgb(255 255 255 / 0.48);
+  color: white;
+  background: linear-gradient(155deg, rgb(50 173 230 / 0.84), rgb(0 122 255 / 0.88) 55%, rgb(88 86 214 / 0.82));
+  box-shadow: 1px 0 0 rgb(255 255 255 / 0.24) inset;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-right: 1px solid #e2e8f0;
-  color: white;
-  background:
-    linear-gradient(rgb(148 163 184 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(148 163 184 / 0.07) 1px, transparent 1px),
-    #172033;
-  background-size: 24px 24px;
+}
+
+.training-card:nth-child(2) .phase-marker {
+  background: linear-gradient(155deg, #5ac8fa, #0a84ff 55%, #30b0c7);
+}
+
+.training-card:nth-child(3) .phase-marker {
+  background: linear-gradient(155deg, #64d2ff, #007aff 55%, #5856d6);
+}
+
+.training-card:nth-child(4) .phase-marker {
+  background: linear-gradient(155deg, #7d7aff, #5856d6 55%, #af52de);
 }
 
 .phase-marker span {
-  color: #fb923c;
+  color: white;
   font-size: 2.1rem;
-  font-weight: 800;
+  font-weight: 780;
   letter-spacing: -0.05em;
 }
 
 .phase-marker small {
   margin-top: 0.2rem;
-  color: #94a3b8;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  color: rgb(255 255 255 / 0.72);
+  font-size: 0.57rem;
+  font-weight: 760;
+  letter-spacing: 0.11em;
 }
 
 .phase-content {
-  padding: 1.65rem 1.75rem;
+  padding: 1.7rem 1.8rem;
 }
 
 .phase-label {
-  color: #c2410c;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  color: #0071e3;
+  font-size: 0.61rem;
+  font-weight: 760;
+  letter-spacing: 0.1em;
 }
 
 .phase-content h2 {
   margin-top: 0.42rem;
-  color: #172033;
-  font-size: 1.25rem;
-  font-weight: 750;
-  letter-spacing: -0.02em;
+  color: #26262b;
+  font-size: 1.27rem;
+  font-weight: 730;
+  letter-spacing: -0.025em;
 }
 
 .phase-content > p:not(.phase-label) {
   max-width: 46rem;
-  margin-top: 0.6rem;
-  color: #64748b;
+  margin-top: 0.62rem;
+  color: #66666d;
   font-size: 0.8rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .phase-actions,
 .equipment-links {
   display: flex;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(60 60 67 / 0.1);
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e8ecf1;
 }
 
 .equipment-links + .equipment-links {
@@ -238,64 +257,79 @@
 }
 
 .equipment-links > a {
-  color: #334155;
+  color: #0066cc;
   font-size: 0.78rem;
-  font-weight: 750;
-}
-
-.equipment-links > a:hover {
-  color: #c2410c;
+  font-weight: 700;
 }
 
 .completion-control {
   display: inline-flex;
+  min-height: 2.55rem;
+  border: 1px solid rgb(255 255 255 / 0.86);
+  border-radius: 999px;
+  padding: 0.55rem 0.82rem;
+  color: #64646b;
+  background: rgb(255 255 255 / 0.5);
+  box-shadow: 0 8px 20px -18px rgb(50 70 100 / 0.45), 0 1px 0 white inset;
+  font-size: 0.72rem;
+  font-weight: 680;
+  cursor: pointer;
   align-items: center;
   gap: 0.55rem;
-  min-height: 2.55rem;
-  border: 1px solid #d7dee8;
-  border-radius: 0.65rem;
-  padding: 0.55rem 0.8rem;
-  color: #5d6b82;
-  background: #f8fafc;
-  font-size: 0.72rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+  transition: color 170ms ease, background-color 170ms ease, transform 170ms ease;
 }
 
 .completion-control:hover,
 .completion-control:has(input:checked) {
-  border-color: #fdba74;
-  color: #9a3412;
-  background: #fff7ed;
+  color: #0066cc;
+  background: rgb(0 122 255 / 0.1);
+  transform: translateY(-1px);
 }
 
 .completion-control input {
   width: 1rem;
   height: 1rem;
-  accent-color: #ea580c;
+  accent-color: #007aff;
 }
 
 .training-finish {
   display: flex;
+  margin-top: 3rem;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.34);
+  border-radius: 1.7rem;
+  padding: 2rem;
+  color: white;
+  background: linear-gradient(125deg, rgb(0 122 255 / 0.9), rgb(88 86 214 / 0.84), rgb(175 82 222 / 0.72));
+  box-shadow: 0 24px 60px -30px rgb(0 122 255 / 0.48), 0 1px 0 rgb(255 255 255 / 0.28) inset;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  margin-top: 3rem;
-  border-radius: 1rem;
-  padding: 2rem;
-  color: white;
-  background: #172033;
+}
+
+.training-finish span {
+  color: rgb(255 255 255 / 0.72);
 }
 
 .training-finish h2 {
   margin-top: 0.4rem;
-  color: #f1f5f9;
+  color: white;
   font-size: clamp(1.15rem, 3vw, 1.55rem);
-  font-weight: 750;
+  font-weight: 720;
+}
+
+.training-finish .button-primary {
+  color: #0066cc;
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: none;
 }
 
 @media (max-width: 767px) {
+  .training-hero {
+    margin: 1rem 1rem 0;
+    border-radius: 1.55rem;
+  }
+
   .training-hero-inner,
   .training-finish {
     align-items: flex-start;
@@ -320,7 +354,7 @@
   .phase-marker {
     min-height: 5.25rem;
     border-right: 0;
-    border-bottom: 1px solid #334155;
+    border-bottom: 1px solid rgb(255 255 255 / 0.42);
   }
 
   .phase-marker span {
