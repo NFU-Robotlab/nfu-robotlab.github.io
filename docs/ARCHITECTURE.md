@@ -14,6 +14,7 @@
 | `pages/training.html` | `/training.html` |
 | `pages/learning-guides.html` | `/learning-guides.html` |
 | `pages/ta.html` | `/ta.html` |
+| `pages/administrative-affairs.html` | `/administrative-affairs/` |
 | `pages/tutorials/onshape.html` | `/onshape-tutorial.html` |
 | `pages/tutorials/equipment.html` | `/equipment-tutorial.html` |
 | `pages/tutorials/3d-printing.html` | `/3d-printer-tutorial.html` |
@@ -35,6 +36,6 @@
 
 頁面本身不應再放大型 inline script。
 
-## 內部行政內容
+## 行政內容邊界
 
-公開網站不提供權限驗證。從導覽列隱藏連結並不能保護內容，因此行政與財務教學不得放在此儲存庫。若需要成員限定網站，應使用獨立的私人儲存庫或具備身分驗證的服務。
+`/administrative-affairs/` 是公開行政知識庫，只整理舊站已公開的一般規則與檢查清單。公開網站不提供權限驗證，因此帳號操作、員工代碼、個人資料、實際報帳明細及未公開計畫資料不得放在此儲存庫；成員限定流程應繼續使用獨立私人儲存庫或具備身分驗證的服務。
