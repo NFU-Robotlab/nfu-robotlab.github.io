@@ -1,0 +1,18 @@
+body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+        }
+        /* 自訂動畫：模擬馬達輪子模式旋轉 */
+        @keyframes spin-clockwise {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spin-counterclockwise {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        .animate-spin-cw {
+            animation: spin-clockwise var(--spin-duration, 2s) linear infinite;
+        }
+        .animate-spin-ccw {
+            animation: spin-counterclockwise var(--spin-duration, 2s) linear infinite;
+        }

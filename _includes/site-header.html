@@ -1,0 +1,38 @@
+<header class="site-header sticky top-0 z-50 border-b border-slate-700/70 bg-slate-950/95 text-white shadow-lg backdrop-blur">
+  <div class="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+    <a class="flex min-w-0 items-center gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400" href="{{ '/' | relative_url }}" aria-label="回到實驗室首頁">
+      <span class="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/20 bg-slate-800 shadow-sm">
+        <img class="h-full w-full object-cover" src="{{ '/assets/images/lab-sign.jpg' | relative_url }}" alt="" width="40" height="40">
+      </span>
+      <span class="truncate text-sm font-black tracking-wide sm:text-base">
+        NFU <span class="text-orange-400">I.R.S.</span> LAB
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-1 md:flex" aria-label="主要導覽">
+      <a class="site-nav-link {% if page.page_key == 'home' %}is-active{% endif %}" href="{{ '/' | relative_url }}">首頁</a>
+      <a class="site-nav-link {% if page.page_key == 'training' %}is-active{% endif %}" href="{{ '/training.html' | relative_url }}">培訓路線</a>
+      <a class="site-nav-link {% if page.page_key == 'learning-guides' %}is-active{% endif %}" href="{{ '/learning-guides.html' | relative_url }}">學習紀錄</a>
+      <a class="site-nav-link {% if page.page_key == 'ta' %}is-active{% endif %}" href="{{ '/ta.html' | relative_url }}">技術助教</a>
+      <a class="site-nav-link" href="https://github.com/NFU-Robotlab/nfu-robotlab.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button id="audio-toggle-btn" class="audio-toggle" type="button" onclick="toggleAudio()" aria-pressed="false" title="切換介面音效">
+        <span id="audio-icon" aria-hidden="true">🔇</span>
+        <span class="hidden sm:inline">音效關閉</span>
+      </button>
+
+      <details class="mobile-nav relative md:hidden">
+        <summary class="cursor-pointer list-none rounded-lg border border-white/15 bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/15">選單</summary>
+        <nav class="absolute right-0 mt-2 grid w-44 overflow-hidden rounded-xl border border-slate-700 bg-slate-950 p-2 shadow-2xl" aria-label="行動版導覽">
+          <a href="{{ '/' | relative_url }}">首頁</a>
+          <a href="{{ '/training.html' | relative_url }}">培訓路線</a>
+          <a href="{{ '/learning-guides.html' | relative_url }}">學習紀錄</a>
+          <a href="{{ '/ta.html' | relative_url }}">技術助教</a>
+          <a href="https://www.nfu.edu.tw/" target="_blank" rel="noopener noreferrer">虎尾科技大學</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

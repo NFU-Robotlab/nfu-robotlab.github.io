@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>設備教學與安全守則 - NFU IRS Lab</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter & Noto Sans TC -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
+---
+layout: default
+title: "設備教學與安全守則 - NFU IRS Lab"
+description: "實驗室設備操作教學與安全守則。"
+permalink: /equipment-tutorial.html
+page_key: equipment
+page_js: /assets/js/pages/equipment.js
+body_class: bg-slate-50 text-slate-800
+---
+<!-- 頂部導覽列 -->
 
-    <!-- 頂部導覽列 -->
-    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur text-white border-b border-slate-800 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-sky-400 bg-clip-text text-transparent">NFU IRS Lab</span>
-                    <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-block">設備指南 v1.5</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="training.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-1">
-                        ← 返回訓練首頁
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
     <!-- 頁首 Banner -->
     <header class="bg-slate-900 text-white py-12 px-4 relative overflow-hidden border-b border-slate-800">
@@ -43,7 +20,7 @@
             <p class="text-slate-400 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
                 學習雷射切割機的使用方式，以製作實驗室專案所需的壓克力或木板零件。在開始操作前，請務必詳閱並嚴格遵守安全規範。
             </p>
-            
+
             <!-- 操作影片快捷卡片 -->
             <div class="mt-6 inline-flex items-center">
                 <a href="https://www.youtube.com/watch?v=Az7mbsyjNQA&list=PLbN512N_y7dFzpZDy8DYF2xfDZbHdrVbw" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold transition-all shadow-md">
@@ -55,7 +32,7 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
+
             <!-- 快速導覽側邊欄 (Desktop Only) -->
             <aside class="hidden lg:block lg:col-span-3 sticky top-24 self-start space-y-4">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
@@ -147,7 +124,7 @@
                             <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2 mb-6">
                                 <span>🛠️</span> 雷射切割機標準作業流程 (SOP)
                             </h3>
-                            
+
                             <!-- 舊版 Docusaurus 文件插圖 -->
                             <div class="mb-8 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50 max-w-xl">
                                 <img src="https://i.imgur.com/R2S75Mt.jpeg" alt="實驗室的雷射切割機" class="w-full h-auto object-cover" onerror="this.src='https://placehold.co/800x450/e2e8f0/64748b?text=Laser+Cutter+Image+Missing'">
@@ -157,7 +134,7 @@
                             </div>
 
                             <div class="space-y-8">
-                                
+
                                 <!-- Step 1 -->
                                 <div class="flex gap-4">
                                     <div class="flex flex-col items-center">
@@ -172,7 +149,7 @@
                                         <p class="text-xs text-slate-600 mt-2 leading-relaxed">
                                             在 Onshape 中打開目標模型，選擇目標平面並按下滑鼠右鍵，在右鍵選單中點選<strong>「匯出為 DXF/DWG」</strong>。
                                         </p>
-                                        
+
                                         <!-- Onshape 匯出示意圖 -->
                                         <div class="mt-3 rounded-lg overflow-hidden border border-slate-200 max-w-md">
                                             <img src="https://1.bp.blogspot.com/-7M2AEZ8qRP8/YFrfeQCG5xI/AAAAAAAAAbA/IUP9S-vfsVkyNDiMZztX6F7nUDo2WK2pACPcBGAsYHg/s16000/onshape%25E5%258C%25AF%25E5%2587%25BA1.png" alt="Onshape匯出" class="w-full h-auto" onerror="this.src='https://placehold.co/600x300/e2e8f0/64748b?text=Onshape+Export+Menu'">
@@ -225,13 +202,13 @@
                                         <!-- 實機照片並排顯示 -->
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 max-w-2xl">
                                             <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
-                                                <img src="img/螢幕擷取畫面 2026-07-17 145517 (1).png" alt="雷切機各電源開關" class="w-full h-auto object-cover" onerror="this.src='img/螢幕擷取畫面 2026-07-17 145517 (1).png'">
+                                                <img src="{{ '/assets/images/laser-cutter-controls.png' | relative_url }}" alt="雷切機各電源開關" class="w-full h-auto object-cover" onerror="this.src='{{ '/assets/images/laser-cutter-controls.png' | relative_url }}'">
                                                 <div class="p-2 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">
                                                     ▲ 雷切機各電源開關總電源
                                                 </div>
                                             </div>
                                             <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
-                                                <img src="img/螢幕擷取畫面 2026-07-17 151237 (1).png" alt="雷切機開機實況" class="w-full h-auto object-cover" onerror="this.src='img/螢幕擷取畫面 2026-07-17 151237 (1).png'">
+                                                <img src="{{ '/assets/images/laser-cutter-power-on.png' | relative_url }}" alt="雷切機開機實況" class="w-full h-auto object-cover" onerror="this.src='{{ '/assets/images/laser-cutter-power-on.png' | relative_url }}'">
                                                 <div class="p-2 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">
                                                     ▲ 雷切機開機運轉
                                                 </div>
@@ -262,7 +239,7 @@
                                         <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
                                             操作雷切機請使用雷切機專用的電腦，並打開專用程式<strong>「RDWorkV8」</strong>。
                                         </p>
-                                        
+
                                         <!-- 舊版 LaserCut 示意圖 -->
                                         <div class="mt-3 rounded-lg overflow-hidden border border-slate-200 max-w-sm bg-slate-50">
                                             <img src="https://i.imgur.com/z10BOac.jpeg" alt="雷切機程式" class="w-full h-auto" onerror="this.src='https://placehold.co/400x250/e2e8f0/64748b?text=Laser+Software+UI'">
@@ -492,276 +469,6 @@
     </main>
 
     <!-- 頁尾宣告 -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-500 py-8 text-center text-xs">
-        <p>© 2026 國立虎尾科技大學 智能與機器人系統實驗室 - NFU IRS Lab. All Rights Reserved.</p>
-        <p class="mt-2 text-slate-600">本教學網頁內容與安全機制為實驗室內部教育訓練專屬，未經授權禁止外流。</p>
-    </footer>
+
 
     <!-- JavaScript 互動功能邏輯 -->
-    <script>
-        // ==================== 1. 禁切材質查詢系統 ====================
-        const materialsDb = [
-            { 
-                names: ['壓克力', 'acrylic', 'pmma'], 
-                safe: true, 
-                msg: '<strong>✅ 安全材質！</strong> 非常適合雷射切割與雕刻。切口透明且完美平滑。注意：若厚度過大（>8mm）或速度調得太慢仍有悶燒風險。' 
-            },
-            { 
-                names: ['木板', '密集板', '合板', 'mdf', 'wood', 'plywood'], 
-                safe: true, 
-                msg: '<strong>✅ 安全材質！</strong> 切割時會產生些許焦碳焦黑感，屬於正常現象。請務必開啟空壓機強效吹氣，防止木材悶燒起火。' 
-            },
-            { 
-                names: ['皮革', '真皮', 'leather'], 
-                safe: true, 
-                msg: '<strong>✅ 安全材質（限天然真皮）！</strong> 可以切割與雕刻。但會散發極度難聞的燒焦臭味，請務必確認室外強力排風系統已全載運轉。<strong>注意：人造皮（通常含PVC）禁切！</strong>' 
-            },
-            { 
-                names: ['紙板', '紙張', 'cardboard', 'paper'], 
-                safe: true, 
-                msg: '<strong>✅ 安全材質！</strong> 切割速度極快。但燃點極低，請採用極低功率並全程看守，防止紙張瞬間竄火。' 
-            },
-            { 
-                names: ['pvc', '聚氯乙烯', '膠卷', '黑膠'], 
-                safe: false, 
-                msg: '<strong>❌ 劇毒！嚴禁切割！</strong> 燃燒分解會產生極毒的<strong>氯氣 (Chlorine Gas)</strong>，極易吸入人體引發中毒。同時釋放強酸鹽酸霧，會使切割機的反光鏡片、精密導軌及結構在兩天內<strong>徹底腐蝕生鏽</strong>，造成十萬元級設備損毀。' 
-            },
-            { 
-                names: ['abs'], 
-                safe: false, 
-                msg: '<strong>❌ 嚴禁切割！</strong> ABS 高溫熔融會產生黏稠流狀，並且會釋放出高度致癌的<strong>氰化氫劇毒氣體</strong>與焦油，容易黏附並汙染雷射對焦透鏡。' 
-            },
-            { 
-                names: ['teflon', '聚四氟乙烯', 'ptfe', '鐵氟龍'], 
-                safe: false, 
-                msg: '<strong>❌ 劇毒！嚴禁切割！</strong> 高熱會釋放強腐蝕性與劇毒的<strong>氟化氫與氟氣 (Fluorine Gas)</strong>，會造成人員致命化學灼傷與肺部積水。' 
-            },
-            { 
-                names: ['碳纖維', 'carbon fiber'], 
-                safe: false, 
-                msg: '<strong>❌ 嚴禁切割！</strong> 碳纖維內含環氧樹脂，受雷射灼燒時會噴發大量的濃烈黑煙與微米碳纖維絲，極易被操作人員吸入肺部造成永久性損傷，且易導致機台反光鏡鍍膜報銷。' 
-            },
-            { 
-                names: ['聚碳酸酯', 'polycarbonate', 'pc', 'lexan', '壓克力板(防彈)'], 
-                safe: false, 
-                msg: '<strong>❌ 嚴禁切割！</strong> 燃燒極快且不易切斷，高熱切口會迅速炭化熔黑，釋放大量有害焦油油煙，並嚴重毀壞光學反光系統。' 
-            }
-        ];
-
-        const materialInput = document.getElementById('materialInput');
-        const searchResult = document.getElementById('searchResult');
-
-        materialInput.addEventListener('input', (e) => {
-            const query = e.target.value.trim().toLowerCase();
-            if (!query) {
-                searchResult.classList.add('hidden');
-                return;
-            }
-
-            // 尋找匹配項目
-            const match = materialsDb.find(item => 
-                item.names.some(name => name.includes(query) || query.includes(name))
-            );
-
-            searchResult.classList.remove('hidden');
-            if (match) {
-                if (match.safe) {
-                    searchResult.className = "p-3.5 rounded-lg border text-xs leading-relaxed transition-all bg-emerald-50 border-emerald-200 text-emerald-800";
-                    searchResult.innerHTML = match.msg;
-                } else {
-                    searchResult.className = "p-3.5 rounded-lg border text-xs leading-relaxed transition-all bg-red-50 border-red-200 text-red-800";
-                    searchResult.innerHTML = match.msg;
-                }
-            } else {
-                searchResult.className = "p-3.5 rounded-lg border text-xs leading-relaxed transition-all bg-amber-50 border-amber-200 text-amber-800";
-                searchResult.innerHTML = "<strong>⚠️ 查無此材質資料：</strong> 若為不知名塑膠或複合板材，在未經實驗室學長或指導教授確認簽收前，<strong>一律視為禁切材質</strong>，切勿私自測試冒險！";
-            }
-        });
-
-
-        // ==================== 2. 雷切安全線上互動測驗 ====================
-        const quizQuestions = [
-            {
-                q: "Q1. 當雷射切割機進行切割中，因為程序需要切很久（如一小時），你應該怎麼做？",
-                options: [
-                    "A. 離開實驗室去上廁所、買飲料或回宿舍躺著，等時間到了再回來拿成品。",
-                    "B. 全程守在切割機台旁邊專注監控，視線絕不離開雷射頭與工件，防止突然起火。",
-                    "C. 坐在隔壁桌滑手機打排位賽，等有聞到刺鼻的煙味再起身過來看。"
-                ],
-                correct: 1
-            },
-            {
-                q: "Q2. 實驗室強烈禁止切割哪種含有「氯元素」的塑膠材質，因為它分解會釋放致命劇毒氣體並鏽蝕整台精密設備？",
-                options: [
-                    "A. 壓克力板 (Acrylic)",
-                    "B. 聚氯乙烯 (PVC) 或是含有 PVC 成分的人工皮革",
-                    "C. 原木板材或密集板 (Wood)"
-                ],
-                correct: 1
-            },
-            {
-                q: "Q3. 如果在切割過程中，突然發現板材起火燃燒，第一個最正確的應變步驟是什麼？",
-                options: [
-                    "A. 立刻打開機箱蓋子，用力吹氣把火吹熄。",
-                    "B. 不管它繼續切，反正雷切溫度本來就很高，切完火自己就會熄滅了。",
-                    "C. 立刻按下實機的「紅色緊急停止鈕 (Emergency Stop)」，切斷雷射供電，並通知旁人協助防火。"
-                ],
-                correct: 2
-            },
-            {
-                q: "Q4. 關於雷切輔助設備的檢查，以下哪一項敘述是正確的操作守則？",
-                options: [
-                    "A. 可以不開吹氣空壓機，因為雷射光束本身就能直接把材質蒸發乾淨。",
-                    "B. 開機切削前，必須檢查確認「強效排煙系統」與「吹氣空壓機」皆在正常運作中，缺一不可。",
-                    "C. 抽風排煙機很吵，為了不打擾實驗室學長姐討論報告，最好偷偷把它關小或不開。"
-                ],
-                correct: 1
-            },
-            {
-                q: "Q5. 當螢幕顯示雷射切割完全結束後，應該怎麼做？",
-                options: [
-                    "A. 立刻將安全掀蓋打開，第一時間拿取成品以免耽誤下一位組員的時間。",
-                    "B. 不要去碰它，直接離開實驗室，等半天過後讓它慢慢放涼。",
-                    "C. 稍微靜待 1~2 分鐘，讓有毒煙霧被抽風機完全抽淨至室外後，再開蓋拿取，保障自身呼吸道安全。"
-                ],
-                correct: 2
-            }
-        ];
-
-        let currentQuestionIndex = 0;
-        let selectedOptionIndex = null;
-        let userScore = 0;
-
-        function loadQuestion(index) {
-            const quizContainer = document.getElementById('quizContainer');
-            const quizStatus = document.getElementById('quizStatus');
-            const quizActionBtn = document.getElementById('quizActionBtn');
-            selectedOptionIndex = null;
-
-            if (index < quizQuestions.length) {
-                const qData = quizQuestions[index];
-                let optionsHtml = '';
-                qData.options.forEach((opt, idx) => {
-                    optionsHtml += `
-                        <button onclick="selectOption(this, ${idx})" class="option-btn text-left p-3 bg-slate-800 rounded-lg border border-slate-700 hover:bg-slate-700 hover:border-slate-500 transition-all text-xs text-slate-300">
-                            ${opt}
-                        </button>
-                    `;
-                });
-
-                quizContainer.innerHTML = `
-                    <div class="space-y-3">
-                        <p class="text-sm font-semibold text-slate-100">${qData.q}</p>
-                        <div class="grid grid-cols-1 gap-2">
-                            ${optionsHtml}
-                        </div>
-                    </div>
-                `;
-                quizStatus.innerHTML = `<span class="text-slate-400">目前進度：${index + 1} / ${quizQuestions.length}</span>`;
-                quizActionBtn.innerText = index === quizQuestions.length - 1 ? "送出評量並確認結果" : "下一題 ➔";
-                quizActionBtn.className = "w-full sm:w-auto px-6 py-2 bg-slate-700 text-slate-400 font-bold rounded-lg text-sm cursor-not-allowed transition-all shadow-md";
-                quizActionBtn.disabled = true;
-            } else {
-                showQuizResults();
-            }
-        }
-
-        function selectOption(button, optionIndex) {
-            // 清除同組按鈕的高亮
-            const siblings = button.parentNode.querySelectorAll('.option-btn');
-            siblings.forEach(sib => {
-                sib.className = "option-btn text-left p-3 bg-slate-800 rounded-lg border border-slate-700 hover:bg-slate-700 hover:border-slate-500 transition-all text-xs text-slate-300";
-            });
-
-            // 高亮選中按鈕
-            button.className = "option-btn text-left p-3 bg-blue-600 rounded-lg border border-blue-400 text-white font-medium transition-all text-xs shadow-inner";
-            selectedOptionIndex = optionIndex;
-
-            // 啟用下一步按鈕
-            const quizActionBtn = document.getElementById('quizActionBtn');
-            quizActionBtn.className = "w-full sm:w-auto px-6 py-2 bg-sky-500 hover:bg-sky-600 text-slate-900 font-bold rounded-lg text-sm transition-all shadow-md cursor-pointer";
-            quizActionBtn.disabled = false;
-        }
-
-        function submitQuizAnswer() {
-            if (selectedOptionIndex === null) return;
-
-            // 驗證答案
-            const currentQ = quizQuestions[currentQuestionIndex];
-            if (selectedOptionIndex === currentQ.correct) {
-                userScore++;
-            }
-
-            currentQuestionIndex++;
-            loadQuestion(currentQuestionIndex);
-        }
-
-        function showQuizResults() {
-            const quizContainer = document.getElementById('quizContainer');
-            const quizStatus = document.getElementById('quizStatus');
-            const quizActionBtn = document.getElementById('quizActionBtn');
-
-            quizActionBtn.classList.add('hidden');
-
-            if (userScore === quizQuestions.length) {
-                // 100% 答對，頒發數位證書
-                localStorage.setItem('laser_safety_passed', 'true');
-                quizStatus.innerHTML = `<span class="text-emerald-400 font-bold">🎉 恭喜！您已 100% 答對全部安全問題。</span>`;
-                
-                quizContainer.innerHTML = `
-                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 p-6 rounded-xl border-2 border-emerald-500 shadow-xl text-center space-y-4 max-w-lg mx-auto">
-                        <div class="text-4xl">🏆</div>
-                        <h4 class="text-lg font-extrabold text-emerald-400 tracking-tight uppercase">NFU IRS Lab 設備安全認證</h4>
-                        <p class="text-slate-100 font-semibold text-xl border-b border-dashed border-slate-700 pb-3">雷射切割安全學科合格證書</p>
-                        
-                        <div class="text-left space-y-1.5 text-xs text-slate-300 px-4 py-3 bg-black/40 rounded-lg font-mono">
-                            <p>• 認證項目：CO2 雷射切割安全學科檢定</p>
-                            <p>• 通過分數：100% (5/5 題答對)</p>
-                            <p>• 實作權限：符合實機考核操作申請資格</p>
-                            <p class="text-slate-400">• 核發流水號：IRS-${Math.floor(Math.random() * 900000 + 100000)}</p>
-                        </div>
-                        
-                        <p class="text-slate-400 text-[10px] leading-relaxed">
-                            請將此合格證書頁面截圖，並在向學長姐申請機台實作時主動展示，以證明您已詳閱所有安全防範指南。
-                        </p>
-                        
-                        <button onclick="restartQuiz()" class="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded transition-colors">
-                            🔄 重新測驗
-                        </button>
-                    </div>
-                `;
-            } else {
-                // 有答錯，請重來
-                quizStatus.innerHTML = `<span class="text-red-400 font-bold">⚠️ 很遺憾，您有題目答錯了 (得分: ${userScore}/${quizQuestions.length})。</span>`;
-                quizContainer.innerHTML = `
-                    <div class="p-6 text-center space-y-4 max-w-md mx-auto">
-                        <div class="text-3xl">❌</div>
-                        <h4 class="text-base font-bold text-slate-100">未達安全上機門檻 (必須 100% 答對)</h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
-                            實驗室高功率雷射不容許任何操作疏忽。建議重新研讀上方<strong>「人在機在、人在機在、人在機在」</strong>等核心守則，點擊下方按鈕重新發起挑戰。
-                        </p>
-                        <button onclick="restartQuiz()" class="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-lg transition-colors shadow">
-                            🔄 重新開始挑戰安全測驗
-                        </button>
-                    </div>
-                `;
-            }
-        }
-
-        function restartQuiz() {
-            currentQuestionIndex = 0;
-            selectedOptionIndex = null;
-            userScore = 0;
-            const quizActionBtn = document.getElementById('quizActionBtn');
-            quizActionBtn.classList.remove('hidden');
-            loadQuestion(0);
-        }
-
-        // 頁面加載時自動啟動測驗
-        document.addEventListener('DOMContentLoaded', () => {
-            loadQuestion(0);
-        });
-    </script>
-</body>
-</html>
-```

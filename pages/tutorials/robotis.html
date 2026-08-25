@@ -1,52 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>階段三：Robotis 套件 - NFU IRS Lab</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter & Noto Sans TC -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-        }
-        /* 自訂動畫：模擬馬達輪子模式旋轉 */
-        @keyframes spin-clockwise {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @keyframes spin-counterclockwise {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-        .animate-spin-cw {
-            animation: spin-clockwise var(--spin-duration, 2s) linear infinite;
-        }
-        .animate-spin-ccw {
-            animation: spin-counterclockwise var(--spin-duration, 2s) linear infinite;
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
+---
+layout: default
+title: "階段三：Robotis 套件 - NFU IRS Lab"
+description: "ROBOTIS DYNAMIXEL 套件控制教學與互動練習。"
+permalink: /robotis-tutorial.html
+page_key: robotis
+page_js: /assets/js/pages/robotis.js
+page_css: /assets/css/pages/robotis.css
+body_class: bg-slate-50 text-slate-800
+---
+<!-- 頂部導覽列 -->
 
-    <!-- 頂部導覽列 -->
-    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur text-white border-b border-slate-800 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">NFU IRS Lab</span>
-                    <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-block">Robotis 訓練 v1.0</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="training.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-1">
-                        ← 返回訓練首頁
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
     <!-- 頁首 Banner -->
     <header class="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-12 px-4 relative overflow-hidden border-b border-slate-800">
@@ -63,7 +26,7 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
+
             <!-- 快速導覽側邊欄 -->
             <aside class="hidden lg:block lg:col-span-3 sticky top-24 self-start space-y-4">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
@@ -144,7 +107,7 @@
                                 <img src="https://1.bp.blogspot.com/-NrjL7EmsBL8/YFwZQRNncuI/AAAAAAAAAfI/zlktxG81QqcmCJUA5UF1wDcGbjiUEg6GwCPcBGAsYHg/s16000/%25E6%2593%25B7%25E5%258F%2596.PNG" alt="RoboPlus Manager 啟動" class="w-full h-auto" onerror="this.src='https://placehold.co/500x300/e2e8f0/64748b?text=RoboPlus+Launch+BIOLOID'">
                                 <div class="p-2 bg-slate-100 text-[10px] text-slate-500 text-center italic border-t border-slate-200">▲ RoboPlus 套件整合開發環境</div>
                             </div>
-                            
+
                             <p class="text-slate-600 text-xs leading-relaxed pl-7 mt-3">
                                 2. 在 RoboPlus Manager 視窗左上角的下拉選單中選取控制器的 COM Port。你可以在 Windows 的「裝置管理員 ➔ 連接埠 (COM 和 LPT)」中找到 COM 編號，或直接點選 <strong>「Auto Search」</strong> 讓程式自動偵測。<br>
                                 3. 確認 COM 設定正確後，按下旁邊的 <strong>「Connect」</strong> 開始通訊。
@@ -172,7 +135,7 @@
                             <p class="text-slate-600 text-xs leading-relaxed pl-7 mt-4" id="motor-modes">
                                 <strong>AX-12(A) 智慧序列馬達具有兩種關鍵控制模式：</strong>
                             </p>
-                            
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pl-7 mt-2">
                                 <div class="p-3 bg-white rounded-lg border border-slate-200">
                                     <span class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded font-bold text-[10px]">JOINT 關節模式</span>
@@ -232,7 +195,7 @@
 
                         <!-- 模擬主操作介面 -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            
+
                             <!-- 左側控制面板 -->
                             <div class="space-y-6">
                                 <!-- Joint Mode Controller -->
@@ -264,7 +227,7 @@
                                     <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-center">
                                         <div class="text-3xl font-mono font-bold text-emerald-400" id="wheel-val-display">0</div>
                                         <div class="text-[10px] text-slate-400 mt-1">
-                                            旋轉方向：<span id="wheel-dir-display" class="font-bold text-white">停止 (Stop)</span> | 
+                                            旋轉方向：<span id="wheel-dir-display" class="font-bold text-white">停止 (Stop)</span> |
                                             模擬速度：<span id="wheel-speed-pct" class="font-bold text-white">0%</span>
                                         </div>
                                     </div>
@@ -292,7 +255,7 @@
                             <!-- 右側 SVG 物理馬達繪圖與動畫 -->
                             <div class="flex flex-col items-center justify-center bg-slate-950 p-6 rounded-2xl border border-slate-800 min-h-[250px] relative">
                                 <span class="absolute top-3 right-3 text-[10px] bg-slate-900 border border-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">馬達實體視覺狀態</span>
-                                
+
                                 <div class="w-40 h-40 relative">
                                     <!-- 馬達方框主體 -->
                                     <svg viewBox="0 0 100 100" class="w-full h-full">
@@ -300,7 +263,7 @@
                                         <rect x="15" y="15" width="70" height="70" rx="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
                                         <rect x="25" y="5" width="50" height="10" rx="2" fill="#0f172a" opacity="0.8"/>
                                         <circle cx="50" cy="50" r="38" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
-                                        
+
                                         <!-- 三個螺絲固定孔 -->
                                         <circle cx="25" cy="25" r="3" fill="#334155"/>
                                         <circle cx="75" cy="25" r="3" fill="#334155"/>
@@ -314,13 +277,13 @@
                                             <!-- 舵盤圓盤 -->
                                             <circle cx="50" cy="50" r="28" fill="#475569" stroke="#64748b" stroke-width="2"/>
                                             <circle cx="50" cy="50" r="16" fill="#1e293b"/>
-                                            
+
                                             <!-- 中心齒軸 -->
                                             <circle cx="50" cy="50" r="6" fill="#94a3b8"/>
                                             <!-- 齒輪凹凸刻線 -->
                                             <line x1="50" y1="22" x2="50" y2="28" stroke="#f43f5e" stroke-width="3" stroke-linecap="round"/>
                                             <circle cx="50" cy="25" r="2" fill="#fff"/>
-                                            
+
                                             <line x1="22" y1="50" x2="28" y2="50" stroke="#334155" stroke-width="2"/>
                                             <line x1="72" y1="50" x2="78" y2="50" stroke="#334155" stroke-width="2"/>
                                             <line x1="50" y1="72" x2="50" y2="78" stroke="#334155" stroke-width="2"/>
@@ -386,7 +349,7 @@
                                     <div class="mt-3 rounded-lg overflow-hidden border border-slate-200 max-w-sm">
                                         <img src="https://1.bp.blogspot.com/-XglEUmE-giU/YF1rnMYkdBI/AAAAAAAAAiI/j302mWALcugjGppKnY1myv58q--ltvoDQCPcBGAsYHg/s16000/%25E6%2593%25B7%25E5%258F%2596.PNG" alt="語法清單" class="w-full h-auto" onerror="this.src='https://placehold.co/400x200/e2e8f0/64748b?text=Task+Instructions+Menu'">
                                     </div>
-                                    
+
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 text-xs">
                                         <div class="p-3 bg-slate-50 rounded border border-slate-200">
                                             <code class="font-bold text-indigo-700">START PROGRAM</code>
@@ -418,7 +381,7 @@
                                     <p class="text-xs text-slate-500 mt-1 leading-relaxed">
                                         以下是一個經典的控制案例：讀取 CM-530 上的方向按鈕，以不同旋轉方向和速度來驅動馬達。
                                     </p>
-                                    
+
                                     <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4 mt-3 max-w-2xl text-xs text-indigo-900 space-y-2">
                                         <p class="font-bold">🎯 程式邏輯設定：</p>
                                         <ul class="list-disc list-inside space-y-1 pl-1 text-[11px] text-indigo-800">
@@ -532,110 +495,6 @@
     </main>
 
     <!-- 頁尾宣告 -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-500 py-8 text-center text-xs">
-        <p>© 2026 國立虎尾科技大學 智能與機器人系統實驗室 - NFU IRS Lab. All Rights Reserved.</p>
-        <p class="mt-2 text-slate-600">本教學網頁內容與安全機制為實驗室內部教育訓練專屬，未經授權禁止外流。</p>
-    </footer>
+
 
     <!-- JavaScript 互動功能邏輯 -->
-    <script>
-        // 馬達模擬器狀態變數
-        let simMode = 'joint'; // 'joint' or 'wheel'
-        let wheelDirection = 'CW'; // 'CW' or 'CCW'
-        let wheelSpeed = 0;
-
-        // 頁面初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            updateJointSimulator(512); // 預設 512
-        });
-
-        // 1. 模式切換邏輯
-        function toggleSimMode(mode) {
-            simMode = mode;
-            const btnJoint = document.getElementById('sim-btn-joint');
-            const btnWheel = document.getElementById('sim-btn-wheel');
-            const panelJoint = document.getElementById('panel-joint');
-            const panelWheel = document.getElementById('panel-wheel');
-            const motorHorn = document.getElementById('motor-horn');
-
-            if (mode === 'joint') {
-                btnJoint.className = "px-5 py-2.5 bg-indigo-600 text-white font-bold rounded-lg text-xs transition-all shadow-md";
-                btnWheel.className = "px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-lg text-xs transition-all";
-                panelJoint.classList.remove('hidden');
-                panelWheel.classList.add('hidden');
-                
-                // 停止連續旋轉
-                motorHorn.style.animation = 'none';
-                updateJointSimulator(document.getElementById('joint-slider').value);
-            } else {
-                btnJoint.className = "px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-lg text-xs transition-all";
-                btnWheel.className = "px-5 py-2.5 bg-emerald-600 text-white font-bold rounded-lg text-xs transition-all shadow-md";
-                panelJoint.classList.add('hidden');
-                panelWheel.classList.remove('hidden');
-                
-                updateWheelSimulator(document.getElementById('wheel-slider').value);
-            }
-        }
-
-        // 2. 關節模式拉桿控制
-        function updateJointSimulator(val) {
-            document.getElementById('joint-val-display').innerText = val;
-            
-            // 0 - 1023 對應 0° - 300°
-            const angle = (val * 300 / 1023).toFixed(1);
-            document.getElementById('joint-deg-display').innerText = `${angle}°`;
-
-            // SVG 轉向 (CSS 旋轉屬性)
-            const motorHorn = document.getElementById('motor-horn');
-            // 我們將 0 點對應旋轉 -150deg 到 150deg 範圍，視覺會比較對稱，中心點剛好朝上
-            const rotDegrees = (val * 300 / 1023) - 150;
-            motorHorn.style.transform = `rotate(${rotDegrees}deg)`;
-        }
-
-        // 3. 輪子模式方向與速度拉桿控制
-        function changeWheelDir(dir) {
-            wheelDirection = dir;
-            const btnCw = document.getElementById('dir-cw');
-            const btnCcw = document.getElementById('dir-ccw');
-
-            if (dir === 'CW') {
-                btnCw.className = "flex-1 py-1.5 bg-emerald-600 text-white rounded text-[10px] font-bold transition-colors";
-                btnCcw.className = "flex-1 py-1.5 bg-slate-800 text-slate-400 rounded text-[10px] font-bold transition-colors";
-            } else {
-                btnCw.className = "flex-1 py-1.5 bg-slate-800 text-slate-400 rounded text-[10px] font-bold transition-colors";
-                btnCcw.className = "flex-1 py-1.5 bg-emerald-600 text-white rounded text-[10px] font-bold transition-colors";
-            }
-            updateWheelSimulator(document.getElementById('wheel-slider').value);
-        }
-
-        function updateWheelSimulator(val) {
-            wheelSpeed = parseInt(val);
-            document.getElementById('wheel-val-display').innerText = val;
-
-            const speedPct = Math.round((wheelSpeed / 1023) * 100);
-            document.getElementById('wheel-speed-pct').innerText = `${speedPct}%`;
-
-            const motorHorn = document.getElementById('motor-horn');
-
-            if (wheelSpeed === 0) {
-                document.getElementById('wheel-dir-display').innerText = "停止 (Stop)";
-                motorHorn.style.animation = 'none';
-            } else {
-                const dirText = wheelDirection === 'CW' ? '順時針 (Clockwise)' : '逆時針 (Counterclockwise)';
-                document.getElementById('wheel-dir-display').innerText = dirText;
-
-                // 速度越高，動畫週期秒數越短
-                // 1023 ➔ 0.3s (超快), 1 ➔ 10s (極慢)
-                const duration = 10 - (wheelSpeed / 1023) * 9.7;
-                motorHorn.style.setProperty('--spin-duration', `${duration}s`);
-                
-                if (wheelDirection === 'CW') {
-                    motorHorn.className = "absolute inset-0 flex items-center justify-center animate-spin-cw";
-                } else {
-                    motorHorn.className = "absolute inset-0 flex items-center justify-center animate-spin-ccw";
-                }
-            }
-        }
-    </script>
-</body>
-</html>

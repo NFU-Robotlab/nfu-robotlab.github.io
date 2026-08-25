@@ -1,143 +1,35 @@
-<!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFU IRS Lab // AUTOMATION</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & Noto Sans TC -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            color: #0f172a; /* 碳素深藍 */
-            overflow-x: hidden;
-        }
-
-        /* 滿版模糊背景圖片樣式 */
-        .cyber-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -10;
-            object-fit: cover;
-            /* 高強度模糊與稍微降暗 */
-            filter: blur(24px) brightness(0.85);
-            /* 縮放 1.1 倍以消除模糊造成的白邊 */
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-        
-        /* 輕量級磨砂玻璃質感 (Glassmorphism) */
-        .glass-card {
-            background-color: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.1), 0 0 1px rgba(15, 23, 42, 0.05);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            background-color: rgba(255, 255, 255, 0.88);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 30px 60px -20px rgba(15, 23, 42, 0.15), 0 0 2px rgba(15, 23, 42, 0.1);
-        }
-
-        /* 機器人安全橘色焦點 */
-        .accent-border {
-            border-left: 4px solid #f97316;
-        }
-
-        /* 繼電器點亮呼吸指示燈 */
-        .relay-indicator {
-            box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
-        }
-        .relay-indicator-pulse {
-            animation: pulse-green 2s infinite;
-        }
-        @keyframes pulse-green {
-            0%, 100% { opacity: 0.6; box-shadow: 0 0 4px rgba(34, 197, 94, 0.3); }
-            50% { opacity: 1; box-shadow: 0 0 12px rgba(34, 197, 94, 0.8); }
-        }
-
-        /* 磨砂玻璃白透彈窗效果 */
-        .backdrop-blur-glass {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        /* 高質感精密機構淡入動畫 */
-        @keyframes fadeInMove {
-            0% {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fade-in {
-            animation: fadeInMove 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-    </style>
-</head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-orange-500 selection:text-white">
-
-    <!-- 滿版模糊背景圖片 -->
+---
+layout: default
+title: "NFU IRS Lab // AUTOMATION"
+description: "國立虎尾科技大學智慧型機器人系統實驗室網站，提供實驗室介紹、培訓路線與技術學習資源。"
+permalink: /
+page_key: home
+page_css: /assets/css/pages/home.css
+page_js: /assets/js/pages/home.js
+body_class: selection:bg-orange-500 selection:text-white
+---
+<!-- 滿版模糊背景圖片 -->
     <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" alt="Robotics Lab Background" class="cyber-bg" onerror="this.src='https://placehold.co/1200x800/1e293b/64748b?text=Robotics+Lab+Environment'">
 
     <!-- 頂部精密金屬感導覽列 -->
-    <header class="border-b border-white/20 bg-white/60 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg overflow-hidden border border-white bg-slate-100 flex items-center justify-center shadow-sm">
-                    <img src="img/IMG_20260717_193729.jpg" alt="NFU IRS Lab Logo" class="w-full h-full object-cover" onerror="this.src='IMG_20260717_193729.jpg'">
-                </div>
-                
-                <span class="text-base font-black tracking-tight text-slate-950">
-                    NFU <span class="text-orange-500">I.R.S.</span> LAB
-                </span>
-            </div>
-            
-            <!-- 靜音開關、學校連結與 GitHub 連結 -->
-            <div class="flex items-center gap-3">
-                <button id="audio-toggle-btn" onclick="toggleAudio()" class="p-1.5 px-3 border border-white/40 bg-white/70 hover:bg-white hover:border-slate-300 text-slate-700 rounded-lg transition-all flex items-center gap-2 text-xs font-semibold" title="切換系統音訊">
-                    <span id="audio-icon" class="text-sm">🔇</span>
-                    <span class="font-mono tracking-wider hidden sm:inline">AUDIO: OFF</span>
-                </button>
-                <a href="https://www.nfu.edu.tw/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono font-medium text-slate-600 hover:text-orange-600 hover:border-orange-200 transition-colors border border-white/40 p-1.5 px-3 rounded-lg bg-white/70 hidden sm:block" onmouseenter="playSynth('hover')" onclick="playSynth('click')">
-                    [ NFU_HOME ]
-                </a>
-                <a href="https://github.com/nfu-irs-lab" target="_blank" rel="noopener noreferrer" class="text-xs font-mono font-medium text-slate-600 hover:text-slate-900 transition-colors border border-white/40 p-1.5 px-3 rounded-lg bg-white/70 hidden sm:block" onmouseenter="playSynth('hover')" onclick="playSynth('click')">
-                    [ GITHUB_ADDR ]
-                </a>
-            </div>
-        </div>
-    </header>
+
 
     <!-- 主內容區：網頁級雙專欄極簡美學版面 -->
     <main class="max-w-5xl mx-auto px-4 py-12 w-full flex-grow flex flex-col justify-center items-center relative z-10 animate-fade-in">
-        
+
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 w-full items-start">
-            
+
             <!-- 【左側：網頁獨立選單專欄】(Sidebar Column, md:col-span-4) -->
             <div class="md:col-span-4 space-y-6">
                 <div class="glass-card rounded-2xl p-6 relative overflow-hidden space-y-5">
                     <!-- 裝飾背景網格 -->
                     <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-25 pointer-events-none"></div>
-                    
+
                     <div class="accent-border pl-3">
                         <h3 class="text-xs font-bold text-slate-800 tracking-wider uppercase">🧭 導覽選單</h3>
                         <p class="text-[9px] text-slate-400 font-mono mt-0.5">[ NAV_MENU // SELECTIONS ]</p>
                     </div>
-                    
+
                     <div class="flex flex-col gap-3">
                         <!-- 選單 1: 實驗室介紹 -->
                         <button onclick="openAboutModal(); playSynth('click')" onmouseenter="playSynth('hover')" class="group p-4 bg-white/70 hover:bg-white border border-slate-200 hover:border-orange-500 rounded-xl transition-all shadow-sm flex items-center justify-between text-left w-full">
@@ -171,7 +63,7 @@
                 <div class="glass-card rounded-2xl p-8 md:p-10 relative overflow-hidden space-y-8">
                     <!-- 裝飾背景網格 -->
                     <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-25 pointer-events-none"></div>
-                    
+
                     <div class="w-full flex justify-between items-center border-b border-slate-200/50 pb-3 font-mono text-[10px] text-slate-500">
                         <span>PORTAL SYSTEM // 實驗室訓練門戶</span>
                         <span class="text-orange-500 font-semibold">VER 1.6</span>
@@ -186,11 +78,11 @@
                                 [ INTRO // 智慧型機器人系統實驗室 ]
                             </p>
                         </div>
-                        
+
                         <p class="text-slate-600 text-sm leading-relaxed font-light">
                             本網站用於展示智慧型機器人系統實驗室的研究成果、專案簡介與新進成員培訓資源。我們專注於高溫/高扭矩伺服馬達通訊控制、連桿機構力學設計，以及 Windows GUI 機械手臂操作平台的開源與研究。
                         </p>
-                        
+
                         <div class="p-4 bg-white/50 rounded-xl border border-white/60 text-xs text-slate-600 leading-relaxed">
                             💡 <span class="font-bold text-slate-950">SYSTEM NOTICE // 新進人員必讀：</span><br>
                             請確實按照訓練專區，由淺入深地完成 Onshape 3D 建模、設備加工、Robotis 控制及 C# 封包通訊等四大核心技術訓練。
@@ -200,7 +92,7 @@
                     <!-- 控制與入口 -->
                     <div class="space-y-4 pt-4 border-t border-slate-200/50">
                         <p class="text-slate-600 text-xs font-mono tracking-wider">[ INTERFACE_READY // 2026-07-19 ]</p>
-                        
+
                         <div class="flex flex-col sm:flex-row gap-3 w-full">
                             <button onclick="openRolesModal(); playSynth('click')" class="flex-1 text-center px-6 py-3.5 bg-white/80 border border-slate-200 text-slate-700 hover:bg-white hover:border-slate-300 font-semibold text-xs rounded-xl shadow-sm transition-all flex items-center justify-center gap-1.5">
                                 💼 實驗室職務
@@ -214,21 +106,16 @@
             </div>
 
         </div>
-        
+
     </main>
 
     <!-- 頁尾宣告 -->
-    <footer class="border-t border-white/20 bg-white/60 text-slate-500 py-6 text-center text-[10px] font-mono relative z-10 backdrop-blur-md">
-        <div class="max-w-5xl mx-auto px-4">
-            <p>NFU INTELLIGENT & ROBOTIC SYSTEMS LABORATORY // SECURED PORTAL 1.6</p>
-            <p class="mt-1 text-slate-400">© 2026 國立虎尾科技大學 智慧型機器人系統實驗室. AUTHORIZED PERSONNEL ONLY.</p>
-        </div>
-    </footer>
+
 
     <!-- 實驗室介紹彈窗 (About Us Modal Popup) -->
     <div id="about-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="backdrop-blur-glass border border-white/60 bg-white/85 rounded-2xl p-6 max-w-2xl w-full relative overflow-hidden shadow-2xl font-sans">
-            
+
             <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-4 font-mono">
                 <span class="text-slate-800 font-bold text-xs tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
@@ -236,10 +123,10 @@
                 </span>
                 <button onclick="closeAboutModal(); playSynth('click')" class="text-slate-400 hover:text-slate-950 font-semibold transition-colors text-xs">[ CLOSE ]</button>
             </div>
-            
+
             <div class="space-y-4 text-left">
                 <h3 class="text-xl font-black text-slate-900 tracking-tight">國立虎尾科技大學 智慧型機器人系統實驗室</h3>
-                
+
                 <div class="p-3.5 bg-orange-50 rounded-xl border border-orange-100 text-xs text-slate-700 leading-relaxed">
                     👨‍🏫 <strong>指導教授</strong>：王榮爵 教授 (Professor Jung-Chuan Wang) <br>
                     📍 <strong>實驗室位置</strong>：第一教學區 三期大樓 2F 智慧型機器人系統實驗室 (ATC0206)
@@ -271,7 +158,7 @@
                     學術、實作、團結、共享。培育自動化與智慧機器人跨領域高階研發人才。
                 </p>
             </div>
-            
+
             <div class="mt-5 pt-3 border-t border-slate-200/60 text-center font-mono">
                 <button onclick="closeAboutModal(); playSynth('click')" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
                     TERMINATE_SESSION // 關閉
@@ -283,7 +170,7 @@
     <!-- 實驗室職務彈窗 (Minimalist Glassmorphism Modal) -->
     <div id="roles-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden">
         <div class="backdrop-blur-glass border border-white/60 bg-white/85 rounded-2xl p-6 max-w-xl w-full relative overflow-hidden shadow-2xl font-sans">
-            
+
             <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-4 font-mono">
                 <span class="text-slate-800 font-bold text-xs tracking-wider flex items-center gap-2">
                     <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
@@ -291,27 +178,11 @@
                 </span>
                 <button onclick="closeRolesModal(); playSynth('click')" class="text-slate-400 hover:text-slate-950 font-semibold transition-colors text-xs">[ CLOSE ]</button>
             </div>
-            
+
             <h3 class="text-xl font-bold text-slate-900 mb-4 tracking-tight">實驗室職務分配與管理</h3>
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <!-- 門戶 1: 行政 -->
-                <a href="admin.html" onclick="playSynth('click')" class="group p-5 bg-white/90 border border-slate-200 hover:border-orange-500 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-48 text-left">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition-transform">
-                            💼
-                        </div>
-                        <h4 class="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
-                            實驗室行政與財務
-                        </h4>
-                        <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">
-                            計畫經費核銷、發票與收據彙整，以及公文報帳流程指引。
-                        </p>
-                    </div>
-                    <div class="text-[10px] font-mono text-orange-600 font-semibold flex items-center gap-1 mt-2">
-                        ADMIN_PORTAL &gt;&gt;
-                    </div>
-                </a>
 
                 <!-- 門戶 2: 助教 -->
                 <a href="ta.html" onclick="playSynth('click')" class="group p-5 bg-white/90 border border-slate-200 hover:border-slate-800 rounded-xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-48 text-left">
@@ -331,7 +202,7 @@
                     </div>
                 </a>
             </div>
-            
+
             <div class="mt-5 pt-3 border-t border-slate-200/60 text-center font-mono">
                 <button onclick="closeRolesModal(); playSynth('click')" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
                     TERMINATE_SESSION // 關閉
@@ -341,118 +212,3 @@
     </div>
 
     <!-- Audio & Interaction Scripts -->
-    <script>
-        let isAudioEnabled = false;
-        let audioCtx = null;
-
-        // 初始化 Web Audio API (遵守瀏覽器安全限制)
-        function initAudio() {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-        }
-
-        function toggleAudio() {
-            initAudio();
-            isAudioEnabled = !isAudioEnabled;
-            
-            const btn = document.getElementById('audio-toggle-btn');
-            const icon = document.getElementById('audio-icon');
-            
-            if (isAudioEnabled) {
-                icon.innerText = "🔊";
-                btn.className = "p-1.5 px-3 border border-orange-500 bg-orange-500 text-white rounded-lg transition-all flex items-center gap-2 text-xs font-semibold shadow-md shadow-orange-500/10";
-                btn.querySelector('span:last-child').innerText = "AUDIO: ON";
-                playSynth('boot');
-            } else {
-                icon.innerText = "🔇";
-                btn.className = "p-1.5 px-3 border border-white/40 bg-white/70 hover:bg-white hover:border-slate-300 text-slate-700 rounded-lg transition-all flex items-center gap-2 text-xs font-semibold";
-                btn.querySelector('span:last-child').innerText = "AUDIO: OFF";
-            }
-        }
-
-        // 工業精密機械感 8-bit 合成音效
-        function playSynth(type) {
-            if (!isAudioEnabled || !audioCtx) return;
-
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                const now = audioCtx.currentTime;
-
-                if (type === 'hover') {
-                    // 超短精密繼電器微震
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(2400, now);
-                    gain.gain.setValueAtTime(0.015, now);
-                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-                    osc.start(now);
-                    osc.stop(now + 0.04);
-                } else if (type === 'click') {
-                    // 電子按鈕清脆微響
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(1200, now);
-                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.15);
-                    gain.gain.setValueAtTime(0.05, now);
-                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
-                    osc.start(now);
-                    osc.stop(now + 0.15);
-                } else if (type === 'boot') {
-                    // 自動化啟動雙階精密和弦
-                    const notes = [440, 554, 659]; // A major 和弦
-                    notes.forEach((freq, idx) => {
-                        const o = audioCtx.createOscillator();
-                        const g = audioCtx.createGain();
-                        o.connect(g);
-                        g.connect(audioCtx.destination);
-                        o.frequency.setValueAtTime(freq, now + idx * 0.05);
-                        g.gain.setValueAtTime(0.03, now + idx * 0.05);
-                        g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.05 + 0.35);
-                        o.start(now + idx * 0.05);
-                        o.stop(now + idx * 0.05 + 0.35);
-                    });
-                }
-            } catch (e) {
-                console.warn("Audio Context execution failed", e);
-            }
-        }
-
-        // 彈窗控制邏輯
-        function openRolesModal() {
-            const modal = document.getElementById('roles-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
-        }
-
-        function closeRolesModal() {
-            const modal = document.getElementById('roles-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-            }
-        }
-
-        // 實驗室介紹彈窗控制邏輯
-        function openAboutModal() {
-            const modal = document.getElementById('about-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            }
-        }
-
-        function closeAboutModal() {
-            const modal = document.getElementById('about-modal');
-            if (modal) {
-                modal.classList.add('hidden');
-            }
-        }
-    </script>
-</body>
-</html>
-

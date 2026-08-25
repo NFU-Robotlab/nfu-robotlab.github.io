@@ -1,0 +1,116 @@
+---
+layout: default
+title: "歷屆技術學習導覽 - NFU IRS Lab"
+description: "實驗室歷屆技術學習紀錄與開發指南。"
+permalink: /learning-guides.html
+page_key: learning-guides
+page_css: /assets/css/pages/learning-guides.css
+page_js: /assets/js/pages/learning-guides.js
+body_class: bg-slate-50 selection:bg-orange-500 selection:text-white
+---
+<!-- 滿版模糊背景圖片 -->
+    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200" alt="Tech Guides Background" class="cyber-bg" onerror="this.src='https://placehold.co/1200x800/f1f5f9/cbd5e1?text=Technical+Documentation+Environment'">
+
+    <!-- 頂部導覽 -->
+
+
+    <!-- 主內容區 -->
+    <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-grow space-y-8 relative z-10">
+
+        <!-- 核心歡迎區 -->
+        <section class="glass-card rounded-2xl p-6 md:p-8 space-y-4">
+            <div class="border-l-4 border-indigo-600 pl-4">
+                <h2 class="text-2xl font-black text-slate-900 tracking-tight">歷屆技術學習導覽系統</h2>
+                <p class="text-xs text-slate-400 font-mono mt-0.5">[ NODE_02 // SYSTEM & ENGINEERING LITERACY ]</p>
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed font-light">
+                本系統整合了舊網站中所有關鍵的嵌入式與深度學習視覺參考資源。新進人員在進行協作開發或進行相關論文專案、硬體對接前，請務必先詳細點閱並精讀以下三大核心推薦指引。
+            </p>
+        </section>
+
+        <!-- 技術事務文檔導覽網格 -->
+        <section class="space-y-6">
+            <div class="border-l-4 border-indigo-600 pl-4">
+                <h3 class="text-lg font-extrabold text-slate-900">📚 歷屆技術文檔目錄</h3>
+                <p class="text-xs text-slate-400 font-mono mt-0.5">[ TECHNICAL // REPOSITORY DIRECTORIES ]</p>
+            </div>
+
+            <!-- 3 大核心導覽卡片 (優雅置中並排) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto gap-4">
+
+                <!-- 1. STM32 F4 嵌入式開發 -->
+                <button onclick="openDoc('stm32-f4'); playSynth('click')" onmouseenter="playSynth('hover')" class="glass-card p-5 rounded-xl text-left flex flex-col justify-between h-40">
+                    <div>
+                        <h4 class="font-black text-sm text-slate-900 flex items-center gap-1.5">
+                            🧠 <span class="hover:text-indigo-600 transition-colors text-xs sm:text-sm">STM32 F4 嵌入式開發</span>
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                            PlatformIO 實戰、開源 LibOpenCM3 暫存器級框架與 ziteh 學長經典 30 天嵌入式系統開發鐵人賽教學。
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-indigo-600 font-bold tracking-widest uppercase mt-2">READ_MORE // 🧠</span>
+                </button>
+
+                <!-- 2. 實驗室YOLO學習參考影片文檔 -->
+                <button onclick="openDoc('yolo-learning'); playSynth('click')" onmouseenter="playSynth('hover')" class="glass-card p-5 rounded-xl text-left flex flex-col justify-between h-40">
+                    <div>
+                        <h4 class="font-black text-sm text-slate-900 flex items-center gap-1.5">
+                            👁️ <span class="hover:text-indigo-600 transition-colors text-xs sm:text-sm">YOLO 學習參考影片文檔</span>
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                            實驗室成員必備之 YOLOv8 核心物件偵測與影像處理學習播放清單，包含自訂資料集標記與即時視覺對接。
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-indigo-600 font-bold tracking-widest uppercase mt-2">READ_MORE // 👁️</span>
+                </button>
+
+                <!-- 3. Git 版本控制學習 -->
+                <button onclick="openDoc('git-learning'); playSynth('click')" onmouseenter="playSynth('hover')" class="glass-card p-5 rounded-xl text-left flex flex-col justify-between h-40">
+                    <div>
+                        <h4 class="font-black text-sm text-slate-900 flex items-center gap-1.5">
+                            🔀 <span class="hover:text-indigo-600 transition-colors text-xs sm:text-sm">Git 版本控制學習</span>
+                        </h4>
+                        <p class="text-[11px] text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                            Git 與 GitHub 基礎版本控制學習，建立 Commit、Branch、Merge、Push 與多人協作的基本觀念。
+                        </p>
+                    </div>
+                    <span class="text-[9px] font-mono text-indigo-600 font-bold tracking-widest uppercase mt-2">READ_MORE // 🔀</span>
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 文檔閱讀器滑出式 Modal -->
+    <div id="doc-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 hidden animate-fade-in">
+        <div class="backdrop-blur-glass border border-white/60 bg-white/90 rounded-2xl p-6 md:p-8 max-w-4xl w-full max-h-[90vh] flex flex-col relative overflow-hidden shadow-2xl font-sans">
+
+            <div class="flex items-center justify-between border-b border-slate-200/60 pb-3 mb-5 font-mono">
+                <span class="text-slate-800 font-bold text-xs tracking-wider flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-indigo-600 rounded-full animate-pulse"></span>
+                    DOC_NODE: TECHNICAL_DOCUMENTS_v2.0
+                </span>
+                <button onclick="closeDoc(); playSynth('click')" class="text-slate-400 hover:text-slate-950 font-bold transition-colors text-sm">[ CLOSE ]</button>
+            </div>
+
+            <!-- 可捲動的實體內容區 -->
+            <div id="doc-content-body" class="overflow-y-auto pr-3 space-y-6 text-slate-700 leading-relaxed max-h-[72vh] text-sm sm:text-base">
+                <!-- JS 動態加載 -->
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-slate-200/60 text-center font-mono flex justify-end">
+                <button onclick="closeDoc(); playSynth('click')" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs tracking-wider rounded-xl transition-all shadow-md">
+                    CONFIRM // 關閉文檔
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁尾 -->
+
+
+    <!-- 技術文檔實體內容資料庫 -->
+
+
+    <!-- Audio & Interaction Logic -->

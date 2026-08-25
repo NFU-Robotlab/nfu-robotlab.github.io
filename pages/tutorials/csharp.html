@@ -1,37 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>階段四：C# 程式 - NFU IRS Lab</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Inter & Noto Sans TC -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
+---
+layout: default
+title: "階段四：C# 程式 - NFU IRS Lab"
+description: "C# 程式設計入門與實驗室應用教學。"
+permalink: /csharp-tutorial.html
+page_key: csharp
+page_js: /assets/js/pages/csharp.js
+body_class: bg-slate-50 text-slate-800
+---
+<!-- 頂部導覽列 -->
 
-    <!-- 頂部導覽列 -->
-    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur text-white border-b border-slate-800 shadow-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center gap-3">
-                    <span class="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">NFU IRS Lab</span>
-                    <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded-md border border-slate-700 hidden sm:inline-block">C# 序列控制 v1.0</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="training.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors flex items-center gap-1">
-                        ← 返回訓練首頁
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
     <!-- 頁首 Banner -->
     <header class="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-12 px-4 relative overflow-hidden border-b border-slate-800">
@@ -48,7 +25,7 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
+
             <!-- 快速導覽側邊欄 -->
             <aside class="hidden lg:block lg:col-span-3 sticky top-24 self-start space-y-4">
                 <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200">
@@ -195,7 +172,7 @@
                         <!-- 封包位元組視覺化 -->
                         <div class="space-y-3">
                             <h4 class="text-xs font-bold text-slate-400">11-Byte 資料封包陣列 (byte[] dataPackage)：</h4>
-                            
+
                             <div class="overflow-x-auto">
                                 <div class="flex gap-2 min-w-[700px] pb-2 text-center font-mono">
                                     <!-- Byte 0 -->
@@ -339,20 +316,20 @@
 {
     <span class="text-slate-500">// 1. 建立 11 Byte 控制封包陣列</span>
     <span class="text-blue-400">byte</span>[] dataPackage = <span class="text-blue-400">new byte</span>[<span class="text-amber-500">11</span>];
-    
+
     dataPackage[<span class="text-amber-500">0</span>] = <span class="text-amber-500">0xFF</span>;               <span class="text-slate-500">// 標頭 1 (Header 1)</span>
     dataPackage[<span class="text-amber-500">1</span>] = <span class="text-amber-500">0xFF</span>;               <span class="text-slate-500">// 標頭 2 (Header 2)</span>
     dataPackage[<span class="text-amber-500">2</span>] = (<span class="text-blue-400">byte</span>)id;          <span class="text-slate-500">// 目標馬達 ID (ID)</span>
     dataPackage[<span class="text-amber-500">3</span>] = (<span class="text-blue-400">byte</span>)<span class="text-amber-500">7</span>;           <span class="text-slate-500">// 長度 (Length) - 參數位元組 + 3</span>
     dataPackage[<span class="text-amber-500">4</span>] = <span class="text-amber-500">0x03</span>;               <span class="text-slate-500">// 指令 (Instruction) - 0x03 為 Write 指令</span>
     dataPackage[<span class="text-amber-500">5</span>] = (<span class="text-blue-400">byte</span>)<span class="text-amber-500">30</span>;          <span class="text-slate-500">// 起始地址 (Address) - 30 對應 Goal Position</span>
-    
+
     <span class="text-slate-500">// 2. 將 16 位元資料拆分為高低位元組並填入參數</span>
     dataPackage[<span class="text-amber-500">6</span>] = (<span class="text-blue-400">byte</span>)(position &amp; <span class="text-amber-500">0xFF</span>);   <span class="text-slate-500">// Position Low Byte</span>
     dataPackage[<span class="text-amber-500">7</span>] = (<span class="text-blue-400">byte</span>)(position &gt;&gt; <span class="text-amber-500">8</span>);     <span class="text-slate-500">// Position High Byte</span>
     dataPackage[<span class="text-amber-500">8</span>] = (<span class="text-blue-400">byte</span>)(speed &amp; <span class="text-amber-500">0xFF</span>);      <span class="text-slate-500">// Speed Low Byte</span>
     dataPackage[<span class="text-amber-500">9</span>] = (<span class="text-blue-400">byte</span>)(speed &gt;&gt; <span class="text-amber-500">8</span>);        <span class="text-slate-500">// Speed High Byte</span>
-    
+
     <span class="text-slate-500">// 3. 計算校驗和 (Checksum)</span>
     <span class="text-blue-400">byte</span> checksumSum = <span class="text-amber-500">0</span>;
     <span class="text-blue-400">for</span> (<span class="text-blue-400">int</span> i = <span class="text-amber-500">2</span>; i &lt; <span class="text-amber-500">10</span>; i++)
@@ -360,7 +337,7 @@
         checksumSum += dataPackage[i];
     }
     dataPackage[<span class="text-amber-500">10</span>] = (<span class="text-blue-400">byte</span>)(<span class="text-amber-500">0xFF</span> - checksumSum); <span class="text-slate-500">// 存入 Checksum</span>
-    
+
     <span class="text-slate-500">// 4. 經由 SerialPort 將封包陣列發送至硬體</span>
     <span class="text-blue-400">try</span>
     {
@@ -450,60 +427,6 @@
     </main>
 
     <!-- 頁尾宣告 -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-500 py-8 text-center text-xs">
-        <p>© 2026 國立虎尾科技大學 智能與機器人系統實驗室 - NFU IRS Lab. All Rights Reserved.</p>
-        <p class="mt-2 text-slate-600">本教學網頁內容與安全機制為實驗室內部教育訓練專屬，未經授權禁止外流。</p>
-    </footer>
+
 
     <!-- JavaScript 封包計算邏輯 -->
-    <script>
-        // 初始化載入封包計算
-        document.addEventListener('DOMContentLoaded', () => {
-            calculatePacket();
-        });
-
-        function calculatePacket() {
-            let idVal = parseInt(document.getElementById('calc-id').value);
-            let posVal = parseInt(document.getElementById('calc-pos').value);
-            let spdVal = parseInt(document.getElementById('calc-spd').value);
-
-            // 限制防呆
-            if (isNaN(idVal) || idVal < 0 || idVal > 253) idVal = 1;
-            if (isNaN(posVal) || posVal < 0 || posVal > 1023) posVal = 512;
-            if (isNaN(spdVal) || spdVal < 0 || spdVal > 1023) spdVal = 512;
-
-            // 長度常數
-            const len = 7;
-            const inst = 3;
-            const addr = 30;
-
-            // 拆解 16-bit 位置與速度
-            const posL = posVal & 0xFF;
-            const posH = (posVal >> 8) & 0xFF;
-            const spdL = spdVal & 0xFF;
-            const spdH = (spdVal >> 8) & 0xFF;
-
-            // 計算 Checksum (0xFF - (ID + Len + Inst + Addr + PosL + PosH + SpdL + SpdH))
-            const sumBytes = idVal + len + inst + addr + posL + posH + spdL + spdH;
-            const checksum = (0xFF - (sumBytes & 0xFF)) & 0xFF;
-
-            // 更新網頁欄位顯示 (轉換為大寫 Hex 字串)
-            document.getElementById('pkg-id').innerText = toHex(idVal);
-            document.getElementById('pkg-pos-l').innerText = toHex(posL);
-            document.getElementById('pkg-pos-h').innerText = toHex(posH);
-            document.getElementById('pkg-spd-l').innerText = toHex(spdL);
-            document.getElementById('pkg-spd-h').innerText = toHex(spdH);
-            document.getElementById('pkg-chk').innerText = toHex(checksum);
-
-            // 更新詳細算式顯示
-            const formulaText = `計算過程：0xFF - (0x${toHex(idVal)} + 0x07 + 0x03 + 0x1E + 0x${toHex(posL)} + 0x${toHex(posH)} + 0x${toHex(spdL)} + 0x${toHex(spdH)}) = 0xFF - 0x${(sumBytes & 0xFF).toString(16).toUpperCase()} = 0x${checksum.toString(16).toUpperCase()}`;
-            document.getElementById('calc-formula-detail').innerText = formulaText;
-        }
-
-        function toHex(val) {
-            let hexStr = val.toString(16).toUpperCase();
-            return hexStr.length < 2 ? '0' + hexStr : hexStr;
-        }
-    </script>
-</body>
-</html>
