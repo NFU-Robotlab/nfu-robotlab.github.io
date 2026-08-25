@@ -1,205 +1,128 @@
 ---
 layout: default
-title: "NFU IRS Lab // TRAINING MATRIX"
+title: "成員培訓路線 - NFU IRS Lab"
 description: "NFU 智慧型機器人系統實驗室新進成員培訓路線與學習進度。"
 permalink: /training.html
 page_key: training
 page_css: /assets/css/pages/training.css
 page_js: /assets/js/pages/training.js
-body_class: bg-slate-950 text-slate-100 selection:bg-orange-500 selection:text-white
+body_class: selection:bg-orange-500 selection:text-white
 ---
-<!-- 頂部霓虹邊框導覽 -->
+<main class="training-main">
+  <header class="training-hero">
+    <div class="training-hero-inner reveal">
+      <div>
+        <p class="training-kicker">MEMBER ONBOARDING / 01—04</p>
+        <h1>成員培訓路線</h1>
+        <p>從 CAD 設計、設備製造、致動控制到上位機程式，建立參與實驗室專案所需的共同工程基礎。</p>
+      </div>
+      <a class="button-secondary" href="{{ '/' | relative_url }}">返回成員入口</a>
+    </div>
+  </header>
 
-
-    <!-- 主內容區 -->
-    <main class="max-w-4xl mx-auto px-4 py-10 w-full flex-grow space-y-8 relative z-10">
-
-        <!-- 系統同步狀態與進度指示器 -->
-        <section class="bg-slate-950/90 border-2 border-cyan-500/40 rounded-xl p-6 neon-glow-cyan relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                <div class="absolute top-0 right-0 w-2 h-2 bg-cyan-400"></div>
-                <div class="absolute top-0 right-0 w-10 h-[1px] bg-cyan-400"></div>
-                <div class="absolute top-0 right-0 w-[1px] h-10 bg-cyan-400"></div>
-            </div>
-
-            <h3 class="text-cyan-400 font-bold text-xs tracking-widest font-mono flex items-center gap-2 mb-4">
-                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-ping"></span>
-                TRAINING_MATRIX_INTEGRITY // 培訓矩陣同步率
-            </h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 font-mono text-[11px] text-slate-400 border-b border-slate-800 pb-4 mb-4">
-                <div>
-                    <p>SYSTEM STATUS: <span class="text-emerald-400 font-bold">ACTIVE</span></p>
-                </div>
-                <div>
-                    <p>LOCAL DATA: <span class="text-amber-400 font-bold">SYNC_SUCCESS</span></p>
-                </div>
-                <div>
-                    <p>STATIONS LOAD: <span class="text-cyan-400 font-bold">STABLE (41.2°C)</span></p>
-                </div>
-                <div>
-                    <p>IDENTITY LINK: <span class="text-pink-500 font-bold">IRS_MEMBER</span></p>
-                </div>
-            </div>
-
-            <!-- 進度反應式跑分條 -->
-            <div class="space-y-2">
-                <div class="flex justify-between text-xs font-mono">
-                    <span class="text-slate-400">MATRIX INTEGRATION VALUE</span>
-                    <span class="text-cyan-400 font-bold text-sm" id="progress-text">0%</span>
-                </div>
-                <div class="w-full h-3 bg-slate-900 border border-cyan-500/30 rounded overflow-hidden p-[1px]">
-                    <div id="progress-bar" class="h-full bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 transition-all duration-500 shadow-[0_0_10px_rgba(0,240,255,0.5)]" style="width: 0%"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 訓練須知說明卡 -->
-        <section class="bg-slate-950/80 border-2 border-pink-500/30 rounded-2xl p-6 neon-glow-pink relative overflow-hidden transition-all duration-300">
-            <div class="absolute -top-12 -right-12 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl"></div>
-            <div class="border-l-4 border-pink-500 pl-4 mb-4">
-                <h2 class="text-xl sm:text-2xl font-black tracking-widest text-slate-100 neon-text-pink">
-                    培訓矩陣操作指南
-                </h2>
-                <p class="text-xs text-slate-400 font-mono mt-1">[ PROTOCOLS // 新進人員核心訓練地圖 ]</p>
-            </div>
-            <p class="text-slate-300 text-sm leading-relaxed font-light">
-                歡迎來到實驗室的培訓核心！建議依序點擊下方節點閱讀學長姐精選的硬、軟體基礎與故障排除指南。當你完成某一階段的學習時，可以勾選卡片中的「進度狀態」核取方塊，系統會主動更新你的矩陣同步率並將狀態存入核心記憶體。
-            </p>
-        </section>
-
-        <!-- 培訓節點列表 -->
-        <div class="space-y-6">
-
-            <!-- 1. Onshape 3D建模 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-300">
-                <div class="absolute top-0 right-0 w-full h-[1px] bg-cyan-500/20 laser-sweep-line"></div>
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/30 font-mono">PHASE_01 // CAD_INTEGRATION</span>
-                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
-                            📐 1. Onshape 3D 建模
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
-                            Onshape 是全雲端架構的 3D CAD 建模軟體，免安裝且支援多人即時協作，是實驗室進行機器人機構設計、連桿干涉驗證以及 3D 列印輸出的主要工具。
-                        </p>
-                    </div>
-
-                    <!-- 交互Checkbox -->
-                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
-                        <input type="checkbox" id="cb-onshape" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-cyan-500 cursor-pointer">
-                        <label for="cb-onshape" class="text-xs font-mono text-slate-400 cursor-pointer select-none">NODE_SYNC</label>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: READY // CORES: ONLINE ]</span>
-                    <a href="onshape-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
-                        🎬 CAD 教學資源 &gt;
-                    </a>
-                </div>
-            </div>
-
-            <!-- 2. 實驗室基本設備 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
-                <div class="absolute top-0 right-0 w-full h-[1px] bg-pink-500/20 laser-sweep-line"></div>
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/30 font-mono">PHASE_02 // HARDWARE_FABRICATION</span>
-                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
-                            ⚡ 2. 實驗室基本設備 (雷切與 3D 列印)
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
-                            學習 CO2 雷射切割機安全操作，自製高精度壓克力與木板結構；以及熱熔沉積 (FDM) 3D 列印與切片設定，以利後續產出機械手臂連桿、夾爪與外殼骨架。
-                        </p>
-                    </div>
-
-                    <!-- 雙 Checkbox 進度 -->
-                    <div class="flex flex-col gap-2 self-start sm:self-center">
-                        <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3 py-2 rounded-lg">
-                            <input type="checkbox" id="cb-equipment-laser" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
-                            <label for="cb-equipment-laser" class="text-[10px] font-mono text-slate-400 cursor-pointer select-none">LASER_SYNC</label>
-                        </div>
-                        <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 px-3 py-2 rounded-lg">
-                            <input type="checkbox" id="cb-equipment-3d" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
-                            <label for="cb-equipment-3d" class="text-[10px] font-mono text-slate-400 cursor-pointer select-none">3DPR_SYNC</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: ACTIVE // PATHS: DUAL_FAB ]</span>
-                    <div class="flex gap-2">
-                        <a href="equipment-tutorial.html#laser-cutter" onclick="playSynth('click')" class="clip-cyber-sm px-4 py-2 bg-slate-900 border border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-slate-950 font-bold text-[11px] tracking-wider transition-all">
-                            ⚡ 雷切安全 &gt;
-                        </a>
-                        <a href="3d-printer-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-4 py-2 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-slate-950 font-extrabold text-[11px] tracking-wider transition-all">
-                            🖨️ 3D 列印 &gt;
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Robotis 套件 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-300">
-                <div class="absolute top-0 right-0 w-full h-[1px] bg-cyan-500/20 laser-sweep-line"></div>
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded border border-cyan-500/30 font-mono">PHASE_03 // CONTROLLER_ACTUATION</span>
-                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
-                            🤖 3. Robotis 套件
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
-                            利用 CM-530 控制器與 AX-12(A) 智慧型序列伺服馬達進行實機控制。理解 0-1023 關節模式與 360 度連續轉動之輪子模式，並透過 RoboPlus Task 圖形式樹狀語法進行控制邏輯撰寫。
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
-                        <input type="checkbox" id="cb-robotis" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-cyan-500 cursor-pointer">
-                        <label for="cb-robotis" class="text-xs font-mono text-slate-400 cursor-pointer select-none">ACTUATOR_SYNC</label>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: READY // DRIVER: DETECTED ]</span>
-                    <a href="robotis-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
-                        ⚙️ 馬達與控制器教學 &gt;
-                    </a>
-                </div>
-            </div>
-
-            <!-- 4. C# 程式 -->
-            <div onmouseenter="playSynth('hover')" class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
-                <div class="absolute top-0 right-0 w-full h-[1px] bg-pink-500/20 laser-sweep-line"></div>
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-pink-500/10 text-pink-400 px-2 py-0.5 rounded border border-pink-500/30 font-mono">PHASE_04 // HOST_INTEGRATION</span>
-                        <h3 class="text-lg font-bold text-slate-100 mt-2 flex items-center gap-2">
-                            💻 4. C# 程式
-                        </h3>
-                        <p class="text-xs text-slate-400 leading-relaxed max-w-xl font-light">
-                            擺脫嵌入式控制程式限制，在電腦端使用 Visual Studio 與 Windows Forms 開發 C# 控制台應用。學習使用低階序列通訊 (SerialPort) 自行打包與解析 Protocol 1.0 指令封包，完成客製化手臂 GUI 連線。
-                        </p>
-                    </div>
-
-                    <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 p-3 rounded-lg self-start sm:self-center">
-                        <input type="checkbox" id="cb-csharp" onchange="updateProgress(); playSynth('select')" class="w-4.5 h-4.5 accent-pink-500 cursor-pointer">
-                        <label for="cb-csharp" class="text-xs font-mono text-slate-400 cursor-pointer select-none">COMM_SYNC</label>
-                    </div>
-                </div>
-
-                <div class="mt-6 pt-4 border-t border-slate-900 flex justify-between items-center flex-wrap gap-2">
-                    <span class="text-[10px] text-slate-500 font-mono">[ STATUS: FINAL_STATION // PORT: READY ]</span>
-                    <a href="csharp-tutorial.html" onclick="playSynth('click')" class="clip-cyber-sm px-5 py-2.5 bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 text-slate-950 font-extrabold text-xs tracking-widest transition-all glitch-hover">
-                        ⚡ C# 封包與控制教學 &gt;
-                    </a>
-                </div>
-            </div>
-
+  <div class="training-content">
+    <section class="progress-panel reveal" aria-labelledby="progress-title">
+      <div class="progress-copy">
+        <span class="progress-label">LOCAL TRAINING PROGRESS</span>
+        <h2 id="progress-title">你的培訓完成度</h2>
+        <p>進度會保存在目前瀏覽器，不會上傳個人資料。</p>
+      </div>
+      <div class="progress-meter">
+        <div class="progress-value"><span>已完成</span><strong id="progress-text">0%</strong></div>
+        <div class="progress-track" role="progressbar" aria-label="培訓完成度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-bar"></div>
         </div>
-    </main>
+      </div>
+    </section>
 
-    <!-- 頁尾宣告 -->
+    <section class="training-intro reveal">
+      <div class="section-heading">
+        <span class="eyebrow">Training Matrix</span>
+        <h2>四個階段，一套共同工作語言</h2>
+        <p>建議依序閱讀與實作。完成一項後勾選右側狀態；設備課程必須同時完成雷射切割與 3D 列印兩項內容。</p>
+      </div>
+      <div class="training-rule">
+        <span>操作原則</span>
+        <p>不確定就先停止設備，確認 SOP，再詢問技術助教或現場負責人。</p>
+      </div>
+    </section>
 
+    <ol class="training-list">
+      <li class="training-card reveal">
+        <div class="phase-marker"><span>01</span><small>DESIGN</small></div>
+        <div class="phase-content">
+          <p class="phase-label">CAD / MECHANICAL DESIGN</p>
+          <h2>Onshape 3D 建模</h2>
+          <p>使用雲端 CAD 完成零件、連桿與組合件設計，建立機構干涉檢查與製造輸出的基本能力。</p>
+          <div class="phase-actions">
+            <a class="button-quiet" href="{{ '/onshape-tutorial.html' | relative_url }}">開啟 Onshape 教學 <span aria-hidden="true">→</span></a>
+            <label class="completion-control" for="cb-onshape">
+              <input type="checkbox" id="cb-onshape" data-training-checkbox>
+              <span>標記完成</span>
+            </label>
+          </div>
+        </div>
+      </li>
 
-    <!-- Audio & Progress Scripts -->
+      <li class="training-card reveal">
+        <div class="phase-marker"><span>02</span><small>BUILD</small></div>
+        <div class="phase-content">
+          <p class="phase-label">FABRICATION / SAFETY</p>
+          <h2>實驗室基本設備</h2>
+          <p>認識 CO₂ 雷射切割與 FDM 3D 列印的安全規範、加工流程與機台復歸方式。</p>
+          <div class="equipment-links">
+            <a href="{{ '/equipment-tutorial.html' | relative_url }}#laser-cutter">雷射切割安全 <span aria-hidden="true">→</span></a>
+            <label class="completion-control" for="cb-equipment-laser">
+              <input type="checkbox" id="cb-equipment-laser" data-training-checkbox>
+              <span>雷切完成</span>
+            </label>
+          </div>
+          <div class="equipment-links">
+            <a href="{{ '/3d-printer-tutorial.html' | relative_url }}">3D 列印操作 <span aria-hidden="true">→</span></a>
+            <label class="completion-control" for="cb-equipment-3d">
+              <input type="checkbox" id="cb-equipment-3d" data-training-checkbox>
+              <span>列印完成</span>
+            </label>
+          </div>
+        </div>
+      </li>
+
+      <li class="training-card reveal">
+        <div class="phase-marker"><span>03</span><small>CONTROL</small></div>
+        <div class="phase-content">
+          <p class="phase-label">ROBOTIS / ACTUATION</p>
+          <h2>ROBOTIS 套件與伺服控制</h2>
+          <p>使用 CM-530 與 DYNAMIXEL AX-12(A)，理解關節／輪子模式、馬達 ID 與 RoboPlus 控制流程。</p>
+          <div class="phase-actions">
+            <a class="button-quiet" href="{{ '/robotis-tutorial.html' | relative_url }}">開啟 ROBOTIS 教學 <span aria-hidden="true">→</span></a>
+            <label class="completion-control" for="cb-robotis">
+              <input type="checkbox" id="cb-robotis" data-training-checkbox>
+              <span>標記完成</span>
+            </label>
+          </div>
+        </div>
+      </li>
+
+      <li class="training-card reveal">
+        <div class="phase-marker"><span>04</span><small>INTEGRATE</small></div>
+        <div class="phase-content">
+          <p class="phase-label">C# / SERIAL PROTOCOL</p>
+          <h2>C# 程式與實機整合</h2>
+          <p>透過 Visual Studio、Windows Forms 與 SerialPort 自行組裝 Protocol 1.0 指令封包，完成電腦端控制介面。</p>
+          <div class="phase-actions">
+            <a class="button-quiet" href="{{ '/csharp-tutorial.html' | relative_url }}">開啟 C# 控制教學 <span aria-hidden="true">→</span></a>
+            <label class="completion-control" for="cb-csharp">
+              <input type="checkbox" id="cb-csharp" data-training-checkbox>
+              <span>標記完成</span>
+            </label>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="training-finish reveal">
+      <div><span>NEXT STEP</span><h2>完成培訓後，把方法寫進技術紀錄。</h2></div>
+      <a class="button-primary" href="{{ '/learning-guides.html' | relative_url }}">前往技術學習紀錄</a>
+    </section>
+  </div>
+</main>

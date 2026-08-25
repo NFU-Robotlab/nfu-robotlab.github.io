@@ -1,35 +1,261 @@
-body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            color: #0f172a;
-        }
-        /* 滿版模糊背景圖片 */
-        .cyber-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -10;
-            object-fit: cover;
-            filter: blur(24px) brightness(0.9);
-            transform: scale(1.1);
-            pointer-events: none;
-        }
-        /* 輕量磨砂玻璃卡片 */
-        .glass-card {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            background-color: rgba(255, 255, 255, 0.92);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 30px 60px -20px rgba(15, 23, 42, 0.12);
-        }
-        /* 磨砂玻璃彈窗背景 */
-        .backdrop-blur-glass {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-        }
+.guides-main {
+  background: #f4f6f8;
+}
+
+.guides-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #f97316;
+  color: white;
+  background:
+    radial-gradient(circle at 80% 25%, rgb(37 99 235 / 0.16), transparent 26rem),
+    linear-gradient(rgb(148 163 184 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 0.06) 1px, transparent 1px),
+    #0b1220;
+  background-size: auto, 34px 34px, 34px 34px, auto;
+}
+
+.guides-hero-inner {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 8vw, 6.25rem) 1.5rem 4rem;
+}
+
+.guides-kicker {
+  color: #fb923c;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.guides-hero h1 {
+  margin-top: 0.8rem;
+  color: #f8fafc;
+  font-size: clamp(2.4rem, 7vw, 4.3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.guides-hero p:last-child {
+  max-width: 43rem;
+  margin-top: 1rem;
+  color: #aebacf;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.guides-content {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 7rem) 1.5rem;
+}
+
+.guides-intro {
+  display: grid;
+  grid-template-columns: 1fr 20rem;
+  align-items: end;
+  gap: 3rem;
+}
+
+.archive-note {
+  border-left: 3px solid #f97316;
+  padding: 0.4rem 0 0.4rem 1rem;
+}
+
+.archive-note strong {
+  color: #c2410c;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.archive-note p {
+  margin-top: 0.4rem;
+  color: #64748b;
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.guide-card {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border: 1px solid #d8e0ea;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  background: white;
+  box-shadow: 0 18px 48px -36px rgb(15 23 42 / 0.62);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.guide-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f97316, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+  content: "";
+}
+
+.guide-card:hover,
+.guide-card:focus-visible {
+  border-color: #bcc7d5;
+  box-shadow: 0 25px 58px -34px rgb(15 23 42 / 0.42);
+  transform: translateY(-3px);
+}
+
+.guide-card:hover::after,
+.guide-card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.guide-number {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.5rem;
+  color: #a8b3c2;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.guide-icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid #334155;
+  border-radius: 0.7rem;
+  color: #fb923c;
+  background: #172033;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.guide-type {
+  margin-top: 2rem;
+  color: #c2410c;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.guide-card h2 {
+  margin-top: 0.45rem;
+  color: #172033;
+  font-size: 1.15rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.guide-card > p:not(.guide-type) {
+  margin-top: 0.75rem;
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.guide-link {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.4rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.74rem;
+  font-weight: 750;
+}
+
+.guide-link b {
+  color: #f97316;
+}
+
+.guides-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: white;
+  background: #172033;
+}
+
+.guides-next span {
+  color: #fb923c;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+
+.guides-next h2 {
+  margin-top: 0.4rem;
+  color: #f1f5f9;
+  font-size: clamp(1.15rem, 3vw, 1.55rem);
+  font-weight: 750;
+}
+
+.doc-panel {
+  max-width: 54rem;
+}
+
+.doc-content {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.doc-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (max-width: 799px) {
+  .guides-content {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .guides-intro {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-card {
+    min-height: 18rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .guides-next {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
