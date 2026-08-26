@@ -40,6 +40,21 @@
         <span>主計室</span>
       </a>
     </nav>
+
+    <section class="assistive-font-control" aria-labelledby="assistive-font-title">
+      <div class="assistive-font-heading">
+        <label id="assistive-font-title" for="assistive-font-slider">字體大小</label>
+        <div>
+          <output id="assistive-font-value" for="assistive-font-slider">100%</output>
+          <button type="button" data-font-reset>預設</button>
+        </div>
+      </div>
+      <div class="assistive-font-slider-row">
+        <span class="is-small" aria-hidden="true">A</span>
+        <input id="assistive-font-slider" type="range" min="85" max="140" step="5" value="100" aria-label="調整網站字體大小">
+        <span class="is-large" aria-hidden="true">A</span>
+      </div>
+    </section>
   </div>
 
   <button class="assistive-dot" type="button" aria-expanded="false" aria-controls="assistive-toolbar" aria-label="開啟常用網站工具列" data-assistive-toggle>
