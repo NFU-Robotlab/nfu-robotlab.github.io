@@ -8,20 +8,130 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const revealItems = document.querySelectorAll(".reveal");
-  if (!revealItems.length) return;
+  if (revealItems.length) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-    return;
+      revealItems.forEach((item) => observer.observe(item));
+    }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.12 });
+  const assistiveMenu = document.querySelector("[data-assistive-menu]");
+  const assistiveToggle = assistiveMenu?.querySelector("[data-assistive-toggle]");
+  const assistiveToolbar = assistiveMenu?.querySelector(".assistive-toolbar");
+  if (!assistiveMenu || !assistiveToggle || !assistiveToolbar) return;
 
-  revealItems.forEach((item) => observer.observe(item));
+  const positionStorageKey = "nfu-assistive-position-v1";
+  const edgeMargin = 12;
+  let dragState = null;
+  let suppressClick = false;
+
+  const setOpen = (isOpen, restoreFocus = false) => {
+    assistiveMenu.classList.toggle("is-open", isOpen);
+    assistiveToggle.setAttribute("aria-expanded", String(isOpen));
+    assistiveToggle.setAttribute("aria-label", isOpen ? "關閉常用網站工具列" : "開啟常用網站工具列");
+    assistiveToolbar.setAttribute("aria-hidden", String(!isOpen));
+    if (isOpen) assistiveToolbar.querySelector("a")?.focus({ preventScroll: true });
+    if (!isOpen && restoreFocus) assistiveToggle.focus({ preventScroll: true });
+  };
+
+  const clampPosition = (left, top) => {
+    const width = assistiveMenu.offsetWidth;
+    const height = assistiveMenu.offsetHeight;
+    const safeTop = Math.max(edgeMargin, Math.min(top, window.innerHeight - height - edgeMargin));
+    const safeLeft = Math.max(edgeMargin, Math.min(left, window.innerWidth - width - edgeMargin));
+    return { left: safeLeft, top: safeTop };
+  };
+
+  const applyPosition = (left, top, save = false) => {
+    const next = clampPosition(left, top);
+    assistiveMenu.style.left = `${next.left}px`;
+    assistiveMenu.style.top = `${next.top}px`;
+    assistiveMenu.style.right = "auto";
+    assistiveMenu.style.bottom = "auto";
+    assistiveMenu.classList.toggle("opens-right", next.left < window.innerWidth / 2);
+    assistiveMenu.classList.toggle("opens-down", next.top < 330);
+    if (save) localStorage.setItem(positionStorageKey, JSON.stringify(next));
+  };
+
+  try {
+    const savedPosition = JSON.parse(localStorage.getItem(positionStorageKey));
+    if (Number.isFinite(savedPosition?.left) && Number.isFinite(savedPosition?.top)) {
+      applyPosition(savedPosition.left, savedPosition.top);
+    }
+  } catch {
+    localStorage.removeItem(positionStorageKey);
+  }
+
+  assistiveToggle.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    const rect = assistiveMenu.getBoundingClientRect();
+    dragState = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      left: rect.left,
+      top: rect.top,
+      moved: false
+    };
+    assistiveToggle.setPointerCapture(event.pointerId);
+  });
+
+  assistiveToggle.addEventListener("pointermove", (event) => {
+    if (!dragState || dragState.pointerId !== event.pointerId) return;
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+    if (!dragState.moved && Math.hypot(deltaX, deltaY) < 6) return;
+    dragState.moved = true;
+    setOpen(false);
+    assistiveMenu.classList.add("is-dragging");
+    applyPosition(dragState.left + deltaX, dragState.top + deltaY);
+  });
+
+  const finishDrag = (event) => {
+    if (!dragState || dragState.pointerId !== event.pointerId) return;
+    if (dragState.moved) {
+      const rect = assistiveMenu.getBoundingClientRect();
+      applyPosition(rect.left, rect.top, true);
+      suppressClick = true;
+    }
+    assistiveMenu.classList.remove("is-dragging");
+    dragState = null;
+  };
+
+  assistiveToggle.addEventListener("pointerup", finishDrag);
+  assistiveToggle.addEventListener("pointercancel", finishDrag);
+
+  assistiveToggle.addEventListener("click", () => {
+    if (suppressClick) {
+      suppressClick = false;
+      return;
+    }
+    setOpen(!assistiveMenu.classList.contains("is-open"));
+  });
+
+  assistiveToolbar.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (assistiveMenu.classList.contains("is-open") && !assistiveMenu.contains(event.target)) setOpen(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && assistiveMenu.classList.contains("is-open")) setOpen(false, true);
+  });
+
+  window.addEventListener("resize", () => {
+    const rect = assistiveMenu.getBoundingClientRect();
+    if (assistiveMenu.style.left) applyPosition(rect.left, rect.top, true);
+  });
 });
