@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const audioButton = document.getElementById("audio-toggle-btn");
-  audioButton?.addEventListener("click", () => window.toggleAudio?.());
-
   const details = document.querySelector(".mobile-nav");
   document.addEventListener("click", (event) => {
     if (details?.open && !details.contains(event.target)) details.removeAttribute("open");
