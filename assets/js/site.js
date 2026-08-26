@@ -1,4 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const transitionCurtain = document.querySelector(".page-transition-curtain");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (root.classList.contains("is-page-entering")) {
+    window.setTimeout(() => root.classList.remove("is-page-entering"), 320);
+  }
+
+  if (transitionCurtain) {
+    document.querySelectorAll(".desktop-nav a, .mobile-nav a").forEach((link) => {
+      let destination;
+      try {
+        destination = new URL(link.href, window.location.href);
+      } catch {
+        return;
+      }
+
+      const isLearningPage = destination.origin === window.location.origin && destination.pathname.endsWith("/ta.html");
+      const isAdminPage = destination.hostname === "nfu-robotlab-internal-docs.robotlabnfu.workers.dev";
+      if (!isLearningPage && !isAdminPage) return;
+
+      link.addEventListener("click", (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.target === "_blank" || reduceMotion.matches || root.classList.contains("is-page-leaving")) return;
+
+        event.preventDefault();
+        const rect = link.getBoundingClientRect();
+        const x = Number.isFinite(event.clientX) && event.clientX > 0 ? event.clientX : rect.left + rect.width / 2;
+        const y = Number.isFinite(event.clientY) && event.clientY > 0 ? event.clientY : rect.top + rect.height / 2;
+        const farthestX = Math.max(x, window.innerWidth - x);
+        const farthestY = Math.max(y, window.innerHeight - y);
+        const scale = Math.ceil(Math.hypot(farthestX, farthestY) / 24) + 2;
+
+        root.style.setProperty("--transition-x", `${x}px`);
+        root.style.setProperty("--transition-y", `${y}px`);
+        root.style.setProperty("--transition-scale", scale);
+
+        if (destination.origin === window.location.origin) {
+          try {
+            sessionStorage.setItem("nfu-page-transition-v1", JSON.stringify({
+              x: x / window.innerWidth,
+              y: y / window.innerHeight,
+              scale
+            }));
+          } catch {}
+        }
+
+        root.classList.remove("is-page-entering");
+        root.classList.add("is-page-leaving");
+        window.setTimeout(() => window.location.assign(destination.href), 250);
+      });
+    });
+  }
+
   const details = document.querySelector(".mobile-nav");
   document.addEventListener("click", (event) => {
     if (details?.open && !details.contains(event.target)) details.removeAttribute("open");
