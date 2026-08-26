@@ -31,7 +31,7 @@
 
 ## JavaScript
 
-- `assets/js/audio.js`：全站共用音效控制。
+- `assets/js/site.js`：全站共用導覽、進場動畫與小白點工具列控制。
 - `assets/js/pages/*.js`：各教學頁的模擬器、測驗、對話框或進度功能。
 
 頁面本身不應再放大型 inline script。

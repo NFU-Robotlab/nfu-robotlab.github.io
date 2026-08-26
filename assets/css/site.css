@@ -205,7 +205,6 @@ summary {
   gap: 0.55rem;
 }
 
-.audio-toggle,
 .mobile-nav summary {
   display: inline-flex;
   min-height: 2.5rem;
@@ -223,19 +222,11 @@ summary {
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 
-.audio-toggle:hover,
-.audio-toggle:focus-visible,
-.mobile-nav summary:hover {
+.mobile-nav summary:hover,
+.mobile-nav summary:focus-visible {
   color: var(--ios-blue-dark);
   background: rgb(255 255 255 / 0.8);
   transform: translateY(-1px);
-}
-
-.audio-toggle.is-on {
-  border-color: rgb(0 122 255 / 0.28);
-  color: white;
-  background: linear-gradient(145deg, #2997ff, #007aff);
-  box-shadow: 0 10px 24px rgb(0 122 255 / 0.24);
 }
 
 .mobile-nav {
@@ -852,10 +843,6 @@ summary {
 
   .mobile-nav {
     display: block;
-  }
-
-  .audio-label {
-    display: none;
   }
 
   .site-brand-name {
