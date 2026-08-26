@@ -1,5 +1,10 @@
-title: NFU 智慧型機器人系統實驗室
+title: NFU 機器人實驗室
 short_title: NFU I.R.S. Lab
+site_name: NFU 機器人實驗室
+alternate_site_names:
+  - NFU 智慧型機器人系統實驗室
+  - NFU I.R.S. Lab
+  - nfu-robotlab.github.io
 description: 國立虎尾科技大學智慧型機器人系統實驗室網站
 url: https://nfu-robotlab.github.io
 baseurl: ""
