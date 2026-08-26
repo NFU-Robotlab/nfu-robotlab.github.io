@@ -78,6 +78,58 @@ body::before {
   }
 }
 
+.page-transition-curtain {
+  position: fixed;
+  top: var(--transition-y, 50vh);
+  left: var(--transition-x, 50vw);
+  z-index: 110;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 1.45rem;
+  opacity: 0;
+  background: linear-gradient(145deg, #e7f7ff 0%, #eeeaff 52%, #ffeaf5 100%);
+  transform: translate3d(-50%, -50%, 0) scale(0.18);
+  transform-origin: center;
+  pointer-events: none;
+}
+
+.is-page-leaving .page-transition-curtain,
+.is-page-entering .page-transition-curtain {
+  will-change: transform, opacity;
+}
+
+.is-page-leaving .page-transition-curtain {
+  animation: ios-app-open 250ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
+}
+
+.is-page-entering .page-transition-curtain {
+  animation: ios-app-reveal 300ms cubic-bezier(0.32, 0, 0.2, 1) both;
+}
+
+@keyframes ios-app-open {
+  from {
+    opacity: 0.18;
+    transform: translate3d(-50%, -50%, 0) scale(0.18);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(var(--transition-scale, 48));
+  }
+}
+
+@keyframes ios-app-reveal {
+  from {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(var(--transition-scale, 48));
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.18);
+  }
+}
+
 #main-content {
   display: flex;
   flex: 1;
