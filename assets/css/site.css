@@ -626,6 +626,7 @@ summary {
   right: 0;
   bottom: calc(100% + 0.85rem);
   width: min(19rem, calc(100vw - 1.5rem));
+  max-height: calc(100vh - 1.5rem);
   padding: 1rem;
   visibility: hidden;
   border: 1px solid rgb(255 255 255 / 0.82);
@@ -635,6 +636,7 @@ summary {
   box-shadow: 0 24px 64px rgb(45 55 80 / 0.24);
   transform: translateY(0.75rem) scale(0.96);
   transform-origin: right bottom;
+  overflow-y: auto;
   pointer-events: none;
   backdrop-filter: saturate(185%) blur(28px);
   -webkit-backdrop-filter: saturate(185%) blur(28px);
@@ -749,6 +751,86 @@ summary {
 .assistive-link-icon.is-admin { background: linear-gradient(145deg, #ff9f0a, #ff6b35); }
 .assistive-link-icon.is-github { background: linear-gradient(145deg, #35354a, #111118); }
 .assistive-link-icon.is-accounting { background: linear-gradient(145deg, #34c759, #00a58e); }
+
+.assistive-font-control {
+  margin-top: 0.85rem;
+  padding: 0.78rem 0.85rem 0.72rem;
+  border: 1px solid rgb(255 255 255 / 0.82);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.58);
+  box-shadow: 0 6px 18px rgb(71 85 105 / 0.07);
+}
+
+.assistive-font-heading {
+  display: flex;
+  margin-bottom: 0.58rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.assistive-font-heading label {
+  color: var(--ios-text);
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+
+.assistive-font-heading div {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.assistive-font-heading output {
+  min-width: 2.65rem;
+  color: var(--ios-blue);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.assistive-font-heading button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.24rem 0.48rem;
+  color: var(--ios-secondary);
+  background: rgb(118 118 128 / 0.1);
+  font-size: 0.62rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.assistive-font-heading button:hover,
+.assistive-font-heading button:focus-visible {
+  color: var(--ios-blue);
+  background: rgb(10 132 255 / 0.12);
+}
+
+.assistive-font-slider-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ios-secondary);
+}
+
+.assistive-font-slider-row .is-small {
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.assistive-font-slider-row .is-large {
+  color: var(--ios-text);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.assistive-font-slider-row input {
+  width: 100%;
+  min-width: 0;
+  accent-color: var(--ios-blue);
+  cursor: pointer;
+}
 
 @media (min-width: 1024px) {
   .site-header-inner,
