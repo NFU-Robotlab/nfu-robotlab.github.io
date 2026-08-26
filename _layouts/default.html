@@ -6,6 +6,18 @@
     <meta name="theme-color" content="#eef3fb">
     <meta name="color-scheme" content="light">
     <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <script>
+      try {
+        const transition = JSON.parse(sessionStorage.getItem("nfu-page-transition-v1"));
+        sessionStorage.removeItem("nfu-page-transition-v1");
+        if (transition) {
+          document.documentElement.style.setProperty("--transition-x", `${transition.x * innerWidth}px`);
+          document.documentElement.style.setProperty("--transition-y", `${transition.y * innerHeight}px`);
+          document.documentElement.style.setProperty("--transition-scale", transition.scale);
+          document.documentElement.classList.add("is-page-entering");
+        }
+      } catch {}
+    </script>
 
     <title>{{ page.title | default: site.title }}</title>
     <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -20,13 +32,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=20260826-liquid1">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=20260826-transition1">
     {% if page.page_css %}
       <link rel="stylesheet" href="{{ page.page_css | relative_url }}?v=20260825-ios2">
     {% endif %}
   </head>
   <body class="page-{{ page.page_key }} {{ page.body_class }}">
     <a class="skip-link" href="#main-content">跳至主要內容</a>
+    <div class="page-transition-curtain" aria-hidden="true"></div>
     {% include site-header.html %}
 
     <div id="main-content">
@@ -35,7 +48,7 @@
 
     {% include site-footer.html %}
     {% include assistive-menu.html %}
-    <script src="{{ '/assets/js/site.js' | relative_url }}?v=20260826-noaudio1" defer></script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}?v=20260826-transition1" defer></script>
     {% if page.page_js %}
       <script src="{{ page.page_js | relative_url }}?v=20260825-ios2" defer></script>
     {% endif %}
