@@ -12,6 +12,7 @@
     <nav class="desktop-nav" aria-label="主要導覽">
       <a class="site-nav-link {% if page.page_key == 'home' %}is-active{% endif %}" href="{{ '/' | relative_url }}">首頁</a>
       <a class="site-nav-link {% if page.page_key == 'administrative-affairs' %}is-active{% endif %}" href="https://nfu-robotlab-internal-docs.robotlabnfu.workers.dev/login" aria-label="登入實驗室行政">實驗室行政</a>
+      <a class="site-nav-link {% if page.page_key == 'ta' %}is-active{% endif %}" href="{{ '/ta.html' | relative_url }}">技術助教</a>
       <a class="site-nav-link" href="https://github.com/NFU-Robotlab/nfu-robotlab.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
 
@@ -26,6 +27,7 @@
         <nav aria-label="行動版導覽">
           <a href="{{ '/' | relative_url }}">首頁</a>
           <a href="https://nfu-robotlab-internal-docs.robotlabnfu.workers.dev/login" aria-label="登入實驗室行政">實驗室行政</a>
+          <a href="{{ '/ta.html' | relative_url }}">技術助教</a>
           <a href="https://github.com/NFU-Robotlab/nfu-robotlab.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </details>
