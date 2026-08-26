@@ -27,9 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const assistiveMenu = document.querySelector("[data-assistive-menu]");
   const assistiveToggle = assistiveMenu?.querySelector("[data-assistive-toggle]");
   const assistiveToolbar = assistiveMenu?.querySelector(".assistive-toolbar");
+  const fontScaleSlider = assistiveMenu?.querySelector("#assistive-font-slider");
+  const fontScaleValue = assistiveMenu?.querySelector("#assistive-font-value");
+  const fontScaleReset = assistiveMenu?.querySelector("[data-font-reset]");
   if (!assistiveMenu || !assistiveToggle || !assistiveToolbar) return;
 
   const positionStorageKey = "nfu-assistive-position-v1";
+  const fontScaleStorageKey = "nfu-font-scale-v1";
   const edgeMargin = 12;
   let dragState = null;
   let suppressClick = false;
@@ -53,14 +57,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const applyPosition = (left, top, save = false) => {
     const next = clampPosition(left, top);
+    const menuHeight = assistiveMenu.offsetHeight;
+    const toolbarHeight = assistiveToolbar.offsetHeight;
+    const spaceAbove = next.top - edgeMargin;
+    const spaceBelow = window.innerHeight - next.top - menuHeight - edgeMargin;
     assistiveMenu.style.left = `${next.left}px`;
     assistiveMenu.style.top = `${next.top}px`;
     assistiveMenu.style.right = "auto";
     assistiveMenu.style.bottom = "auto";
     assistiveMenu.classList.toggle("opens-right", next.left < window.innerWidth / 2);
-    assistiveMenu.classList.toggle("opens-down", next.top < 330);
+    assistiveMenu.classList.toggle("opens-down", spaceAbove < toolbarHeight + 14 && spaceBelow > spaceAbove);
     if (save) localStorage.setItem(positionStorageKey, JSON.stringify(next));
   };
+
+  const applyFontScale = (rawScale, save = false) => {
+    const scale = Math.max(85, Math.min(140, Number(rawScale) || 100));
+    document.documentElement.style.fontSize = `${scale}%`;
+    if (fontScaleSlider) {
+      fontScaleSlider.value = String(scale);
+      fontScaleSlider.setAttribute("aria-valuetext", `${scale}%`);
+    }
+    if (fontScaleValue) fontScaleValue.value = `${scale}%`;
+    if (save) localStorage.setItem(fontScaleStorageKey, String(scale));
+
+    requestAnimationFrame(() => {
+      if (!assistiveMenu.style.left) return;
+      const rect = assistiveMenu.getBoundingClientRect();
+      applyPosition(rect.left, rect.top, true);
+    });
+  };
+
+  try {
+    applyFontScale(localStorage.getItem(fontScaleStorageKey) || 100);
+  } catch {
+    applyFontScale(100);
+  }
+
+  fontScaleSlider?.addEventListener("input", () => applyFontScale(fontScaleSlider.value, true));
+  fontScaleReset?.addEventListener("click", () => applyFontScale(100, true));
 
   try {
     const savedPosition = JSON.parse(localStorage.getItem(positionStorageKey));
