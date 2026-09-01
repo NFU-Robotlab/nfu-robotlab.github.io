@@ -31,6 +31,11 @@ body_class: selection:bg-orange-500 selection:text-white
           <p>今日工作入口</p>
           <h2>從正確的文件開始</h2>
         </div>
+        <div class="console-clock" aria-label="台灣現在時間">
+          <span>TAIWAN · UTC+8</span>
+          <time id="lab-current-time" datetime="" aria-live="off">--:--:--</time>
+          <p id="lab-current-date">正在讀取日期…</p>
+        </div>
         <nav class="console-links" aria-label="實驗室成員常用資源">
           <a href="{{ '/training.html' | relative_url }}">
             <span class="console-index">01</span>
