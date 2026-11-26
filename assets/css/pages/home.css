@@ -559,3 +559,51 @@
     flex-direction: column;
   }
 }
+
+
+/* Home activity photographs */
+.activity-section { padding-top: 2rem; scroll-margin-top: 7rem; }
+.activity-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.activity-intro h2 { margin-top: .8rem; }
+.activity-intro .button-secondary { margin-top: 1.8rem; gap: 1rem; }
+.activity-gallery { min-width: 0; overflow: hidden; border: 1px solid rgb(255 255 255 / .85); border-radius: 2rem; background: rgb(255 255 255 / .55); box-shadow: var(--ios-shadow); scroll-margin-top: 7rem; }
+.activity-slide { margin: 0; }
+.activity-slide[hidden], .activity-controls[hidden] { display: none; }
+.activity-photo { position: relative; display: flex; height: clamp(23rem, 45vw, 34rem); align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #e8f2fa, #f1ebf8); cursor: zoom-in; }
+.activity-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.activity-enlarge { position: absolute; right: 1rem; bottom: 1rem; padding: .5rem .8rem; border: 1px solid rgb(255 255 255 / .6); border-radius: 999px; background: rgb(255 255 255 / .92); color: #17518c; font-size: .75rem; font-weight: 700; }
+.activity-slide figcaption { padding: 1.2rem 1.5rem .7rem; }
+.activity-slide figcaption > span { color: #0071e3; font-size: .65rem; font-weight: 750; letter-spacing: .1em; }
+.activity-slide h3 { margin-top: .35rem; color: #1d1d1f; font-size: 1.25rem; font-weight: 750; }
+.activity-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding: .8rem 1.5rem 1.2rem; }
+.activity-pagination, .activity-arrows { display: flex; align-items: center; gap: .4rem; }
+.activity-controls button, .activity-viewer button { min-width: 2.75rem; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid rgb(0 102 204 / .16); border-radius: .85rem; background: rgb(255 255 255 / .85); color: #0066cc; font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
+.activity-controls button:hover, .activity-viewer button:hover { background: #e4efff; }
+.activity-pagination button[aria-pressed="true"] { color: white; background: #0071e3; border-color: #0071e3; }
+.activity-count { margin-right: auto; color: #62626a; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.activity-photo:focus-visible, .activity-controls button:focus-visible, .activity-viewer button:focus-visible { outline: 3px solid #0057b8; outline-offset: -3px; }
+.activity-gallery:focus-visible { outline: 3px solid #0057b8; outline-offset: 4px; }
+.activity-viewer { width: min(72rem, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); margin: auto; padding: 1rem; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.5rem; background: #f5f8fd; color: #1d1d1f; overflow: auto; }
+.activity-viewer:not([open]) { display: none; }
+.activity-viewer::backdrop { background: rgb(9 20 39 / .8); }
+.activity-viewer-bar, .activity-viewer-nav { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.activity-viewer-bar { padding-bottom: .75rem; }
+.activity-viewer-bar h2 { font-size: 1rem; font-weight: 750; }
+.activity-viewer > img { display: block; width: 100%; height: min(72dvh, 60rem); object-fit: contain; border-radius: .75rem; background: #e8edf4; }
+.activity-viewer-nav { padding-top: .75rem; }
+.activity-viewer-nav p { color: #62626a; font-size: .75rem; }
+@media (max-width: 767px) {
+  .activity-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .activity-section { padding-top: 1rem; }
+  .activity-gallery { border-radius: 1.5rem; }
+  .activity-photo { height: clamp(22rem, 115vw, 32rem); }
+  .activity-slide figcaption { padding-inline: 1rem; }
+  .activity-controls { padding-inline: 1rem; gap: .5rem; }
+  .activity-viewer-nav p { display: none; }
+}
+@media (max-width: 359px) {
+  .activity-arrows { width: 100%; justify-content: flex-end; }
+}
+@media (scripting: none) {
+  .activity-slide[hidden] { display: block; }
+}

@@ -46,7 +46,7 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=20260826-transition1">
     {% if page.page_css %}
-      <link rel="stylesheet" href="{{ page.page_css | relative_url }}?v=20260825-ios2">
+      <link rel="stylesheet" href="{{ page.page_css | relative_url }}?v={{ page.asset_version | default: '20260825-ios2' }}">
     {% endif %}
   </head>
   <body class="page-{{ page.page_key }} {{ page.body_class }}">
@@ -62,7 +62,7 @@
     {% include assistive-menu.html %}
     <script src="{{ '/assets/js/site.js' | relative_url }}?v=20260826-transition1" defer></script>
     {% if page.page_js %}
-      <script src="{{ page.page_js | relative_url }}?v=20260825-ios2" defer></script>
+      <script src="{{ page.page_js | relative_url }}?v={{ page.asset_version | default: '20260825-ios2' }}" defer></script>
     {% endif %}
   </body>
 </html>
