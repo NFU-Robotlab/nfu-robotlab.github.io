@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.getElementById("activity-gallery");
   if (!gallery) return;
@@ -81,17 +82,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (slides.length < 2 || !controls || !play) return;
 
+  const viewerPlay = viewer?.querySelector("[data-activity-viewer-play]");
+  const speed = viewer?.querySelector("[data-activity-speed]");
+  const speedLabel = viewer?.querySelector(".activity-projection-speed");
+  const viewerCount = viewer?.querySelector(".activity-viewer-count");
+  const projectButtons = Array.from(document.querySelectorAll("[data-activity-project]"));
   let current = 0;
   let playing = !motion.matches;
+  let projecting = false;
   let timer = null;
+  let idleTimer = null;
+  let interval = 6000;
   let returnFocus = null;
   let previousOverflow = "";
+  let requestedFullscreen = false;
+  let enteredFullscreen = false;
 
   const schedule = () => {
     window.clearTimeout(timer);
-    if (playing && !document.hidden && !viewer?.open && !gallery.matches(":hover") && !gallery.contains(document.activeElement)) {
-      timer = window.setTimeout(() => show(current + 1), 6000);
-    }
+    const blocked = !projecting && (viewer?.open || gallery.matches(":hover") || gallery.contains(document.activeElement));
+    if (playing && !document.hidden && !blocked) timer = window.setTimeout(() => show(current + 1), interval);
   };
   const updateViewer = () => {
     if (!viewer?.open) return;
@@ -100,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     enlarged.src = image.currentSrc || image.src;
     enlarged.alt = image.alt;
     viewer.querySelector("h2").textContent = slides[current].querySelector("h3").textContent;
+    if (viewerCount) viewerCount.textContent = (current + 1) + " / " + slides.length;
   };
   const show = (index) => {
     current = (index + slides.length) % slides.length;
@@ -112,12 +123,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const setPlaying = (value) => {
     playing = value;
     count.setAttribute("aria-live", playing ? "off" : "polite");
-    play.textContent = playing ? "暫停" : "播放";
-    play.setAttribute("aria-label", playing ? "暫停自動輪播" : "播放自動輪播");
-    play.setAttribute("aria-pressed", String(playing));
+    for (const button of [play, viewerPlay].filter(Boolean)) {
+      button.textContent = playing ? "暫停" : "播放";
+      button.setAttribute("aria-label", playing ? "暫停自動輪播" : "播放自動輪播");
+      button.setAttribute("aria-pressed", String(playing));
+    }
     schedule();
   };
-  const moveManually = (index) => { setPlaying(false); show(index); };
+  const revealControls = () => {
+    window.clearTimeout(idleTimer);
+    viewer?.classList.remove("controls-idle");
+    if (projecting && playing) idleTimer = window.setTimeout(() => viewer.classList.add("controls-idle"), 3000);
+  };
+  const moveManually = (index) => {
+    if (!projecting) setPlaying(false);
+    show(index);
+    revealControls();
+  };
 
   controls.hidden = false;
   gallery.querySelector("[data-activity-prev]").addEventListener("click", () => moveManually(current - 1));
@@ -126,42 +148,106 @@ document.addEventListener("DOMContentLoaded", () => {
   play.addEventListener("click", () => setPlaying(!playing));
   gallery.addEventListener("mouseenter", schedule);
   gallery.addEventListener("mouseleave", schedule);
-  gallery.addEventListener("focusin", () => setPlaying(false));
+  gallery.addEventListener("focusin", () => { if (!projecting) setPlaying(false); });
   gallery.addEventListener("focusout", schedule);
   document.addEventListener("visibilitychange", schedule);
-  motion.addEventListener("change", () => { if (motion.matches) setPlaying(false); });
+  motion.addEventListener("change", () => { if (motion.matches && !projecting) setPlaying(false); });
 
   if (viewer && typeof viewer.showModal === "function") {
+    const openViewer = (index, trigger, projection) => {
+      if (viewer.open) return;
+      returnFocus = trigger;
+      previousOverflow = document.body.style.overflow;
+      setPlaying(false);
+      show(index);
+      viewer.showModal();
+      document.body.style.overflow = "hidden";
+      projecting = projection;
+      viewer.classList.toggle("is-projecting", projection);
+      if (viewerPlay) viewerPlay.hidden = !projection;
+      if (speedLabel) speedLabel.hidden = !projection;
+      viewer.querySelector("[data-activity-close]").textContent = projection ? "結束投影 ✕" : "關閉 ✕";
+      const shortcuts = viewer.querySelector("[data-activity-shortcuts]");
+      if (shortcuts) shortcuts.textContent = projection ? "空白鍵暫停／播放 · ← → 切換 · Esc 關閉" : "← → 切換 · Esc 關閉";
+      updateViewer();
+      if (projection) {
+        slides.forEach((slide) => { slide.querySelector("img").loading = "eager"; });
+        viewer.tabIndex = -1;
+        viewer.focus({ preventScroll: true });
+        setPlaying(true);
+        revealControls();
+        // Fullscreen requires the launch button's user gesture; the dialog
+        // itself cannot be a Fullscreen API target.
+        if (!document.fullscreenElement && typeof document.documentElement.requestFullscreen === "function") {
+          requestedFullscreen = true;
+          try {
+            Promise.resolve(document.documentElement.requestFullscreen()).then(() => {
+              if (projecting) enteredFullscreen = document.fullscreenElement === document.documentElement;
+              else if (document.fullscreenElement === document.documentElement) document.exitFullscreen?.().catch(() => {});
+            }).catch(() => { requestedFullscreen = false; });
+          } catch {
+            requestedFullscreen = false;
+          }
+        }
+      }
+    };
+
     slides.forEach((slide, index) => {
       slide.querySelector("[data-activity-photo]").addEventListener("click", (event) => {
         if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
-        setPlaying(false);
-        returnFocus = event.currentTarget;
-        previousOverflow = document.body.style.overflow;
-        show(index);
-        viewer.showModal();
-        document.body.style.overflow = "hidden";
-        updateViewer();
+        openViewer(index, event.currentTarget, false);
       });
     });
+    projectButtons.forEach((button) => {
+      button.hidden = false;
+      button.addEventListener("click", () => openViewer(current, button, true));
+    });
     viewer.querySelector("[data-activity-close]").addEventListener("click", () => viewer.close());
-    viewer.querySelector("[data-activity-viewer-prev]").addEventListener("click", () => show(current - 1));
-    viewer.querySelector("[data-activity-viewer-next]").addEventListener("click", () => show(current + 1));
+    viewer.querySelector("[data-activity-viewer-prev]").addEventListener("click", () => moveManually(current - 1));
+    viewer.querySelector("[data-activity-viewer-next]").addEventListener("click", () => moveManually(current + 1));
+    viewerPlay?.addEventListener("click", () => { setPlaying(!playing); revealControls(); });
+    speed?.addEventListener("change", () => {
+      const value = Number(speed.value);
+      if ([3000, 6000, 10000].includes(value)) interval = value;
+      schedule();
+      revealControls();
+    });
+    viewer.addEventListener("pointermove", revealControls);
+    viewer.addEventListener("pointerdown", revealControls);
+    viewer.addEventListener("focusin", revealControls);
     viewer.addEventListener("click", (event) => {
-      if (event.target !== viewer) return;
+      if (projecting || event.target !== viewer) return;
       const box = viewer.getBoundingClientRect();
       if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) viewer.close();
     });
     viewer.addEventListener("close", () => {
+      projecting = false;
+      setPlaying(false);
+      window.clearTimeout(idleTimer);
+      viewer.classList.remove("is-projecting", "controls-idle");
       document.body.style.overflow = previousOverflow;
+      if (requestedFullscreen && document.fullscreenElement === document.documentElement) document.exitFullscreen?.().catch(() => {});
+      requestedFullscreen = false;
+      enteredFullscreen = false;
       const activePhoto = slides[current].querySelector("[data-activity-photo]");
       (returnFocus?.isConnected && !returnFocus.closest("[hidden]") ? returnFocus : activePhoto).focus();
     });
+    document.addEventListener("fullscreenchange", () => {
+      if (!projecting || !requestedFullscreen) return;
+      if (document.fullscreenElement === document.documentElement) enteredFullscreen = true;
+      else if (enteredFullscreen && viewer.open) viewer.close();
+    });
     viewer.addEventListener("keydown", (event) => {
+      revealControls();
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
-        show(current + (event.key === "ArrowRight" ? 1 : -1));
+        moveManually(current + (event.key === "ArrowRight" ? 1 : -1));
+      }
+      if (projecting && (event.key === " " || event.code === "Space") && !event.target.matches("button, select, input, textarea, a")) {
+        event.preventDefault();
+        setPlaying(!playing);
+        revealControls();
       }
     });
   }

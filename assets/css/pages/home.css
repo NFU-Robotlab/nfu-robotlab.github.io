@@ -607,3 +607,31 @@
 @media (scripting: none) {
   .activity-slide[hidden] { display: block; }
 }
+
+
+/* Projection slideshow: keep the entire portrait photo visible. */
+.activity-intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.8rem; }
+.activity-intro .activity-intro-actions .button-secondary { margin-top: 0; }
+[data-activity-project][hidden], .activity-viewer [hidden] { display: none; }
+.activity-viewer-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .75rem; }
+.activity-projection-speed { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; }
+.activity-projection-speed select { min-height: 2.75rem; padding: .4rem; border: 1px solid #8996a8; border-radius: .6rem; background: #fff; color: #163958; font: inherit; }
+.activity-viewer-count { font-size: .8rem; font-variant-numeric: tabular-nums; }
+.activity-viewer.is-projecting { width: 100vw; height: 100dvh; max-width: 100vw; max-height: 100dvh; padding: 0; border: 0; border-radius: 0; overflow: hidden; background: #050608; color: white; }
+.activity-viewer.is-projecting::backdrop { background: #050608; }
+.activity-viewer.is-projecting > img { width: 100%; height: 100%; max-height: none; border-radius: 0; object-fit: contain; background: #050608; }
+.activity-viewer.is-projecting .activity-viewer-bar, .activity-viewer.is-projecting .activity-viewer-nav { position: absolute; z-index: 1; right: 0; left: 0; padding: 1rem max(1rem, env(safe-area-inset-right)); background: rgb(5 6 8 / .85); }
+.activity-viewer.is-projecting .activity-viewer-bar { top: 0; padding-top: max(1rem, env(safe-area-inset-top)); }
+.activity-viewer.is-projecting .activity-viewer-nav { bottom: 0; padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+.activity-viewer.is-projecting .activity-viewer-nav p { color: #d3deec; }
+.activity-viewer.is-projecting .activity-viewer-tools { flex: 1; }
+.activity-viewer.is-projecting .activity-viewer-tools p { flex-basis: 100%; text-align: center; }
+.activity-viewer.is-projecting.controls-idle { cursor: none; }
+.activity-viewer.is-projecting.controls-idle .activity-viewer-bar:not(:focus-within),
+.activity-viewer.is-projecting.controls-idle .activity-viewer-nav:not(:focus-within) { opacity: 0; pointer-events: none; }
+.activity-viewer.is-projecting button:focus-visible, .activity-viewer.is-projecting select:focus-visible { outline: 3px solid #66b8ff; outline-offset: 3px; }
+@media (max-width: 767px) {
+  .activity-viewer.is-projecting .activity-viewer-nav { flex-wrap: wrap; }
+  .activity-viewer.is-projecting .activity-viewer-tools { order: 1; flex-basis: 100%; }
+  .activity-viewer.is-projecting .activity-viewer-tools p { display: none; }
+}
