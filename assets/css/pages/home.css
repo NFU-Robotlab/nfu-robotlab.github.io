@@ -649,41 +649,25 @@
   .activity-viewer.is-projecting .activity-viewer-tools p { display: none; }
 }
 
-/* One transparent hero combines the introduction and activity slideshow. */
-.combined-hero { color: var(--ios-text); background: transparent; }
-.combined-hero .activity-gallery { height: auto; min-height: 0; background: transparent; }
-.combined-hero .activity-slides { position: absolute; inset: 0; }
-.combined-hero .activity-photo::after { background: linear-gradient(90deg, rgb(238 248 255 / .88) 0%, rgb(238 246 255 / .68) 40%, rgb(240 238 255 / .22) 72%, rgb(246 239 255 / .3) 100%); }
-.combined-hero .activity-main-photo { inset: 8% 12%; width: 76%; height: 84%; object-fit: contain; object-position: center; }
-.combined-hero .activity-backdrop { filter: blur(24px); opacity: .18; }
-.combined-hero .activity-enlarge { display: none; }
-.combined-hero .home-hero-grid { position: relative; z-index: 3; min-height: clamp(42rem, 82svh, 52rem); padding: 3.5rem 2rem 7rem; gap: clamp(2rem, 4vw, 4rem); pointer-events: none; }
-.combined-hero .home-hero-copy, .combined-hero .member-console { pointer-events: auto; }
-.combined-hero .home-hero-copy { border-radius: 1.5rem; padding: 1.5rem; background: rgb(255 255 255 / .22); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
-.combined-hero .home-hero-copy h1 { font-size: clamp(2.6rem, 4.8vw, 4.2rem); }
-.combined-hero .home-lead { color: #354452; }
-.combined-hero .member-console { background: rgb(250 252 255 / .5); backdrop-filter: saturate(135%) blur(14px); -webkit-backdrop-filter: saturate(135%) blur(14px); }
-.combined-hero .activity-slide figcaption { bottom: 2.5rem; max-width: 35%; text-shadow: none; color: #243d57; }
-.combined-hero .activity-slide figcaption > span, .combined-hero .activity-slide figcaption p { display: none; }
-.combined-hero .activity-slide h3 { margin: 0; color: #243d57; font-size: .9rem; font-weight: 700; letter-spacing: .04em; }
-.combined-hero .activity-controls { background: transparent; }
-.combined-hero .activity-controls button { color: #173d62; background: rgb(255 255 255 / .2); border-color: rgb(255 255 255 / .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.combined-hero .activity-controls button:hover { background: rgb(255 255 255 / .58); }
-.combined-hero .activity-pagination button[aria-pressed='true'] { color: #fff; background: rgb(0 113 227 / .75); border-color: transparent; }
-.combined-hero .activity-count { color: #173d62; }
-@media (max-width: 1023px) {
-  .combined-hero .home-hero-grid { grid-template-columns: minmax(0, 1fr); padding-top: 2.5rem; }
-  .combined-hero .member-console { width: 100%; max-width: none; }
-  .combined-hero .activity-photo::after { background: rgb(238 246 255 / .5); }
-}
+/* Activity photographs occupy the former research-card section. */
+.activity-album { padding-top: 2rem; padding-bottom: 4.5rem; }
+.activity-album .section-heading { margin-bottom: 1.75rem; }
+.activity-album .activity-gallery { height: auto; min-height: 0; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.75rem; background: rgb(255 255 255 / .35); box-shadow: var(--ios-shadow); }
+.activity-album .activity-slides { position: relative; height: clamp(19rem, 36vw, 28rem); }
+.activity-album .activity-main-photo { inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.activity-album .activity-backdrop { filter: blur(24px); opacity: .18; }
+.activity-album .activity-photo::after { background: none; }
+.activity-album .activity-enlarge { top: 1rem; right: 1rem; color: #173d62; background: rgb(255 255 255 / .85); }
+.activity-album .activity-slide figcaption { bottom: 1rem; left: 1rem; max-width: calc(100% - 2rem); padding: .6rem .9rem; border: 1px solid rgb(255 255 255 / .7); border-radius: .75rem; color: #173d62; background: rgb(255 255 255 / .88); text-shadow: none; }
+.activity-album .activity-slide figcaption > span, .activity-album .activity-slide figcaption p { display: none; }
+.activity-album .activity-slide h3 { margin: 0; color: #173d62; font-size: .9rem; font-weight: 700; letter-spacing: .03em; }
+.activity-album .activity-controls { position: relative; inset: auto; padding: 1rem 1.25rem; gap: .75rem; justify-content: flex-start; background: transparent; }
+.activity-album .activity-controls button { color: #173d62; background: rgb(255 255 255 / .32); border-color: rgb(255 255 255 / .82); }
+.activity-album .activity-controls button:hover { background: rgb(255 255 255 / .72); }
+.activity-album .activity-pagination button[aria-pressed='true'] { color: #fff; background: #0071e3; border-color: #0071e3; }
+.activity-album .activity-count { margin-right: auto; color: #173d62; }
 @media (max-width: 767px) {
-  .combined-hero .home-hero-grid { gap: 1.5rem; padding: 1.5rem 1rem 8.5rem; }
-  .combined-hero .home-hero-copy { padding: 1rem; background: rgb(255 255 255 / .34); }
-  .combined-hero .home-hero-copy h1 { font-size: clamp(2rem, 8vw, 3rem); }
-  .combined-hero .activity-slide figcaption { left: 1.25rem; bottom: 5.3rem; max-width: calc(100% - 2.5rem); }
-  .combined-hero .activity-slide h3 { font-size: .8rem; }
-}
-
-@media (max-width: 359px) {
-  .combined-hero .home-hero-copy h1 { font-size: 1.6rem; }
+  .activity-album .activity-gallery { border-radius: 1.25rem; }
+  .activity-album .activity-slides { height: clamp(18rem, 65vw, 22rem); }
+  .activity-album .activity-controls { padding: .85rem 1rem; }
 }
