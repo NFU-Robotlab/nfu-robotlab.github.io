@@ -4,18 +4,15 @@ title: "NFU 機器人實驗室"
 description: "國立虎尾科技大學智慧型機器人系統實驗室，整合機器人控制、智慧感知、機構設計與實驗室成員培訓資源。"
 permalink: /
 page_key: home
-asset_version: 20261127-banner1
+asset_version: 20261127-combined1
 page_css: /assets/css/pages/home.css
 page_js: /assets/js/pages/home.js
 body_class: selection:bg-orange-500 selection:text-white
 ---
 <main class="home-main">
-  <section id="lab-activities" class="activity-section activity-banner" aria-labelledby="activity-heading">
+  <section id="lab-activities" class="home-hero activity-section activity-banner combined-hero" aria-labelledby="activity-heading">
     <div id="activity-gallery" class="activity-gallery" role="region" aria-roledescription="輪播" aria-label="實驗室活動照片" tabindex="-1">
-      <div class="activity-banner-brand">
-        <span>NFU INTELLIGENT ROBOT SYSTEM LAB</span>
-        <h2 id="activity-heading">實驗室活動</h2>
-      </div>
+      <h2 id="activity-heading" class="sr-only">實驗室活動照片</h2>
       <div class="activity-slides" aria-live="off">
         <figure class="activity-slide">
           <a class="activity-photo" href="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" data-activity-photo aria-label="放大：實驗室活動花絮">
@@ -34,25 +31,7 @@ body_class: selection:bg-orange-500 selection:text-white
           <figcaption><span>RESEARCH SHOWCASE / 02</span><h3>研究成果展示</h3><p>讓研究成果，走進交流與展示的現場。</p></figcaption>
         </figure>
       </div>
-      <div class="activity-controls" hidden>
-        <div class="activity-pagination" aria-label="選擇活動照片">
-          <button type="button" data-activity-select="0" aria-label="顯示第 1 張：實驗室活動花絮" aria-pressed="true">01</button>
-          <button type="button" data-activity-select="1" aria-label="顯示第 2 張：研究成果展示" aria-pressed="false">02</button>
-        </div>
-        <p class="activity-count" aria-live="off" aria-atomic="true">1 / 2</p>
-        <div class="activity-arrows">
-          <button type="button" data-activity-prev aria-label="上一張照片">←</button>
-          <button type="button" data-activity-play aria-label="暫停自動輪播" aria-pressed="true">暫停</button>
-          <button type="button" data-activity-next aria-label="下一張照片">→</button>
-          <button type="button" data-activity-project hidden>全螢幕 ↗</button>
-        </div>
-      </div>
-      <a class="activity-scroll" href="#lab-introduction">認識實驗室 <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
-
-  <section id="lab-introduction" class="home-hero">
-    <div class="home-hero-grid">
+    <div id="lab-introduction" class="home-hero-grid">
       <div class="home-hero-copy reveal">
         <p class="home-kicker"><span></span> NFU INTELLIGENT ROBOT SYSTEM LAB</p>
         <h1>把研究想法，做成<br><strong>可運作的機器人系統</strong></h1>
@@ -92,7 +71,23 @@ body_class: selection:bg-orange-500 selection:text-white
         </nav>
       </aside>
     </div>
+      <div class="activity-controls" hidden>
+        <div class="activity-pagination" aria-label="選擇活動照片">
+          <button type="button" data-activity-select="0" aria-label="顯示第 1 張：實驗室活動花絮" aria-pressed="true">01</button>
+          <button type="button" data-activity-select="1" aria-label="顯示第 2 張：研究成果展示" aria-pressed="false">02</button>
+        </div>
+        <p class="activity-count" aria-live="off" aria-atomic="true">1 / 2</p>
+        <div class="activity-arrows">
+          <button type="button" data-activity-prev aria-label="上一張照片">←</button>
+          <button type="button" data-activity-play aria-label="暫停自動輪播" aria-pressed="true">暫停</button>
+          <button type="button" data-activity-next aria-label="下一張照片">→</button>
+          <button type="button" data-activity-project hidden>全螢幕 ↗</button>
+        </div>
+      </div>
+    </div>
   </section>
+
+
 
 
   <section class="home-section research-section">

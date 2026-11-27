@@ -648,3 +648,42 @@
   .activity-viewer.is-projecting .activity-viewer-tools { order: 1; flex-basis: 100%; }
   .activity-viewer.is-projecting .activity-viewer-tools p { display: none; }
 }
+
+/* One transparent hero combines the introduction and activity slideshow. */
+.combined-hero { color: var(--ios-text); background: transparent; }
+.combined-hero .activity-gallery { height: auto; min-height: 0; background: transparent; }
+.combined-hero .activity-slides { position: absolute; inset: 0; }
+.combined-hero .activity-photo::after { background: linear-gradient(90deg, rgb(238 248 255 / .88) 0%, rgb(238 246 255 / .68) 40%, rgb(240 238 255 / .22) 72%, rgb(246 239 255 / .3) 100%); }
+.combined-hero .activity-main-photo { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.combined-hero .activity-backdrop { filter: blur(24px); }
+.combined-hero .activity-enlarge { display: none; }
+.combined-hero .home-hero-grid { position: relative; z-index: 3; min-height: clamp(42rem, 82svh, 52rem); padding: 3.5rem 2rem 7rem; gap: clamp(2rem, 4vw, 4rem); pointer-events: none; }
+.combined-hero .home-hero-copy, .combined-hero .member-console { pointer-events: auto; }
+.combined-hero .home-hero-copy { border-radius: 1.5rem; padding: 1.5rem; background: rgb(255 255 255 / .22); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+.combined-hero .home-hero-copy h1 { font-size: clamp(2.6rem, 4.8vw, 4.2rem); }
+.combined-hero .home-lead { color: #354452; }
+.combined-hero .member-console { background: rgb(250 252 255 / .5); backdrop-filter: saturate(135%) blur(14px); -webkit-backdrop-filter: saturate(135%) blur(14px); }
+.combined-hero .activity-slide figcaption { bottom: 2.5rem; max-width: 35%; text-shadow: none; color: #243d57; }
+.combined-hero .activity-slide figcaption > span, .combined-hero .activity-slide figcaption p { display: none; }
+.combined-hero .activity-slide h3 { margin: 0; color: #243d57; font-size: .9rem; font-weight: 700; letter-spacing: .04em; }
+.combined-hero .activity-controls { background: transparent; }
+.combined-hero .activity-controls button { color: #173d62; background: rgb(255 255 255 / .2); border-color: rgb(255 255 255 / .72); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.combined-hero .activity-controls button:hover { background: rgb(255 255 255 / .58); }
+.combined-hero .activity-pagination button[aria-pressed='true'] { color: #fff; background: rgb(0 113 227 / .75); border-color: transparent; }
+.combined-hero .activity-count { color: #173d62; }
+@media (max-width: 1023px) {
+  .combined-hero .home-hero-grid { grid-template-columns: minmax(0, 1fr); padding-top: 2.5rem; }
+  .combined-hero .member-console { width: 100%; max-width: none; }
+  .combined-hero .activity-photo::after { background: rgb(238 246 255 / .5); }
+}
+@media (max-width: 767px) {
+  .combined-hero .home-hero-grid { gap: 1.5rem; padding: 1.5rem 1rem 8.5rem; }
+  .combined-hero .home-hero-copy { padding: 1rem; background: rgb(255 255 255 / .34); }
+  .combined-hero .home-hero-copy h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  .combined-hero .activity-slide figcaption { left: 1.25rem; bottom: 5.3rem; max-width: calc(100% - 2.5rem); }
+  .combined-hero .activity-slide h3 { font-size: .8rem; }
+}
+
+@media (max-width: 359px) {
+  .combined-hero .home-hero-copy h1 { font-size: 1.6rem; }
+}
