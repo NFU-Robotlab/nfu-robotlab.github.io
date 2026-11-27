@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const schedule = () => {
     window.clearTimeout(timer);
-    const blocked = !projecting && (viewer?.open || gallery.matches(":hover") || gallery.contains(document.activeElement));
+    const blocked = !projecting && viewer?.open;
     if (playing && !document.hidden && !blocked) timer = window.setTimeout(() => show(current + 1), interval);
   };
   const updateViewer = () => {
@@ -146,9 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
   gallery.querySelector("[data-activity-next]").addEventListener("click", () => moveManually(current + 1));
   selectors.forEach((button, index) => button.addEventListener("click", () => moveManually(index)));
   play.addEventListener("click", () => setPlaying(!playing));
-  gallery.addEventListener("mouseenter", schedule);
-  gallery.addEventListener("mouseleave", schedule);
-  gallery.addEventListener("focusin", () => { if (!projecting) setPlaying(false); });
+  gallery.addEventListener("focusin", (event) => {
+    if (!projecting && event.target.matches(":focus-visible")) setPlaying(false);
+  });
   gallery.addEventListener("focusout", schedule);
   document.addEventListener("visibilitychange", schedule);
   motion.addEventListener("change", () => { if (motion.matches && !projecting) setPlaying(false); });

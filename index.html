@@ -4,13 +4,54 @@ title: "NFU 機器人實驗室"
 description: "國立虎尾科技大學智慧型機器人系統實驗室，整合機器人控制、智慧感知、機構設計與實驗室成員培訓資源。"
 permalink: /
 page_key: home
-asset_version: 20261126-projection1
+asset_version: 20261127-banner1
 page_css: /assets/css/pages/home.css
 page_js: /assets/js/pages/home.js
 body_class: selection:bg-orange-500 selection:text-white
 ---
 <main class="home-main">
-  <section class="home-hero">
+  <section id="lab-activities" class="activity-section activity-banner" aria-labelledby="activity-heading">
+    <div id="activity-gallery" class="activity-gallery" role="region" aria-roledescription="輪播" aria-label="實驗室活動照片" tabindex="-1">
+      <div class="activity-banner-brand">
+        <span>NFU INTELLIGENT ROBOT SYSTEM LAB</span>
+        <h2 id="activity-heading">實驗室活動</h2>
+      </div>
+      <div class="activity-slides" aria-live="off">
+        <figure class="activity-slide">
+          <a class="activity-photo" href="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" data-activity-photo aria-label="放大：實驗室活動花絮">
+            <img class="activity-main-photo" src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="eager" fetchpriority="high" decoding="async">
+            <img class="activity-backdrop" src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <span class="activity-enlarge">放大照片 ↗</span>
+          </a>
+          <figcaption><span>LAB LIFE / 01</span><h3>實驗室活動花絮</h3><p>一起研究，也一起留下回憶。</p></figcaption>
+        </figure>
+        <figure class="activity-slide" hidden>
+          <a class="activity-photo" href="{{ '/assets/images/lab-research-exhibition.webp' | relative_url }}" data-activity-photo aria-label="放大：研究成果展示">
+            <img class="activity-main-photo" src="{{ '/assets/images/lab-research-exhibition.webp' | relative_url }}" alt="研究成果展攤位中的成員與下肢動力外骨骼裝置" loading="eager" decoding="async">
+            <img class="activity-backdrop" src="{{ '/assets/images/lab-research-exhibition.webp' | relative_url }}" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <span class="activity-enlarge">放大照片 ↗</span>
+          </a>
+          <figcaption><span>RESEARCH SHOWCASE / 02</span><h3>研究成果展示</h3><p>讓研究成果，走進交流與展示的現場。</p></figcaption>
+        </figure>
+      </div>
+      <div class="activity-controls" hidden>
+        <div class="activity-pagination" aria-label="選擇活動照片">
+          <button type="button" data-activity-select="0" aria-label="顯示第 1 張：實驗室活動花絮" aria-pressed="true">01</button>
+          <button type="button" data-activity-select="1" aria-label="顯示第 2 張：研究成果展示" aria-pressed="false">02</button>
+        </div>
+        <p class="activity-count" aria-live="off" aria-atomic="true">1 / 2</p>
+        <div class="activity-arrows">
+          <button type="button" data-activity-prev aria-label="上一張照片">←</button>
+          <button type="button" data-activity-play aria-label="暫停自動輪播" aria-pressed="true">暫停</button>
+          <button type="button" data-activity-next aria-label="下一張照片">→</button>
+          <button type="button" data-activity-project hidden>全螢幕 ↗</button>
+        </div>
+      </div>
+      <a class="activity-scroll" href="#lab-introduction">認識實驗室 <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <section id="lab-introduction" class="home-hero">
     <div class="home-hero-grid">
       <div class="home-hero-copy reveal">
         <p class="home-kicker"><span></span> NFU INTELLIGENT ROBOT SYSTEM LAB</p>
@@ -20,8 +61,6 @@ body_class: selection:bg-orange-500 selection:text-white
         </p>
         <div class="home-hero-actions">
           <button class="button-secondary" type="button" data-modal-open="about-modal">認識實驗室</button>
-          <a class="button-secondary" href="#lab-activities">活動照片 ↓</a>
-          <button class="button-primary" type="button" data-activity-project hidden>投影自動播放 ▷</button>
         </div>
       </div>
 
@@ -55,50 +94,6 @@ body_class: selection:bg-orange-500 selection:text-white
     </div>
   </section>
 
-
-  <section id="lab-activities" class="home-section activity-section" aria-labelledby="activity-heading">
-    <div class="home-section-inner activity-layout">
-      <div class="section-heading activity-intro">
-        <span class="eyebrow">Lab Moments</span>
-        <h2 id="activity-heading">實驗室活動</h2>
-        <p>記錄研究成果展示，也留下實驗室夥伴一起參與活動的片刻。</p>
-        <div class="activity-intro-actions">
-          <a class="button-secondary" href="#activity-gallery">瀏覽活動照片 <span aria-hidden="true">↓</span></a>
-          <button class="button-primary" type="button" data-activity-project hidden>投影自動播放 ▷</button>
-        </div>
-      </div>
-      <div id="activity-gallery" class="activity-gallery" role="region" aria-roledescription="輪播" aria-label="實驗室活動照片" tabindex="-1">
-        <div class="activity-slides" aria-live="off">
-          <figure class="activity-slide">
-            <a class="activity-photo" href="{{ '/assets/images/lab-activity-outdoors.jpg' | relative_url }}" data-activity-photo aria-label="放大：實驗室活動花絮">
-              <img src="{{ '/assets/images/lab-activity-outdoors.jpg' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="lazy" decoding="async">
-              <span class="activity-enlarge">點擊放大 ↗</span>
-            </a>
-            <figcaption><span>01 / LAB LIFE</span><h3>實驗室活動花絮</h3></figcaption>
-          </figure>
-          <figure class="activity-slide" hidden>
-            <a class="activity-photo" href="{{ '/assets/images/lab-research-exhibition.jpg' | relative_url }}" data-activity-photo aria-label="放大：研究成果展示">
-              <img src="{{ '/assets/images/lab-research-exhibition.jpg' | relative_url }}" alt="研究成果展攤位中的成員與下肢動力外骨骼裝置" loading="lazy" decoding="async">
-              <span class="activity-enlarge">點擊放大 ↗</span>
-            </a>
-            <figcaption><span>02 / RESEARCH SHOWCASE</span><h3>研究成果展示</h3></figcaption>
-          </figure>
-        </div>
-        <div class="activity-controls" hidden>
-          <div class="activity-pagination" aria-label="選擇活動照片">
-            <button type="button" data-activity-select="0" aria-label="顯示第 1 張：實驗室活動花絮" aria-pressed="true">01</button>
-            <button type="button" data-activity-select="1" aria-label="顯示第 2 張：研究成果展示" aria-pressed="false">02</button>
-          </div>
-          <p class="activity-count" aria-live="polite" aria-atomic="true">1 / 2</p>
-          <div class="activity-arrows">
-            <button type="button" data-activity-prev aria-label="上一張照片">←</button>
-            <button type="button" data-activity-play aria-label="暫停自動輪播" aria-pressed="true">暫停</button>
-            <button type="button" data-activity-next aria-label="下一張照片">→</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="home-section research-section">
     <div class="home-section-inner">
@@ -168,7 +163,7 @@ body_class: selection:bg-orange-500 selection:text-white
     <h2 id="activity-viewer-title">實驗室活動花絮</h2>
     <button type="button" data-activity-close autofocus>關閉 ✕</button>
   </div>
-  <img src="{{ '/assets/images/lab-activity-outdoors.jpg' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="lazy" decoding="async">
+  <img src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="lazy" decoding="async">
   <div class="activity-viewer-nav">
     <button type="button" data-activity-viewer-prev aria-label="放大檢視上一張照片">← 上一張</button>
     <div class="activity-viewer-tools">

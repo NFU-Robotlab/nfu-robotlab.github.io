@@ -561,28 +561,59 @@
 }
 
 
-/* Home activity photographs */
-.activity-section { padding-top: 2rem; scroll-margin-top: 7rem; }
-.activity-layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 6vw, 6rem); align-items: center; }
-.activity-intro h2 { margin-top: .8rem; }
-.activity-intro .button-secondary { margin-top: 1.8rem; gap: 1rem; }
-.activity-gallery { min-width: 0; overflow: hidden; border: 1px solid rgb(255 255 255 / .85); border-radius: 2rem; background: rgb(255 255 255 / .55); box-shadow: var(--ios-shadow); scroll-margin-top: 7rem; }
-.activity-slide { margin: 0; }
+/* Homepage photograph banner */
+.activity-section { scroll-margin-top: 5rem; }
+.activity-banner { padding: 0; color: #fff; background: #112137; }
+.activity-gallery { position: relative; min-width: 0; height: clamp(34rem, 78svh, 51rem); overflow: hidden; isolation: isolate; }
+.activity-banner-brand { position: absolute; top: clamp(2rem, 5vw, 4rem); left: max(5vw, calc((100vw - 80rem) / 2 + 2rem)); z-index: 3; pointer-events: none; text-shadow: 0 2px 16px rgb(0 0 0 / .5); }
+.activity-banner-brand > span { font-size: .65rem; font-weight: 750; letter-spacing: .15em; color: #c4e2ff; }
+.activity-banner-brand h2 { margin-top: .6rem; font-size: 1.2rem; font-weight: 700; letter-spacing: .12em; }
+.activity-slides, .activity-slide, .activity-photo { width: 100%; height: 100%; }
+.activity-slide { position: relative; margin: 0; animation: activity-reveal .7s ease-out; }
 .activity-slide[hidden], .activity-controls[hidden] { display: none; }
-.activity-photo { position: relative; display: flex; height: clamp(23rem, 45vw, 34rem); align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #e8f2fa, #f1ebf8); cursor: zoom-in; }
-.activity-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.activity-enlarge { position: absolute; right: 1rem; bottom: 1rem; padding: .5rem .8rem; border: 1px solid rgb(255 255 255 / .6); border-radius: 999px; background: rgb(255 255 255 / .92); color: #17518c; font-size: .75rem; font-weight: 700; }
-.activity-slide figcaption { padding: 1.2rem 1.5rem .7rem; }
-.activity-slide figcaption > span { color: #0071e3; font-size: .65rem; font-weight: 750; letter-spacing: .1em; }
-.activity-slide h3 { margin-top: .35rem; color: #1d1d1f; font-size: 1.25rem; font-weight: 750; }
-.activity-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding: .8rem 1.5rem 1.2rem; }
-.activity-pagination, .activity-arrows { display: flex; align-items: center; gap: .4rem; }
-.activity-controls button, .activity-viewer button { min-width: 2.75rem; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid rgb(0 102 204 / .16); border-radius: .85rem; background: rgb(255 255 255 / .85); color: #0066cc; font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
-.activity-controls button:hover, .activity-viewer button:hover { background: #e4efff; }
-.activity-pagination button[aria-pressed="true"] { color: white; background: #0071e3; border-color: #0071e3; }
-.activity-count { margin-right: auto; color: #62626a; font-size: .75rem; font-variant-numeric: tabular-nums; }
-.activity-photo:focus-visible, .activity-controls button:focus-visible, .activity-viewer button:focus-visible { outline: 3px solid #0057b8; outline-offset: -3px; }
-.activity-gallery:focus-visible { outline: 3px solid #0057b8; outline-offset: 4px; }
+.activity-photo { position: absolute; inset: 0; display: block; overflow: hidden; cursor: zoom-in; }
+.activity-photo::after { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgb(5 20 40 / .94) 0%, rgb(5 20 40 / .8) 30%, rgb(5 20 40 / .18) 57%, transparent 76%), linear-gradient(0deg, rgb(5 20 40 / .65), transparent 28%); content: ''; pointer-events: none; }
+.activity-main-photo { position: absolute; z-index: 1; top: 0; right: 3%; display: block; width: 58%; height: 100%; object-fit: contain; }
+.activity-backdrop { position: absolute; z-index: 0; inset: -2%; width: 104%; height: 104%; max-width: none; object-fit: cover; object-position: center; filter: blur(24px) brightness(.68); }
+.activity-enlarge { position: absolute; z-index: 2; right: 2rem; top: 2rem; color: white; background: rgb(0 0 0 / .32); padding: .55rem .85rem; border: 1px solid rgb(255 255 255 / .4); border-radius: 99px; font-size: .75rem; }
+.activity-slide figcaption { position: absolute; z-index: 2; left: max(5vw, calc((100vw - 80rem) / 2 + 2rem)); bottom: 7.5rem; max-width: 43%; color: white; pointer-events: none; text-shadow: 0 2px 20px rgb(0 0 0 / .35); }
+.activity-slide figcaption > span { color: #9ed3ff; font-size: .75rem; font-weight: 750; letter-spacing: .18em; }
+.activity-slide h3 { margin-top: 1rem; font-size: clamp(2rem, 3.8vw, 3.75rem); line-height: 1.2; font-weight: 750; letter-spacing: -.035em; }
+.activity-slide figcaption p { margin-top: 1rem; color: #e1eaf5; font-size: clamp(.85rem, 1.3vw, 1.05rem); line-height: 1.75; }
+.activity-controls { position: absolute; z-index: 4; right: max(5vw, calc((100vw - 80rem) / 2 + 2rem)); bottom: 1.65rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.activity-pagination, .activity-arrows { display: flex; align-items: center; gap: .45rem; }
+.activity-controls button { min-width: 2.75rem; min-height: 2.75rem; padding: .5rem .8rem; border: 1px solid rgb(255 255 255 / .45); border-radius: 99px; background: rgb(8 27 46 / .6); color: #fff; font: inherit; font-size: .8rem; font-weight: 650; cursor: pointer; }
+.activity-controls button:hover { background: #17568b; }
+.activity-pagination button[aria-pressed='true'] { color: #123755; background: white; border-color: white; }
+.activity-count { font-size: .75rem; color: #e1eaf5; font-variant-numeric: tabular-nums; }
+.activity-scroll { position: absolute; z-index: 3; left: max(5vw, calc((100vw - 80rem) / 2 + 2rem)); bottom: 2.3rem; display: inline-flex; align-items: center; gap: 1.25rem; font-size: .8rem; font-weight: 650; color: white; }
+.activity-photo:focus-visible, .activity-controls button:focus-visible, .activity-scroll:focus-visible { outline: 3px solid #9ed3ff; outline-offset: -4px; }
+.activity-gallery:focus-visible { outline: 3px solid #9ed3ff; outline-offset: -4px; }
+.activity-viewer button { min-width: 2.75rem; min-height: 2.75rem; padding: .5rem .75rem; border: 1px solid rgb(0 102 204 / .16); border-radius: .85rem; background: rgb(255 255 255 / .85); color: #0066cc; font: inherit; font-size: .8rem; font-weight: 700; cursor: pointer; }
+.activity-viewer button:hover { background: #e4efff; }
+.activity-viewer button:focus-visible { outline: 3px solid #0057b8; outline-offset: -3px; }
+@keyframes activity-reveal { from { opacity: .35; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .activity-slide { animation: none; } }
+@media (max-width: 767px) {
+  .activity-gallery { height: clamp(38rem, 86svh, 48rem); }
+  .activity-banner-brand { left: 1.25rem; top: 1.5rem; }
+  .activity-banner-brand > span { font-size: .52rem; }
+  .activity-banner-brand h2 { font-size: 1rem; }
+  .activity-main-photo { top: 3rem; right: 0; width: 100%; height: calc(100% - 7rem); }
+  .activity-photo::after { background: linear-gradient(0deg, rgb(5 20 40 / .97), rgb(5 20 40 / .8) 20%, transparent 56%), linear-gradient(180deg, rgb(5 20 40 / .65), transparent 25%); }
+  .activity-slide figcaption { left: 1.25rem; bottom: 7.25rem; max-width: calc(100% - 2.5rem); }
+  .activity-slide h3 { margin-top: .5rem; font-size: 2rem; }
+  .activity-slide figcaption p { margin-top: .45rem; font-size: .85rem; }
+  .activity-enlarge { display: none; }
+  .activity-controls { right: 4.75rem; left: 1.25rem; bottom: 1.1rem; gap: .55rem; justify-content: flex-end; flex-wrap: nowrap; }
+  .activity-controls button { min-width: 2.65rem; padding-inline: .65rem; }
+  .activity-scroll { left: 1.25rem; bottom: 5.25rem; font-size: .7rem; }
+  .activity-pagination, .activity-controls [data-activity-project] { display: none; }
+  .activity-arrows { gap: .3rem; }
+  .activity-count { display: block; white-space: nowrap; }
+  .activity-viewer-nav p { display: none; }
+}
+
 .activity-viewer { width: min(72rem, calc(100vw - 2rem)); max-width: none; max-height: calc(100dvh - 2rem); margin: auto; padding: 1rem; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.5rem; background: #f5f8fd; color: #1d1d1f; overflow: auto; }
 .activity-viewer:not([open]) { display: none; }
 .activity-viewer::backdrop { background: rgb(9 20 39 / .8); }
@@ -592,26 +623,8 @@
 .activity-viewer > img { display: block; width: 100%; height: min(72dvh, 60rem); object-fit: contain; border-radius: .75rem; background: #e8edf4; }
 .activity-viewer-nav { padding-top: .75rem; }
 .activity-viewer-nav p { color: #62626a; font-size: .75rem; }
-@media (max-width: 767px) {
-  .activity-layout { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-  .activity-section { padding-top: 1rem; }
-  .activity-gallery { border-radius: 1.5rem; }
-  .activity-photo { height: clamp(22rem, 115vw, 32rem); }
-  .activity-slide figcaption { padding-inline: 1rem; }
-  .activity-controls { padding-inline: 1rem; gap: .5rem; }
-  .activity-viewer-nav p { display: none; }
-}
-@media (max-width: 359px) {
-  .activity-arrows { width: 100%; justify-content: flex-end; }
-}
-@media (scripting: none) {
-  .activity-slide[hidden] { display: block; }
-}
-
 
 /* Projection slideshow: keep the entire portrait photo visible. */
-.activity-intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-top: 1.8rem; }
-.activity-intro .activity-intro-actions .button-secondary { margin-top: 0; }
 [data-activity-project][hidden], .activity-viewer [hidden] { display: none; }
 .activity-viewer-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .75rem; }
 .activity-projection-speed { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; }
