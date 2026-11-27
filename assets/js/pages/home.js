@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.getElementById("activity-gallery");
   if (!gallery) return;
+  const track = gallery.querySelector(".activity-slides");
   const slides = Array.from(gallery.querySelectorAll(".activity-slide"));
   const controls = gallery.querySelector(".activity-controls");
   const count = gallery.querySelector(".activity-count");
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const play = gallery.querySelector("[data-activity-play]");
   const viewer = document.getElementById("activity-viewer");
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (slides.length < 2 || !controls || !play) return;
+  if (slides.length < 2 || !controls || !play || !track) return;
 
   const viewerPlay = viewer?.querySelector("[data-activity-viewer-play]");
   const speed = viewer?.querySelector("[data-activity-speed]");
@@ -97,6 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let previousOverflow = "";
   let requestedFullscreen = false;
   let enteredFullscreen = false;
+  let dragState = null;
+  let suppressPhotoClick = false;
+  let scrollTimer = null;
 
   const schedule = () => {
     window.clearTimeout(timer);
@@ -112,12 +116,28 @@ document.addEventListener("DOMContentLoaded", () => {
     viewer.querySelector("h2").textContent = slides[current].querySelector("h3").textContent;
     if (viewerCount) viewerCount.textContent = (current + 1) + " / " + slides.length;
   };
-  const show = (index) => {
+  const updateCurrent = (index) => {
     current = (index + slides.length) % slides.length;
-    slides.forEach((slide, i) => { slide.hidden = i !== current; });
+    slides.forEach((slide, i) => slide.classList.toggle("is-current", i === current));
     selectors.forEach((button, i) => button.setAttribute("aria-pressed", String(i === current)));
     count.textContent = (current + 1) + " / " + slides.length;
     updateViewer();
+  };
+  const centerCurrent = (behavior = motion.matches ? "auto" : "smooth") => {
+    const slide = slides[current];
+    track.scrollTo({ left: slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2, behavior });
+  };
+  const nearestIndex = () => {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    return slides.reduce((best, slide, index) => {
+      const distance = Math.abs(slide.offsetLeft + slide.offsetWidth / 2 - center);
+      const previous = Math.abs(slides[best].offsetLeft + slides[best].offsetWidth / 2 - center);
+      return distance < previous ? index : best;
+    }, 0);
+  };
+  const show = (index) => {
+    updateCurrent(index);
+    centerCurrent();
     schedule();
   };
   const setPlaying = (value) => {
@@ -140,6 +160,62 @@ document.addEventListener("DOMContentLoaded", () => {
     show(index);
     revealControls();
   };
+
+  // Touch and trackpads use the browser's native horizontal scrolling.
+  track.addEventListener("scroll", () => {
+    window.clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout(() => {
+      if (dragState?.moved) return;
+      updateCurrent(nearestIndex());
+      schedule();
+    }, 160);
+  }, { passive: true });
+  track.addEventListener("wheel", () => setPlaying(false), { passive: true });
+  track.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) return;
+    setPlaying(false);
+    if (event.pointerType !== "mouse") return;
+    dragState = { id: event.pointerId, x: event.clientX, scroll: track.scrollLeft, moved: false };
+  });
+  track.addEventListener("pointermove", (event) => {
+    if (!dragState || dragState.id !== event.pointerId) return;
+    const delta = event.clientX - dragState.x;
+    if (!dragState.moved && Math.abs(delta) < 6) return;
+    if (!dragState.moved) {
+      dragState.moved = true;
+      track.classList.add("is-dragging");
+      track.setPointerCapture(event.pointerId);
+    }
+    event.preventDefault();
+    track.scrollLeft = dragState.scroll - delta;
+  });
+  const finishDrag = (event) => {
+    if (!dragState || dragState.id !== event.pointerId) return;
+    const moved = dragState.moved;
+    dragState = null;
+    track.classList.remove("is-dragging");
+    if (track.hasPointerCapture(event.pointerId)) track.releasePointerCapture(event.pointerId);
+    if (moved) {
+      suppressPhotoClick = true;
+      window.setTimeout(() => { suppressPhotoClick = false; }, 0);
+      show(nearestIndex());
+    }
+  };
+  track.addEventListener("pointerup", finishDrag);
+  track.addEventListener("pointercancel", finishDrag);
+  track.addEventListener("click", (event) => {
+    if (!suppressPhotoClick) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }, true);
+  track.addEventListener("dragstart", (event) => event.preventDefault());
+  track.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const next = event.key === "Home" ? 0 : event.key === "End" ? slides.length - 1 : current + (event.key === "ArrowRight" ? 1 : -1);
+    moveManually(next);
+  });
+  window.addEventListener("resize", () => centerCurrent("auto"));
 
   controls.hidden = false;
   gallery.querySelector("[data-activity-prev]").addEventListener("click", () => moveManually(current - 1));
@@ -231,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
       requestedFullscreen = false;
       enteredFullscreen = false;
       const activePhoto = slides[current].querySelector("[data-activity-photo]");
-      (returnFocus?.isConnected && !returnFocus.closest("[hidden]") ? returnFocus : activePhoto).focus();
+      (returnFocus?.isConnected && !returnFocus.matches("[data-activity-photo]") ? returnFocus : activePhoto).focus({ preventScroll: true });
     });
     document.addEventListener("fullscreenchange", () => {
       if (!projecting || !requestedFullscreen) return;
@@ -251,5 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  updateCurrent(0);
+  centerCurrent("auto");
   setPlaying(playing);
 });

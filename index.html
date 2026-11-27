@@ -4,7 +4,7 @@ title: "NFU 機器人實驗室"
 description: "國立虎尾科技大學智慧型機器人系統實驗室，整合機器人控制、智慧感知、機構設計與實驗室成員培訓資源。"
 permalink: /
 page_key: home
-asset_version: 20261127-gallery-section1
+asset_version: 20261127-sliding1
 page_css: /assets/css/pages/home.css
 page_js: /assets/js/pages/home.js
 body_class: selection:bg-orange-500 selection:text-white
@@ -58,29 +58,27 @@ body_class: selection:bg-orange-500 selection:text-white
       <div class="section-heading">
         <span class="eyebrow">Lab Moments</span>
         <h2 id="activity-heading">實驗室活動</h2>
+        <p class="activity-swipe-hint">左右滑動瀏覽照片 ↔</p>
       </div>
       <div id="activity-gallery" class="activity-gallery" role="region" aria-roledescription="輪播" aria-label="實驗室活動照片" tabindex="-1">
-      <div class="activity-slides" aria-live="off">
+      <div class="activity-slides" aria-live="off" tabindex="0" aria-label="可左右滑動的活動照片">
         <figure class="activity-slide">
           <a class="activity-photo" href="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" data-activity-photo aria-label="放大：實驗室活動花絮">
-            <img class="activity-main-photo" src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="eager" fetchpriority="high" decoding="async">
-            <img class="activity-backdrop" src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <img class="activity-main-photo" draggable="false" src="{{ '/assets/images/lab-activity-outdoors.webp' | relative_url }}" alt="四位實驗室夥伴在戶外交流的活動花絮" loading="eager" fetchpriority="high" decoding="async">
             <span class="activity-enlarge">放大照片 ↗</span>
           </a>
           <figcaption><span>LAB LIFE / 01</span><h3>實驗室活動花絮</h3><p>一起研究，也一起留下回憶。</p></figcaption>
         </figure>
-        <figure class="activity-slide" hidden>
+        <figure class="activity-slide">
           <a class="activity-photo" href="{{ '/assets/images/lab-exhibition-team.webp' | relative_url }}" data-activity-photo aria-label="放大：成果展團隊合照">
-            <img class="activity-main-photo" src="{{ '/assets/images/lab-exhibition-team.webp' | relative_url }}" alt="五位實驗室成員在成果展攤位前與研究設備合照" loading="eager" decoding="async">
-            <img class="activity-backdrop" src="{{ '/assets/images/lab-exhibition-team.webp' | relative_url }}" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <img class="activity-main-photo" draggable="false" src="{{ '/assets/images/lab-exhibition-team.webp' | relative_url }}" alt="五位實驗室成員在成果展攤位前與研究設備合照" loading="eager" decoding="async">
             <span class="activity-enlarge">放大照片 ↗</span>
           </a>
           <figcaption><span>EXHIBITION TEAM / 02</span><h3>成果展團隊合照</h3><p>實驗室成員與研究成果的展場紀錄。</p></figcaption>
         </figure>
-        <figure class="activity-slide" hidden>
+        <figure class="activity-slide">
           <a class="activity-photo" href="{{ '/assets/images/lab-exhibition-presentation.webp' | relative_url }}" data-activity-photo aria-label="放大：成果展示交流">
-            <img class="activity-main-photo" src="{{ '/assets/images/lab-exhibition-presentation.webp' | relative_url }}" alt="實驗室成員在攤位前向參觀者介紹研究成果" loading="eager" decoding="async">
-            <img class="activity-backdrop" src="{{ '/assets/images/lab-exhibition-presentation.webp' | relative_url }}" alt="" aria-hidden="true" loading="eager" decoding="async">
+            <img class="activity-main-photo" draggable="false" src="{{ '/assets/images/lab-exhibition-presentation.webp' | relative_url }}" alt="實驗室成員在攤位前向參觀者介紹研究成果" loading="eager" decoding="async">
             <span class="activity-enlarge">放大照片 ↗</span>
           </a>
           <figcaption><span>RESEARCH PRESENTATION / 03</span><h3>成果展示交流</h3><p>透過現場介紹，分享研究成果與實作經驗。</p></figcaption>

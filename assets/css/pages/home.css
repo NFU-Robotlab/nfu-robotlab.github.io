@@ -649,18 +649,24 @@
   .activity-viewer.is-projecting .activity-viewer-tools p { display: none; }
 }
 
-/* Activity photographs occupy the former research-card section. */
+/* Horizontally draggable activity photograph strip. */
 .activity-album { padding-top: 2rem; padding-bottom: 4.5rem; }
 .activity-album .section-heading { margin-bottom: 1.75rem; }
-.activity-album .activity-gallery { height: auto; min-height: 0; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.75rem; background: rgb(255 255 255 / .35); box-shadow: var(--ios-shadow); }
-.activity-album .activity-slides { position: relative; height: clamp(19rem, 36vw, 28rem); }
-.activity-album .activity-main-photo { inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
-.activity-album .activity-backdrop { filter: blur(24px); opacity: .18; }
-.activity-album .activity-photo::after { background: none; }
-.activity-album .activity-enlarge { top: 1rem; right: 1rem; color: #173d62; background: rgb(255 255 255 / .85); }
-.activity-album .activity-slide figcaption { bottom: 1rem; left: 1rem; max-width: calc(100% - 2rem); padding: .6rem .9rem; border: 1px solid rgb(255 255 255 / .7); border-radius: .75rem; color: #173d62; background: rgb(255 255 255 / .88); text-shadow: none; }
+.activity-album .activity-swipe-hint { margin-top: .75rem; color: #53667c; font-size: .85rem; }
+.activity-album .activity-gallery { height: auto; min-height: 0; overflow: hidden; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.75rem; background: rgb(255 255 255 / .25); box-shadow: var(--ios-shadow); }
+.activity-album .activity-slides { --activity-card-width: min(32rem, 76vw); position: relative; display: flex; height: auto; gap: 1rem; padding: 1rem calc((100% - var(--activity-card-width)) / 2) 1.25rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: rgb(0 113 227 / .4) transparent; cursor: grab; }
+.activity-album .activity-slides:focus-visible { outline: 3px solid #0071e3; outline-offset: -4px; }
+.activity-album .activity-slide { flex: 0 0 var(--activity-card-width); height: auto; min-width: 0; margin: 0; overflow: hidden; border: 1px solid rgb(255 255 255 / .8); border-radius: 1.25rem; background: rgb(255 255 255 / .5); scroll-snap-align: center; animation: none; }
+.activity-album .activity-slide.is-current { box-shadow: 0 12px 30px -24px rgb(0 113 227 / .6); }
+.activity-album .activity-photo { position: relative; inset: auto; display: block; width: 100%; height: clamp(14rem, 24vw, 19rem); background: rgb(236 242 250 / .6); }
+.activity-album .activity-main-photo { position: static; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.activity-album .activity-photo::after { display: none; }
+.activity-album .activity-enlarge { top: .75rem; right: .75rem; color: #173d62; background: rgb(255 255 255 / .85); }
+.activity-album .activity-slide figcaption { position: relative; inset: auto; max-width: none; padding: 1rem; color: #173d62; background: transparent; text-shadow: none; }
 .activity-album .activity-slide figcaption > span, .activity-album .activity-slide figcaption p { display: none; }
 .activity-album .activity-slide h3 { margin: 0; color: #173d62; font-size: .9rem; font-weight: 700; letter-spacing: .03em; }
+.activity-album .activity-slides.is-dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+.activity-album .activity-slides.is-dragging .activity-photo { cursor: grabbing; }
 .activity-album .activity-controls { position: relative; inset: auto; padding: 1rem 1.25rem; gap: .75rem; justify-content: flex-start; background: transparent; }
 .activity-album .activity-controls button { color: #173d62; background: rgb(255 255 255 / .32); border-color: rgb(255 255 255 / .82); }
 .activity-album .activity-controls button:hover { background: rgb(255 255 255 / .72); }
@@ -668,6 +674,7 @@
 .activity-album .activity-count { margin-right: auto; color: #173d62; }
 @media (max-width: 767px) {
   .activity-album .activity-gallery { border-radius: 1.25rem; }
-  .activity-album .activity-slides { height: clamp(18rem, 65vw, 22rem); }
+  .activity-album .activity-slides { gap: .75rem; }
+  .activity-album .activity-photo { height: 16rem; }
   .activity-album .activity-controls { padding: .85rem 1rem; }
 }
