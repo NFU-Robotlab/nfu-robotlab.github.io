@@ -654,8 +654,8 @@
 .combined-hero .activity-gallery { height: auto; min-height: 0; background: transparent; }
 .combined-hero .activity-slides { position: absolute; inset: 0; }
 .combined-hero .activity-photo::after { background: linear-gradient(90deg, rgb(238 248 255 / .88) 0%, rgb(238 246 255 / .68) 40%, rgb(240 238 255 / .22) 72%, rgb(246 239 255 / .3) 100%); }
-.combined-hero .activity-main-photo { inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-.combined-hero .activity-backdrop { filter: blur(24px); }
+.combined-hero .activity-main-photo { inset: 8% 12%; width: 76%; height: 84%; object-fit: contain; object-position: center; }
+.combined-hero .activity-backdrop { filter: blur(24px); opacity: .18; }
 .combined-hero .activity-enlarge { display: none; }
 .combined-hero .home-hero-grid { position: relative; z-index: 3; min-height: clamp(42rem, 82svh, 52rem); padding: 3.5rem 2rem 7rem; gap: clamp(2rem, 4vw, 4rem); pointer-events: none; }
 .combined-hero .home-hero-copy, .combined-hero .member-console { pointer-events: auto; }
