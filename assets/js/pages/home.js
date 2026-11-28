@@ -75,13 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!gallery) return;
   const track = gallery.querySelector(".activity-slides");
   const slides = Array.from(gallery.querySelectorAll(".activity-slide"));
-  const controls = gallery.querySelector(".activity-controls");
   const count = gallery.querySelector(".activity-count");
   const selectors = Array.from(gallery.querySelectorAll("[data-activity-select]"));
   const play = gallery.querySelector("[data-activity-play]");
   const viewer = document.getElementById("activity-viewer");
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  if (slides.length < 2 || !controls || !play || !track) return;
+  if (slides.length < 2 || !track) return;
 
   const viewerPlay = viewer?.querySelector("[data-activity-viewer-play]");
   const speed = viewer?.querySelector("[data-activity-speed]");
@@ -120,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     current = (index + slides.length) % slides.length;
     slides.forEach((slide, i) => slide.classList.toggle("is-current", i === current));
     selectors.forEach((button, i) => button.setAttribute("aria-pressed", String(i === current)));
-    count.textContent = (current + 1) + " / " + slides.length;
+    if (count) count.textContent = (current + 1) + " / " + slides.length;
     updateViewer();
   };
   const centerCurrent = (behavior = motion.matches ? "auto" : "smooth") => {
@@ -142,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const setPlaying = (value) => {
     playing = value;
-    count.setAttribute("aria-live", playing ? "off" : "polite");
+    count?.setAttribute("aria-live", playing ? "off" : "polite");
     for (const button of [play, viewerPlay].filter(Boolean)) {
       button.textContent = playing ? "暫停" : "播放";
       button.setAttribute("aria-label", playing ? "暫停自動輪播" : "播放自動輪播");
@@ -210,6 +209,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }, true);
   track.addEventListener("dragstart", (event) => event.preventDefault());
   track.addEventListener("keydown", (event) => {
+    if (event.key === " " && event.target === track) {
+      event.preventDefault();
+      setPlaying(!playing);
+      return;
+    }
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
     event.preventDefault();
     const next = event.key === "Home" ? 0 : event.key === "End" ? slides.length - 1 : current + (event.key === "ArrowRight" ? 1 : -1);
@@ -217,11 +221,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   window.addEventListener("resize", () => centerCurrent("auto"));
 
-  controls.hidden = false;
-  gallery.querySelector("[data-activity-prev]").addEventListener("click", () => moveManually(current - 1));
-  gallery.querySelector("[data-activity-next]").addEventListener("click", () => moveManually(current + 1));
+  gallery.querySelector("[data-activity-prev]")?.addEventListener("click", () => moveManually(current - 1));
+  gallery.querySelector("[data-activity-next]")?.addEventListener("click", () => moveManually(current + 1));
   selectors.forEach((button, index) => button.addEventListener("click", () => moveManually(index)));
-  play.addEventListener("click", () => setPlaying(!playing));
+  play?.addEventListener("click", () => setPlaying(!playing));
   gallery.addEventListener("focusin", (event) => {
     if (!projecting && event.target.matches(":focus-visible")) setPlaying(false);
   });
